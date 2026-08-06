@@ -11,7 +11,7 @@ CREATE DATABASE SPET
 GO
 USE SPET
 GO
-CREATE TABLE PokemonRSE
+CREATE TABLE RandomPokemonRSE
 (
 	pokemonName VARCHAR (50),
     encounterLocation VARCHAR (50),
@@ -21,8 +21,18 @@ CREATE TABLE PokemonRSE
 	levelRange VARCHAR (50),
 )
 GO
+CREATE TABLE FishingPokemonRSE
+(
+	pokemonName VARCHAR (50),
+	encounterlocation VARCHAR (50),
+	rodType VARCHAR (50),
+	gameVersion VARCHAR (50),
+	encounterChance VARCHAR (50),
+	levelRange VARCHAR (50),
+)
+GO
 
-INSERT PokemonRSE (pokemonName, encounterLocation, 
+INSERT RandomPokemonRSE (pokemonName, encounterLocation, 
 encounterMethod, gameVersion, encounterChance, levelRange)
 VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','Gift','RSE','100%','5'),('Mudkip','Route 101','Gift','RSE','100%','5'),
 ('Poochyena','Route 101','Tall Grass','RS','10%','2-3'),('Poochyena','Route 101','Tall Grass','E','45%','2-3'),('Poochyena','Route 102','Tall Grass','RS','15%','3-4'),
@@ -42,7 +52,7 @@ VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','G
 'E','20%','4'),('Wurmple','Petalburg Woods','Tall Grass','RSE','25%','5-6'),('Silcoon','Petalburg Woods','Tall Grass','RSE','10%','5'),('Cascoon','Petalburg Woods',
 'Tall Grass','RSE','10%','5'),('Lotad','Route 102','Tall Grass','SE','20%','3-4'),('Lotad','Route 114','Tall Grass','SE','30%','15-16'),('Lombre','Route 114','Tall Grass','S','10%','16,18'),
 ('Lombre','Route 114','Tall Grass','E','20%','16-18'),('Seedot','Route 102','Tall Grass','R','20%','3-4'),('Seedot','Route 102','Tall Grass','E','1%','3'),('Seedot','Route 114','Tall Grass',
-'R','30%','15-16'),('Seedot','Route 117','Tall Grass','E','1%','13'),('Seedot','Route 120','Long Grass','E','1%','25'),('Seedot','Rustboro City','Trade Ralts','E','100%','4'),('Nuzleaf',
+'R','30%','15-16'),('Seedot','Route 117','Tall Grass','E','1%','13'),('Seedot','Route 120','Long Grass','E','1%','25'),('Seedot','Rustboro City','Trade Ralts','E','100%','Same as traded'),('Nuzleaf',
 'Route 114','Tall Grass','R','10%','16,18'),('Nuzleaf','Route 114','Tall Grass','E','1%','15'),('Tailow','Route 104','Tall Grass','RSE','10%','4-5'),('Tailow','Route 115','Tall Grass',
 'RSE','40%','23-25'),('Tailow','Route 116','Tall Grass','RSE','20%','6-8'),('Tailow','Petalburg Woods','Tall Grass','RSE','5%','5-6'),('Swellow','Route 115','Tall Grass','RSE','10%','25'),
 ('Wingull','Route 103','Tall Grass','RS','10%','2-4'),('Wingull','Route 103','Tall Grass','E','20%','2-4'),('Wingull','Route 103','Surfing','RSE','35%','10-30'),('Wingull','Route 104',
@@ -68,8 +78,20 @@ VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','G
 'RSE','5%','25-30'),('Pelipper','Pacifidlog Town','Surfing','RSE','5%','25-30'),('Pelipper','Slaterport City','Surfing','RSE','5%','25-30'),('Ralts','Route 102','Tall Grass','RSE','4%','4'),
 ('Surskit','Route 102','Tall Grass','RS','1%','3'),('Surskit','Route 111','Surfing','RS','1%','20-30'),('Surskit','Route 114','Tall Grass','RS','1%','15'),('Surskit','Route 114','Surfing','RS',
 '1%','20-30'),('Surskit','Route 117','Tall Grass','RS','1%','13'),('Surskit','Route 117','Surfing','RS','1%','20-30'),('Surskit','Route 120','Long Grass','RS','1%','25'),('Surskit','Route 120',
-'Surfing','RS','1%','20-30')
+'Surfing','RS','1%','20-30'),('Shroomish','Petalburg Woods','Tall Grass','RSE','15%','5-6'),('Slakoth','Petalburg Woods','Tall Grass','RSE','5%','5-6'),('Abra','Granite Cave 1F','Cave','RSE',
+'10%','8'),('Abra','Granite Cave Steven Room','Cave','RSE','10%','8'),('Abra','B1F','Cave','RSE','10%','9'),('Abra','B2F','Cave','RSE','10%','10'),('Abra','Route 116','Tall Grass','E','10%','7'),('Nincada',
+'Route 116','Tall Grass','RSE','20%','6-7'),('Whismur','Route 116','Tall Grass','RS','30%','6-7'),('Whismur','Route 116','Tall Grass','E','20%','6'),('Whismur','Rusturf Tunnel','Cave','RSE',
+'100%','5-8'),('Whismur','Victory Road 1F','Cave','RSE','5%','36'),('Whismur','Desert Underpass','Cave','E','34%','35,36,38'),('Loudred','Victory Road 1F','Cave','RSE','10%','40'),('Loudred',
+'Desert Underpass','Cave','E','16%','38,40,44'),('Makuhita','Granite Cave 1F','Cave','RSE','50%','6-10'),('Makuhita','Granite Cave Steven Room','Cave','RSE','50%','6-10'),('Makuhita',
+'Granite Cave B1F','Cave','RSE','10%','10-11'),('Makuhita','Victory Road 1F','Cave','RSE','10%','36'),('Makuhita','Rustboro City','Trade Slakoth','RS','100%','Same as traded'),('Hariyama',
+'Victory Road 1F','Cave','RSE','25%','38,40'),('Hariyama','Victory Road B1F','Cave','RSE','35%','38,40,42')
 
+INSERT FishingPokemonRSE (pokemonName, encounterLocation, 
+rodType, gameVersion, encounterChance, levelRange)
+VALUES ('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),('Goldeen','Route 102','Good Rod','RSE','20%','10-30'),('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),
+
+SELECT (pokemonName) as Pokémon, (encounterLocation) as Localização, (rodType) as Vara, (gameVersion) as Versão, (encounterChance) as Chance,
+(levelRange) as Level_Range FROM FishingPokemonRSE
 
 SELECT (pokemonName) as Pokémon, (encounterLocation) as Localização, (encounterMethod) as Método, (gameVersion) as Versão, (encounterChance) as Chance,
-(levelRange) as Level_Range FROM PokemonRSE
+(levelRange) as Level_Range FROM RandomPokemonRSE
