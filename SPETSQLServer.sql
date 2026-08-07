@@ -31,6 +31,26 @@ CREATE TABLE FishingPokemonRSE
 	levelRange VARCHAR (50),
 )
 GO
+CREATE TABLE FishingSafariPokemonRSE
+(
+	pokemonName VARCHAR (50),
+	safariArea VARCHAR (50),
+	rodType VARCHAR (50),
+	gameVersion VARCHAR (50),
+	encounterChance VARCHAR (50),
+	levelRange VARCHAR (50),
+)
+GO
+CREATE TABLE RandomSafariPokemonRSE
+(
+	pokemonName VARCHAR (50),
+	safariArea VARCHAR (50),
+	encounterMethod VARCHAR (50),
+	gameVersion VARCHAR (50),
+	encounterChance VARCHAR (50),
+	levelRange VARCHAR (50),
+)
+
 
 INSERT RandomPokemonRSE (pokemonName, encounterLocation, 
 encounterMethod, gameVersion, encounterChance, levelRange)
@@ -79,16 +99,66 @@ VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','G
 ('Surskit','Route 102','Tall Grass','RS','1%','3'),('Surskit','Route 111','Surfing','RS','1%','20-30'),('Surskit','Route 114','Tall Grass','RS','1%','15'),('Surskit','Route 114','Surfing','RS',
 '1%','20-30'),('Surskit','Route 117','Tall Grass','RS','1%','13'),('Surskit','Route 117','Surfing','RS','1%','20-30'),('Surskit','Route 120','Long Grass','RS','1%','25'),('Surskit','Route 120',
 'Surfing','RS','1%','20-30'),('Shroomish','Petalburg Woods','Tall Grass','RSE','15%','5-6'),('Slakoth','Petalburg Woods','Tall Grass','RSE','5%','5-6'),('Abra','Granite Cave 1F','Cave','RSE',
-'10%','8'),('Abra','Granite Cave Steven Room','Cave','RSE','10%','8'),('Abra','B1F','Cave','RSE','10%','9'),('Abra','B2F','Cave','RSE','10%','10'),('Abra','Route 116','Tall Grass','E','10%','7'),('Nincada',
-'Route 116','Tall Grass','RSE','20%','6-7'),('Whismur','Route 116','Tall Grass','RS','30%','6-7'),('Whismur','Route 116','Tall Grass','E','20%','6'),('Whismur','Rusturf Tunnel','Cave','RSE',
-'100%','5-8'),('Whismur','Victory Road 1F','Cave','RSE','5%','36'),('Whismur','Desert Underpass','Cave','E','34%','35,36,38'),('Loudred','Victory Road 1F','Cave','RSE','10%','40'),('Loudred',
-'Desert Underpass','Cave','E','16%','38,40,44'),('Makuhita','Granite Cave 1F','Cave','RSE','50%','6-10'),('Makuhita','Granite Cave Steven Room','Cave','RSE','50%','6-10'),('Makuhita',
+'10%','8'),('Abra','Granite Cave Steven Room','Cave','RSE','10%','8'),('Abra','B1F','Cave','RSE','10%','9'),('Abra','B2F','Cave','RSE','10%','10'),('Abra','Route 116','Tall Grass','E','10%',
+'7'),('Nincada','Route 116','Tall Grass','RSE','20%','6-7'),('Whismur','Route 116','Tall Grass','RS','30%','6-7'),('Whismur','Route 116','Tall Grass','E','20%','6'),('Whismur','Rusturf Tunnel',
+'Cave','RSE','100%','5-8'),('Whismur','Victory Road 1F','Cave','RSE','5%','36'),('Whismur','Desert Underpass','Cave','E','34%','35,36,38'),('Loudred','Victory Road 1F','Cave','RSE','10%','40'),
+('Loudred','Desert Underpass','Cave','E','16%','38,40,44'),('Makuhita','Granite Cave 1F','Cave','RSE','50%','6-10'),('Makuhita','Granite Cave Steven Room','Cave','RSE','50%','6-10'),('Makuhita',
 'Granite Cave B1F','Cave','RSE','10%','10-11'),('Makuhita','Victory Road 1F','Cave','RSE','10%','36'),('Makuhita','Rustboro City','Trade Slakoth','RS','100%','Same as traded'),('Hariyama',
-'Victory Road 1F','Cave','RSE','25%','38,40'),('Hariyama','Victory Road B1F','Cave','RSE','35%','38,40,42')
+'Victory Road 1F','Cave','RSE','25%','38,40'),('Hariyama','Victory Road B1F','Cave','RSE','35%','38,40,42'),('Goldeen','Route 102','Surfing','E','1%','20-30'),('Goldeen','Route 111','Surfing',
+'E','1%','20-30'),('Goldeen','Route 114','Surfing','E','1%','20-30'),('Goldeen','Route 117','Surfing','E','1%','20-30'),('Goldeen','Route 120','Surfing','E','1%','20-30'),('Magikarp','Sootopolis 
+City','Surfing','RSE','100%','5-35')
 
 INSERT FishingPokemonRSE (pokemonName, encounterLocation, 
 rodType, gameVersion, encounterChance, levelRange)
-VALUES ('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),('Goldeen','Route 102','Good Rod','RSE','20%','10-30'),('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),
+VALUES ('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),('Goldeen','Route 102','Good Rod','RSE','20%','10-30'),('Goldeen','Route 111','Old Rod','RSE','30%','5-10'),('Goldeen','Route 111',
+'Good Rod','RSE','30%','5-10'),('Goldeen','Route 114','Old Rod','RSE','30%','5-10'),('Goldeen','Route 114','Good Rod','RSE','20%','10-30'),('Goldeen','Route 117','Old Rod','RSE','30%','5-10'),
+('Goldeen','Route 117','Good Rod','RSE','20%','10-30'),('Goldeen','Route 120','Old Rod','RSE','30%','5-10'),('Goldeen','Route 120','Good Rod','RSE','20%','10-30'),('Goldeen','Petalburg City',
+'Old Rod','RSE','30%','5-10'),('Goldeen','Petalburg City','Good Rod','RSE','20%','10-30'),('Goldeen','Meteor Falls 1F1R','Old Rod','RSE','30%','5-10'),('Goldeen','Meteor Falls 1F1R','Good Rod',
+'RSE','20%','10-30'),('Goldeen','Meteor Falls 1F2R','Old Rod','RSE','30%','5-10'),('Goldeen','Meteor Falls 1F2R','Good Rod','RSE','20%','10-30'),('Goldeen','Meteor Falls B1F1R','Old Rod','RSE',
+'30%','5-10'),('Goldeen','Meteor Falls B1F1R','Good Rod','RSE','20%','10-30'),('Goldeen','Meteor Falls B1F2R','Old Rod','RSE','30%','5-10'),('Goldeen','Meteor Falls B1F2R','Good Rod','RSE','20%',
+'10-30'),('Goldeen','Victory Road B2F','Old Rod','RSE','30%','5-10'),('Goldeen','Victory Road B2F','Good Rod','RSE','20%','10-30'),('Magikarp','Route 102','Old Rod','RSE','70%','5-10'),('Magikarp',
+'Route 102','Good Rod','RSE','60%','10-30'),('Magikarp','Route 103','Old Rod','RSE','70%','5-10'),('Magikarp','Route 103','Good Rod','RSE','60%','10-30'),('Magikarp','Route 104','Old Rod','RSE',
+'100%','5-10'),('Magikarp','Route 104','Good Rod','RSE','100%','10-30'),('Magikarp','Route 104','Super Rod','RSE','70%','20-45'),('Magikarp','Route 105','Old Rod','RSE','70%','5-10'),('Magikarp',
+'Route 105','Good Rod','RSE','60%','10-30'),('Magikarp','Route 106','Old Rod','RSE','70%','5-10'),('Magikarp','Route 106','Good Rod','RSE','60%','10-30'),('Magikarp','Route 107','Old Rod','RSE',
+'70%','5-10'),('Magikarp','Route 107','Good Rod','RSE','60%','10-30'),('Magikarp','Route 108','Old Rod','RSE','70%','5-10'),('Magikarp','Route 108','Good Rod','RSE','60%','10-30'),('Magikarp',
+'Route 109','Old Rod','RSE','70%','5-10'),('Magikarp','Route 109','Good Rod','RSE','60%','10-30'),('Magikarp','Route 110','Old Rod','RSE','70%','5-10'),('Magikarp','Route 110','Good Rod','RSE',
+'60%','10-30'),('Magikarp','Route 111','Old Rod','RSE','70%','5-10'),('Magikarp','Route 111','Good Rod','RSE','60%','10-30'),('Magikarp','Route 114','Old Rod','RSE','70%','5-10'),('Magikarp',
+'Route 114','Good Rod','RSE','60%','10-30'),('Magikarp','Route 115','Old Rod','RSE','70%','5-10'),('Magikarp','Route 115','Good Rod','RSE','60%','10-30'),('Magikarp','Route 117','Old Rod','RSE',
+'70%','5-10'),('Magikarp','Route 117','Good Rod','RSE','60%','10-30'),('Magikarp','Route 118','Old Rod','RSE','70%','5-10'),('Magikarp','Route 118','Good Rod','RSE','60%','10-30'),('Magikarp',
+'Route 119','Old Rod','RSE','70%','5-10'),('Magikarp','Route 119','Good Rod','RSE','60%','10-30'),('Magikarp','Route 120','Old Rod','RSE','70%','5-10'),('Magikarp','Route 120','Good Rod','RSE',
+'60%','10-30'),('Magikarp','Route 121','Old Rod','RSE','70%','5-10'),('Magikarp','Route 121','Good Rod','RSE','60%','10-30'),('Magikarp','Route 122','Old Rod','RSE','70%','5-10'),('Magikarp',
+'Route 122','Good Rod','RSE','60%','10-30'),('Magikarp','Route 123','Old Rod','RSE','70%','5-10'),('Magikarp','Route 123','Good Rod','RSE','60%','10-30'),('Magikarp','Route 124','Old Rod','RSE',
+'70%','5-10'),('Magikarp','Route 124','Good Rod','RSE','60%','10-30'),('Magikarp','Route 125','Old Rod','RSE','70%','5-10'),('Magikarp','Route 125','Good Rod','RSE','60%','10-30'),('Magikarp',
+'Route 126','Old Rod','RSE','70%','5-10'),('Magikarp','Route 126','Good Rod','RSE','60%','10-30'),('Magikarp','Route 127','Old Rod','RSE','70%','5-10'),('Magikarp','Route 127','Good Rod','RSE',
+'60%','10-30'),('Magikarp','Route 128','Old Rod','RSE','70%','5-10'),('Magikarp','Route 128','Good Rod','RSE','60%','10-30'),('Magikarp','Route 129','Old Rod','RSE','70%','5-10'),('Magikarp',
+'Route 129','Good Rod','RSE','60%','10-30'),('Magikarp','Route 130','Old Rod','RSE','70%','5-10'),('Magikarp','Route 130','Good Rod','RSE','60%','10-30'),('Magikarp','Route 131','Old Rod','RSE',
+'70%','5-10'),('Magikarp','Route 131','Good Rod','RSE','60%','10-30'),('Magikarp','Route 132','Old Rod','RSE','70%','5-10'),('Magikarp','Route 132','Good Rod','RSE','60%','10-30'),('Magikarp',
+'Route 133','Old Rod','RSE','70%','5-10'),('Magikarp','Route 133','Good Rod','RSE','60%','10-30'),('Magikarp','Route 134','Old Rod','RSE','70%','5-10'),('Magikarp','Route 134','Good Rod','RSE',
+'60%','10-30'),('Magikarp','Sootopolis City','Old Rod','R','100%','5-15'),('Magikarp','Sootopolis City','Old Rod','SE','70%','5-10'),('Magikarp','Sootopolis City','Good Rod','RSE','100%','10-30'),
+('Magikarp','Sootopolis City','Super Rod','RSE','80%','30-35'),('Magikarp','Petalburg City','Old Rod','RSE','70%','5-10'),('Magikarp','Petalburg City','Good Rod','RSE','60%','10-30'),('Magikarp',
+'Dewford Town','Old Rod','RSE','70%','5-10'),('Magikarp','Dewford Town','Good Rod','RSE','60%','10-30'),('Magikarp','Slateport City','Old Rod','RSE','70%','5-10'),('Magikarp','Slateport City',
+'Good Rod','RSE','60%','10-30'),('Magikarp','Lilycove City','Old Rod','RSE','70%','5-10'),('Magikarp','Lilycove City','Good Rod','RSE','60%','10-30'),('Magikarp','Pacifidlog Town','Old Rod',
+'RSE','70%','5-10'),('Magikarp','Pacifidlog Town','Good Rod','RSE','60%','10-30'),('Magikarp','Ever Grande City','Old Rod','RSE','70%','5-10'),('Magikarp','Evergrande City','Good Rod','RSE',
+'60%','10-30'),('Magikarp','Abandoned Ship','Old Rod','RSE','70%','5-10'),('Magikarp','Abandoned Ship','Good Rod','RSE','60%','10-30'),('Magikarp','Shoal Cave','Old Rod','RSE','70%','5-10'),
+('Magikarp','Shoal Cave','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls 1F1R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls 1F1R','Good Rod','RSE','60%','10-30'),('Magikarp',
+'Meteor Falls 1F2R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls 1F2R','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls B1F1R','Old Rod','RSE','70%','5-10'),('Magikarp',
+'Meteor Falls B1F1R','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls B1F2R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls B1F2R','Good Rod','RSE','60%','10-30'),('Magikarp',
+'Seafloor Cavern','Old Rod','RSE','70%','5-10'),('Magikarp','Seafloor Cavern','Good Rod','RSE','60%','10-30'),('Magikarp','Victory Road B2F','Old Rod','RSE','70%','5-10'),('Magikarp','Victory Road B2F',
+'Good Rod','RSE','60%','10-30'),('Magikarp','Mossdeep City','Old Rod','RSE','70%','5-10'),('Magikarp','Mossdeep City','Good Rod','RSE','60%','10-30'),('Gyarados','Sootopolis City','Super Rod','RSE','20%',
+'5-45')
+
+INSERT FishingSafariPokemonRSE (pokemonName, safariArea,
+rodType, gameVersion, encounterChance, levelRange)
+VALUES ('Goldeen','Area 2 - West','Old Rod','RSE','30%','5-10'),('Goldeen','Area 2 - West','Good Rod','RSE','40%','10-30'),('Goldeen','Area 2 - West','Super Rod','RSE','80%','25-35'),('Goldeen',
+'Area 3 - Northwest','Old Rod','RSE','30%','5-10'),('Goldeen','Area 3 - Northwest','Good Rod','RSE','40%','10-30'),('Goldeen','Area 3 - Northwest','Super Rod','RSE','80%','25-35'),('Goldeen',
+'Area 5 - East','Old Rod','E','30%','25-30'),('Goldeen','Area 5 - East','Good Rod','E','20%','25-30'),('Goldeen','Area 5 - East','Super Rod','RSE','40%','25-30'),('Seaking','Area 2 - West',
+'Super Rod','RSE','20%','25-40'),('Seaking','Area 3 - Northwest','Super Rod','RSE','20%','25-40'),('Magikarp','Area 2 - West','Old Rod','RSE','70%','5-10'),('Magikarp','Area 2 - West',
+'Good Rod','RSE','60%','10-30'),('Magikarp','Area 3 - Northwest','Old Rod','RSE','70%','5-10'),('Magikarp','Area 3 - Northwest','Good Rod','RSE','60%','10-30'),('Magikarp','Area 5 - East',
+'Old Rod','E','70%','25-30'),('Magikarp','Area 5 - East','Good Rod','E','60%','25-30')
+
+
+SELECT (pokemonName) as Pokémon, (safariArea) as Área, (rodType) as Vara, (gameVersion) as Versão, (encounterChance) as Chance,
+(levelRange) as Level_Range FROM FishingSafariPokemonRSE
 
 SELECT (pokemonName) as Pokémon, (encounterLocation) as Localização, (rodType) as Vara, (gameVersion) as Versão, (encounterChance) as Chance,
 (levelRange) as Level_Range FROM FishingPokemonRSE
