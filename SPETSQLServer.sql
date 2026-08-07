@@ -50,6 +50,25 @@ CREATE TABLE RandomSafariPokemonRSE
 	encounterChance VARCHAR (50),
 	levelRange VARCHAR (50),
 )
+GO
+CREATE TABLE BreedingPokemonRSE
+(
+	pokemonName VARCHAR (50),
+	encounterMethod VARCHAR (50),
+	breedingItem VARCHAR (50),
+	breedingParent VARCHAR (50),
+	eggGroups VARCHAR (50),
+)
+GO
+CREATE TABLE EvolutionPokemonRSE
+(
+	pokemonName VARCHAR (50),
+	encounterMethod VARCHAR (50),
+	evolvesFrom VARCHAR (50),
+	evolutionMethod VARCHAR (50),
+	evolutionRequirement VARCHAR (50),	
+)
+GO
 
 
 INSERT RandomPokemonRSE (pokemonName, encounterLocation, 
@@ -155,7 +174,26 @@ VALUES ('Goldeen','Area 2 - West','Old Rod','RSE','30%','5-10'),('Goldeen','Area
 'Super Rod','RSE','20%','25-40'),('Seaking','Area 3 - Northwest','Super Rod','RSE','20%','25-40'),('Magikarp','Area 2 - West','Old Rod','RSE','70%','5-10'),('Magikarp','Area 2 - West',
 'Good Rod','RSE','60%','10-30'),('Magikarp','Area 3 - Northwest','Old Rod','RSE','70%','5-10'),('Magikarp','Area 3 - Northwest','Good Rod','RSE','60%','10-30'),('Magikarp','Area 5 - East',
 'Old Rod','E','70%','25-30'),('Magikarp','Area 5 - East','Good Rod','E','60%','25-30')
+ 
+INSERT BreedingPokemonRSE (pokemonName, encounterMethod, 
+breedingItem, breedingParent, eggGroups)
+VALUES ('Azurill','Breeding','Sea Incense','Marill/Azumarill','Water1/Fairy')
 
+INSERT EvolutionPokemonRSE (pokemonName, encounterMethod,
+evolvesFrom, evolutionMethod, evolutionRequirement)
+VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Combusken','Evoltuion','Torchic','Level Up','Level 16'),('Marshtomp','Evoltuion','Mudkip','Level Up','Level 16'),('Sceptile',
+'Evoltuion','Grovyle','Level Up','Level 36'),('Blaziken','Evoltuion','Combusken','Level Up','Level 36'),('Swampert','Evoltuion','Marshtomp','Level Up','Level 36'),('Beautifly','Evoltuion',
+'Silcoon','Level Up','Level 10'),('Dustox','Evoltuion','Cascoon','Level Up','Level 10'),('Ludicolo','Evoltuion','Lombre','Item','Water Stone'),('Shiftry','Evoltuion','Nuzleaf','Item',
+'Leaf Stone'),('Kirlia','Evoltuion','Ralts','Level Up','Level 20'),('Gardevoir','Evoltuion','Kirlia','Level Up','Level 30'),('Masquerain','Evoltuion','Surskit','Level Up','Level 22'),
+('Breloom','Evoltuion','Shroomish','Level Up','Level 23'),('Vigoroth','Evoltuion','Slakoth','Level Up','Level 18'),('Slaking','Evoltuion','Vigoroth','Level Up','Level 36'),
+('Kadabra','Evoltuion','Abra','Level Up','Level 16'),('Alakazam','Evoltuion','Kadabra','Trade','Evolves upon trading'),('Ninjask','Evoltuion','Nincada','Level Up','Level 20'),
+('Ninjask','Evoltuion','Nincada','Level Up','Level 20 with space in party'),('Exploud','Evoltuion','Loudred','Level Up','Level 40')
+
+SELECT (pokemonName) as Pokémon, (encounterMethod) as Método, (evolutionMethod) as Método_Evolução, 
+(evolvesFrom) as Pré_Evolução, (evolutionRequirement) as Requisito_Evolução FROM EvolutionPokemonRSE
+
+SELECT (pokemonName) as Pokémon, (encounterMethod) as Método, (breedingItem) as Item, (breedingParent) as Pais,
+(eggGroups) as Egg_Groups FROM BreedingPokemonRSE
 
 SELECT (pokemonName) as Pokémon, (safariArea) as Área, (rodType) as Vara, (gameVersion) as Versão, (encounterChance) as Chance,
 (levelRange) as Level_Range FROM FishingSafariPokemonRSE
