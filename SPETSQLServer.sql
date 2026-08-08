@@ -125,7 +125,10 @@ VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','G
 'Granite Cave B1F','Cave','RSE','10%','10-11'),('Makuhita','Victory Road 1F','Cave','RSE','10%','36'),('Makuhita','Rustboro City','Trade Slakoth','RS','100%','Same as traded'),('Hariyama',
 'Victory Road 1F','Cave','RSE','25%','38,40'),('Hariyama','Victory Road B1F','Cave','RSE','35%','38,40,42'),('Goldeen','Route 102','Surfing','E','1%','20-30'),('Goldeen','Route 111','Surfing',
 'E','1%','20-30'),('Goldeen','Route 114','Surfing','E','1%','20-30'),('Goldeen','Route 117','Surfing','E','1%','20-30'),('Goldeen','Route 120','Surfing','E','1%','20-30'),('Magikarp','Sootopolis 
-City','Surfing','RSE','100%','5-35')
+City','Surfing','RSE','100%','5-35'),('Marill','Route 102','Surfing','RSE','99%','5-35'),('Marill','Route 104','Tall Grass','E','20%','4-5'),('Marill','Route 111','Surfing','RSE','99%','5-35'),
+('Marill','Route 112','Tall Grass','E','25%','14-16'),('Marill','Route 114','Surfing','RSE','99%','5-35'),('Marill','Route 117','Surfing','RSE','99%','5-35'),('Marill','Route 117','Tall Grass',
+'RSE','10%','13'),('Marill','Route 120','Surfing','RSE','99%','5-35'),('Marill','Route 120','Long Grass','RSE','15%','25,27'),('Marill','Petalburg City','Surfing','RSE','100%','5-35')
+
 
 INSERT FishingPokemonRSE (pokemonName, encounterLocation, 
 rodType, gameVersion, encounterChance, levelRange)
@@ -187,7 +190,14 @@ VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Combusken','Evo
 'Leaf Stone'),('Kirlia','Evoltuion','Ralts','Level Up','Level 20'),('Gardevoir','Evoltuion','Kirlia','Level Up','Level 30'),('Masquerain','Evoltuion','Surskit','Level Up','Level 22'),
 ('Breloom','Evoltuion','Shroomish','Level Up','Level 23'),('Vigoroth','Evoltuion','Slakoth','Level Up','Level 18'),('Slaking','Evoltuion','Vigoroth','Level Up','Level 36'),
 ('Kadabra','Evoltuion','Abra','Level Up','Level 16'),('Alakazam','Evoltuion','Kadabra','Trade','Evolves upon trading'),('Ninjask','Evoltuion','Nincada','Level Up','Level 20'),
-('Ninjask','Evoltuion','Nincada','Level Up','Level 20 with space in party'),('Exploud','Evoltuion','Loudred','Level Up','Level 40')
+('Ninjask','Evoltuion','Nincada','Level Up','Level 20 with space in party'),('Exploud','Evoltuion','Loudred','Level Up','Level 40'),('Azumarill','Evoltuion','Marill','Level Up','Level 18')
+
+INSERT RandomSafariPokemonRSE (pokemonName, safariArea,
+encounterMethod, gameVersion, encounterChance, levelRange)
+VALUES ('Marill','Area 5 - East','Surfing','E','39%','5-35')
+
+SELECT (pokemonName) as Pokémon, (safariArea) as Área, (encounterMethod) as Método, (gameVersion) as Versão, (encounterChance) as Chance,
+(levelRange) as Level_Range FROM RandomSafariPokemonRSE
 
 SELECT (pokemonName) as Pokémon, (encounterMethod) as Método, (evolutionMethod) as Método_Evolução, 
 (evolvesFrom) as Pré_Evolução, (evolutionRequirement) as Requisito_Evolução FROM EvolutionPokemonRSE
