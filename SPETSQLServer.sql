@@ -127,7 +127,24 @@ VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','G
 'E','1%','20-30'),('Goldeen','Route 114','Surfing','E','1%','20-30'),('Goldeen','Route 117','Surfing','E','1%','20-30'),('Goldeen','Route 120','Surfing','E','1%','20-30'),('Magikarp','Sootopolis 
 City','Surfing','RSE','100%','5-35'),('Marill','Route 102','Surfing','RSE','99%','5-35'),('Marill','Route 104','Tall Grass','E','20%','4-5'),('Marill','Route 111','Surfing','RSE','99%','5-35'),
 ('Marill','Route 112','Tall Grass','E','25%','14-16'),('Marill','Route 114','Surfing','RSE','99%','5-35'),('Marill','Route 117','Surfing','RSE','99%','5-35'),('Marill','Route 117','Tall Grass',
-'RSE','10%','13'),('Marill','Route 120','Surfing','RSE','99%','5-35'),('Marill','Route 120','Long Grass','RSE','15%','25,27'),('Marill','Petalburg City','Surfing','RSE','100%','5-35')
+'RSE','10%','13'),('Marill','Route 120','Surfing','RSE','99%','5-35'),('Marill','Route 120','Long Grass','RSE','15%','25,27'),('Marill','Petalburg City','Surfing','RSE','100%','5-35'),('Geodude',
+'Route 111','Rock Smash','RSE','100%','5-20'),('Geodude','Route 114','Rock Smash','RSE','100%','5-20'),('Geodude','Victory Road B1F','Rock Smash','RSE','30%','30-40'),('Geodude','Granite Cave 1F',
+'Cave','RSE','10%','6-9'),('Geodude','Granite Cave B2F','Rock Smash','RSE','70%','5-20'),('Geodude','Magma Hideout','Cave','E','55%','27-30'),('Nosepass','Granite Cave B2F','Rock Smash','RSE','30%',
+'10-20'),('Skitty','Route 116','Tall Grass','RSE','2%','7-8'),('Skitty','Fortree City','Trade Pikachu','RSE','100%','Same as traded'),('Zubat','Cave of Origin Entrance','Cave','RSE','90%','28-35'),
+('Zubat','Cave of Origin 1F','Cave','RSE','60%','30-34'),('Zubat','Cave of Origin B1F','Cave','RSE','60%','30-34'),('Zubat','Cave of Origin B2F','Cave','RSE','60%','30-34'),('Zubat','Cave of Origin
+B3F','Cave','RSE','60%','30-34'),('Zubat','Granite Cave 1F','Cave','RSE','30%','7-8'),('Zubat','Granite Cave Steven Room','Cave','RSE','30%','7-8'),('Zubat','Granite Cave B1F','Cave','RSE','30%',
+'9-10'),('Zubat','Granite Cave B2F','Cave','RSE','30%','10-11'),('Zubat','Victory Road 1F','Cave','RSE','10%','36'),('Zubat','Meteor Falls 1F1R','Cave','RSE','80%','14-20'),('Zubat','Meteor Falls
+1F1R','Surfing','RSE','90%','5-35'),('Zubat','Seafloor Cavern','Cave','RSE','90%','28-35'),('Zubat','Seafloor Cavern','Surfing','RSE','35%','5-35'),('Zubat','Shoal Cave Main','Cave','RSE','45%',
+'26,28,30,32'),('Zubat','Shoal Cave Main','Surfing','RSE','30%','5-35'),('Zubat','Shoal Cave Ice','Cave','RSE','40%','26,28,30'),('Zubat','Altering Cave','Cave','E','100%','6,8,10,12,14,16'),
+('Golbat','Meteor Falls 1F2R','Cave','RSE','65%','33,35,38,40'),('Golbat','Meteor Falls B1F1R','Cave','RSE','65%','33,35,38,40'),('Golbat','Meteor Falls 1F2R','Surfing','RSE','90%','30-35'),
+('Golbat','Meteor Falls B1F1R','Surfing','RSE','90%','30-35'),('Golbat','Meteor Falls B1F2R','Cave','RSE','50%','33,35,38,40'),('Golbat','Meteor Falls B1F2R','Surfing','RSE','90%','30-35'),
+('Golbat','Meteor Falls Steven Cave','Cave','E','65%','33,35,38,40'),('Golbat','Seafloor Cavern','Cave','RSE','10%','33-36'),('Golbat','Seafloor Cavern','Surfing','RSE','5%','30-35'),
+('Golbat','Victory Road 1F','Cave','RSE','25%','38,40'),('Golbat','Victory Road B1F','Cave','RSE','35%','38,40,42'),('Golbat','Victory Road B2F','Cave','RSE','35%','40,42,44'),('Golbat',
+'Victory Road B2F','Surfing','RSE','100%','25-40'),('Golbat','Cave of Origin Entrance','Cave','RSE','10%','33-36'),('Golbat','Cave of Origin 1F','Cave','RSE','10%','33-36'),('Golbat',
+'Cave of Origin B1F','Cave','RSE','10%','33-36'),('Golbat','Cave of Origin B2F','Cave','RSE','10%','33-36'),('Golbat','Cave of Origin B3F','Cave','RSE','10%','33-36'),('Golbat','Shoal 
+Cave Main','Cave','RSE','5%','32'),('Golbat','Shoal Cave Ice','Cave','RSE','5%','30,32'),('Golbat','Sky Pillar 1F','Walking','RS','30%','48,50'),('Golbat','Sky Pillar 1F','Walking','E',
+'30%','34,35'),('Golbat','Sky Pillar 3F','Walking','RS','30%','51,53'),('Golbat','Sky Pillar 3F','Walking','E','30%','34,35'),('Golbat','Sky Pillar 5F','Walking','RS','30%','54-56'),
+('Golbat','Sky Pillar 5F','Walking','E','30%','34,35')
 
 
 INSERT FishingPokemonRSE (pokemonName, encounterLocation, 
@@ -161,22 +178,22 @@ VALUES ('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),('Goldeen','Route 10
 'Dewford Town','Old Rod','RSE','70%','5-10'),('Magikarp','Dewford Town','Good Rod','RSE','60%','10-30'),('Magikarp','Slateport City','Old Rod','RSE','70%','5-10'),('Magikarp','Slateport City',
 'Good Rod','RSE','60%','10-30'),('Magikarp','Lilycove City','Old Rod','RSE','70%','5-10'),('Magikarp','Lilycove City','Good Rod','RSE','60%','10-30'),('Magikarp','Pacifidlog Town','Old Rod',
 'RSE','70%','5-10'),('Magikarp','Pacifidlog Town','Good Rod','RSE','60%','10-30'),('Magikarp','Ever Grande City','Old Rod','RSE','70%','5-10'),('Magikarp','Evergrande City','Good Rod','RSE',
-'60%','10-30'),('Magikarp','Abandoned Ship','Old Rod','RSE','70%','5-10'),('Magikarp','Abandoned Ship','Good Rod','RSE','60%','10-30'),('Magikarp','Shoal Cave','Old Rod','RSE','70%','5-10'),
-('Magikarp','Shoal Cave','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls 1F1R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls 1F1R','Good Rod','RSE','60%','10-30'),('Magikarp',
+'60%','10-30'),('Magikarp','Abandoned Ship','Old Rod','RSE','70%','5-10'),('Magikarp','Abandoned Ship','Good Rod','RSE','60%','10-30'),('Magikarp','Shoal Cave Main','Old Rod','RSE','70%','5-10'),
+('Magikarp','Shoal Cave Main','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls 1F1R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls 1F1R','Good Rod','RSE','60%','10-30'),('Magikarp',
 'Meteor Falls 1F2R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls 1F2R','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls B1F1R','Old Rod','RSE','70%','5-10'),('Magikarp',
 'Meteor Falls B1F1R','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls B1F2R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls B1F2R','Good Rod','RSE','60%','10-30'),('Magikarp',
 'Seafloor Cavern','Old Rod','RSE','70%','5-10'),('Magikarp','Seafloor Cavern','Good Rod','RSE','60%','10-30'),('Magikarp','Victory Road B2F','Old Rod','RSE','70%','5-10'),('Magikarp','Victory Road B2F',
-'Good Rod','RSE','60%','10-30'),('Magikarp','Mossdeep City','Old Rod','RSE','70%','5-10'),('Magikarp','Mossdeep City','Good Rod','RSE','60%','10-30'),('Gyarados','Sootopolis City','Super Rod','RSE','20%',
-'5-45')
+'Good Rod','RSE','60%','10-30'),('Magikarp','Mossdeep City','Old Rod','RSE','70%','5-10'),('Magikarp','Mossdeep City','Good Rod','RSE','60%','10-30'),('Gyarados','Sootopolis City','Super Rod','RSE',
+'20%','5-45'),('Graveler','Victory Road B1F','Rock Smash','RSE','70%','30-40'),('Geodude','Magma Hideout','Cave','E','15%','30-33')
 
 INSERT FishingSafariPokemonRSE (pokemonName, safariArea,
 rodType, gameVersion, encounterChance, levelRange)
-VALUES ('Goldeen','Area 2 - West','Old Rod','RSE','30%','5-10'),('Goldeen','Area 2 - West','Good Rod','RSE','40%','10-30'),('Goldeen','Area 2 - West','Super Rod','RSE','80%','25-35'),('Goldeen',
-'Area 3 - Northwest','Old Rod','RSE','30%','5-10'),('Goldeen','Area 3 - Northwest','Good Rod','RSE','40%','10-30'),('Goldeen','Area 3 - Northwest','Super Rod','RSE','80%','25-35'),('Goldeen',
-'Area 5 - East','Old Rod','E','30%','25-30'),('Goldeen','Area 5 - East','Good Rod','E','20%','25-30'),('Goldeen','Area 5 - East','Super Rod','RSE','40%','25-30'),('Seaking','Area 2 - West',
-'Super Rod','RSE','20%','25-40'),('Seaking','Area 3 - Northwest','Super Rod','RSE','20%','25-40'),('Magikarp','Area 2 - West','Old Rod','RSE','70%','5-10'),('Magikarp','Area 2 - West',
-'Good Rod','RSE','60%','10-30'),('Magikarp','Area 3 - Northwest','Old Rod','RSE','70%','5-10'),('Magikarp','Area 3 - Northwest','Good Rod','RSE','60%','10-30'),('Magikarp','Area 5 - East',
-'Old Rod','E','70%','25-30'),('Magikarp','Area 5 - East','Good Rod','E','60%','25-30')
+VALUES ('Goldeen','Area 2-West','Old Rod','RSE','30%','5-10'),('Goldeen','Area 2-West','Good Rod','RSE','40%','10-30'),('Goldeen','Area 2-West','Super Rod','RSE','80%','25-35'),('Goldeen',
+'Area 3-Northwest','Old Rod','RSE','30%','5-10'),('Goldeen','Area 3-Northwest','Good Rod','RSE','40%','10-30'),('Goldeen','Area 3-Northwest','Super Rod','RSE','80%','25-35'),('Goldeen',
+'Area 5-East','Old Rod','E','30%','25-30'),('Goldeen','Area 5-East','Good Rod','E','20%','25-30'),('Goldeen','Area 5-East','Super Rod','RSE','40%','25-30'),('Seaking','Area 2-West',
+'Super Rod','RSE','20%','25-40'),('Seaking','Area 3-Northwest','Super Rod','RSE','20%','25-40'),('Magikarp','Area 2-West','Old Rod','RSE','70%','5-10'),('Magikarp','Area 2-West',
+'Good Rod','RSE','60%','10-30'),('Magikarp','Area 3-Northwest','Old Rod','RSE','70%','5-10'),('Magikarp','Area 3-Northwest','Good Rod','RSE','60%','10-30'),('Magikarp','Area 5-East',
+'Old Rod','E','70%','25-30'),('Magikarp','Area 5-East','Good Rod','E','60%','25-30')
  
 INSERT BreedingPokemonRSE (pokemonName, encounterMethod, 
 breedingItem, breedingParent, eggGroups)
@@ -190,11 +207,12 @@ VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Combusken','Evo
 'Leaf Stone'),('Kirlia','Evoltuion','Ralts','Level Up','Level 20'),('Gardevoir','Evoltuion','Kirlia','Level Up','Level 30'),('Masquerain','Evoltuion','Surskit','Level Up','Level 22'),
 ('Breloom','Evoltuion','Shroomish','Level Up','Level 23'),('Vigoroth','Evoltuion','Slakoth','Level Up','Level 18'),('Slaking','Evoltuion','Vigoroth','Level Up','Level 36'),
 ('Kadabra','Evoltuion','Abra','Level Up','Level 16'),('Alakazam','Evoltuion','Kadabra','Trade','Evolves upon trading'),('Ninjask','Evoltuion','Nincada','Level Up','Level 20'),
-('Ninjask','Evoltuion','Nincada','Level Up','Level 20 with space in party'),('Exploud','Evoltuion','Loudred','Level Up','Level 40'),('Azumarill','Evoltuion','Marill','Level Up','Level 18')
+('Ninjask','Evoltuion','Nincada','Level Up','Level 20 with space in party'),('Exploud','Evoltuion','Loudred','Level Up','Level 40'),('Azumarill','Evoltuion','Marill','Level Up','Level 18'),
+('Golem','Evoltuion','Graveler','Trade','Evolves upon trading'),('Delcatty','Evoltuion','Skitty','Item','Moon Stone'),('Crobat','Evolution','Golbat','Friendship','Level up with high friendship')
 
 INSERT RandomSafariPokemonRSE (pokemonName, safariArea,
 encounterMethod, gameVersion, encounterChance, levelRange)
-VALUES ('Marill','Area 5 - East','Surfing','E','39%','5-35')
+VALUES ('Marill','Area 5-East','Surfing','E','39%','5-35'),('Geodude','Area 4-North','Rock Smash','RSE','100%','5-30')
 
 SELECT (pokemonName) as Pokémon, (safariArea) as Área, (encounterMethod) as Método, (gameVersion) as Versão, (encounterChance) as Chance,
 (levelRange) as Level_Range FROM RandomSafariPokemonRSE
