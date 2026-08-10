@@ -98,7 +98,7 @@ VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','G
 'Tall Grass','RSE','10%','3-5'),('Wingull','Route 104','Surfing','RSE','95%','10-30'),('Wingull','Route 110','Tall Grass','RSE','8%','12'),('Wingull','Route 110','Surfing','RSE','35%','10-30'),
 ('Wingull','Route 115','Tall Grass','RSE','30%','23,25'),('Wingull','Route 115','Surfing','RSE','35%','10-30'),('Wingull','Route 118','Tall Grass','RSE','19%','25-27'),('Wingull','Route 118',
 'Surfing','RSE','35%','10-30'),('Wingull','Route 121','Tall Grass','RSE','9%','26-28'),('Wingull','Route 121','Surfing','RSE','35%','10-30'),('Wingull','Route 123','Tall Grass','RSE','9%',
-'26-28'),('Wingull','Route 123','Surfing','RSE','35%','10-30'),('Wingull','Mt. Pyre Exterior','Tall Grass','RSE','10%','26-28'),('Wingull','Route 105','Surfing','RSE','35%','10-30'),('Wingull',
+'26-28'),('Wingull','Route 123','Surfing','RSE','35%','10-30'),('Wingull','Mt.Pyre Exterior','Tall Grass','RSE','10%','26-28'),('Wingull','Route 105','Surfing','RSE','35%','10-30'),('Wingull',
 'Route 106','Surfing','RSE','35%','10-30'),('Wingull','Route 107','Surfing','RSE','35%','10-30'),('Wingull','Route 108','Surfing','RSE','35%','10-30'),('Wingull','Route 109','Surfing','RSE',
 '35%','10-30'),('Wingull','Route 119','Surfing','RSE','35%','10-30'),('Wingull','Route 122','Surfing','RSE','35%','10-30'),('Wingull','Route 124','Surfing','RSE','35%','10-30'),('Wingull',
 'Route 125','Surfing','RSE','35%','10-30'),('Wingull','Route 126','Surfing','RSE','35%','10-30'),('Wingull','Route 127','Surfing','RSE','35%','10-30'),('Wingull','Route 128','Surfing','RSE',
@@ -166,11 +166,10 @@ Cave Main','Cave','RSE','5%','32'),('Golbat','Shoal Cave Ice','Cave','RSE','5%',
 'Walking','R','30%','54,56'),('Mawile','Victory Road B2F','Cave','R','35%','40,42,44'),('Mawile','Victory Road B2F','Cave','E','5%','42,44'),('Aron','Granite Cave Steven Room','Cave',
 'RSE','10%','7,8'),('Aron','Granite Cave B1F','Cave','RSE','40%','9-11'),('Aron','Granite Cave B2F','Cave','RSE','40%','10-12'),('Aron','Victory Road 1F','Cave','RSE','5%','36'),
 ('Lairon','Victory Road 1F','Cave','RSE','10%','40'),('Lairon','Victory Road B1F','Cave','RS','15%','40,42'),('Lairon','Victory Road B1F','Cave','E','25%','40,42'),('Lairon',
-'Victory Road B2F','Cave','RS','15%','40,42,44'),('Lairon','Victory Road B2F','Cave','E','25%','40,42,44')
-
-
-
-
+'Victory Road B2F','Cave','RS','15%','40,42,44'),('Lairon','Victory Road B2F','Cave','E','25%','40,42,44'),('Machop','Route 112','Tall Grass','RS','25%','14-16'),('Machop','Fiery Path',
+'Cave','RSE','15%','15,16'),('Machop','Jagged Pass','Tall Grass','R','25%','18-20'),('Machop','Jagged Pass','Tall Grass','SE','25%','20-22'),('Meditite','Mt.Pyre Exterior','Tall Grass',
+'RS','30%','27,29'),('Meditite','Victory Road B1F','Cave','RS','5%','38'),('Medicham','Victory Road B1F','Cave','RS','10%','40'),('Medicham','Victory Road B2F','Cave','RS','15%','40,42,44'),
+('Electrike','Route 110','Tall Grass','RSE','30%','12,13'),('Electrike','Route 118','Tall Grass','RSE','30%','24,26'),('Manectric','Route 118','Tall Grass','RSE','10%','26')
 
 INSERT FishingPokemonRSE (pokemonName, encounterLocation, 
 rodType, gameVersion, encounterChance, levelRange)
@@ -230,8 +229,6 @@ VALUES ('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),('Goldeen','Route 10
 '5-10'),('Tentacool','Shoal Cave Main','Good Rod','RSE','20%','10-30'),('Tentacool','Seafloor Cavern','Old Rod','RSE','30%','5-10'),('Tentacool','Seafloor Cavern','Good Rod','RSE','20%','10-30'),
 ('Tentacruel','Abandoned Ship','Super Rod','RSE','20%','20-35')
 
-
-
 INSERT FishingSafariPokemonRSE (pokemonName, safariArea,
 rodType, gameVersion, encounterChance, levelRange)
 VALUES ('Goldeen','Area 2-West','Old Rod','RSE','30%','5-10'),('Goldeen','Area 2-West','Good Rod','RSE','40%','10-30'),('Goldeen','Area 2-West','Super Rod','RSE','80%','25-35'),('Goldeen',
@@ -258,7 +255,9 @@ VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Sceptile','Evol
 'Level Up','Level 40'),('Hariyama','Evoltuion','Makuhita','Level Up','Level 24'),('Seaking','Evoltuion','Goldeen','Level Up','Level 33'),('Gyarados','Evoltuion','Magikarp','Level Up','Level 20'),('Marill',
 'Evoltuion','Azurill','Friendship','Level up with high friendship'),('Azumarill','Evoltuion','Marill','Level Up','Level 18'),('Graveler','Evoltuion','Geodude','Level Up','Level 25'),('Golem','Evoltuion',
 'Graveler','Trade','Evolves upon trading'),('Delcatty','Evoltuion','Skitty','Item','Moon Stone'),('Golbat','Evoltuion','Zubat','Level Up','Level 22'),('Crobat','Evolution','Golbat','Friendship',
-'Level up with high friendship'),('Tentacruel','Evoltuion','Tentacool','Level Up','Level 30'),('Lairon','Evolution','Aron','Level Up','Level 32'),('Aggron','Evolution','Lairon','Level Up','Level 42')
+'Level up with high friendship'),('Tentacruel','Evoltuion','Tentacool','Level Up','Level 30'),('Lairon','Evolution','Aron','Level Up','Level 32'),('Aggron','Evolution','Lairon','Level Up','Level 42'),
+('Machoke','Evolution','Machop','Level Up','Level 28'),('Machamp','Evolution','Machoke','Trade','Evolves upon trading'),('Medicham','Evolution','Meditite','Level Up','Level 37'),('Manectric','Evolution',
+'Electrike','Level Up','Level 26')
 
 INSERT RandomSafariPokemonRSE (pokemonName, safariArea,
 encounterMethod, gameVersion, encounterChance, levelRange)
