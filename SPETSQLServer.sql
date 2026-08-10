@@ -156,7 +156,19 @@ Cave Main','Cave','RSE','5%','32'),('Golbat','Shoal Cave Ice','Cave','RSE','5%',
 'RSE','60%','5-35'),('Tentacool','Route 134','Surfing','RSE','60%','5-35'),('Tentacool','Slateport City','Surfing','RSE','60%','5-35'),('Tentacool','Pacifidlog Town','Surfing',
 'RSE','60%','5-35'),('Tentacool','Mossdeep City','Surfing','RSE','60%','5-35'),('Tentacool','Lilycove City','Surfing','RSE','60%','5-35'),('Tentacool','Dewford Town','Surfing',
 'RSE','60%','5-35'),('Tentacool','Shoal Cave Main','Surfing','RSE','60%','5-35'),('Tentacool','Seafloor Cavern','Surfing','RSE','60%','5-35'),('Tentacruel','Abandoned Ship','Surfing',
-'RSE','1%','30-35')
+'RSE','1%','30-35'),('Sableye','Granite Cave B1F','Cave','SE','10%','9-11'),('Sableye','Granite Cave B2F','Cave','SE','20%','10-12'),('Sableye','Cave of Origin 1F','Cave','SE','30%',
+'30,32,34'),('Sableye','Cave of Origin B1F','Cave','SE','30%','30,32,34'),('Sableye','Cave of Origin B2F','Cave','SE','30%','30,32,34'),('Sableye','Cave of Origin B3F','Cave','SE',
+'30%','30,32,34'),('Sableye','Sky Pillar 1F','Walking','S','30%','48,50'),('Sableye','Sky Pillar 1F','Walking','E','30%','33,34'),('Sableye','Sky Pillar 3F','Walking','S','30%',
+'51,53'),('Sableye','Sky Pillar 3F','Walking','E','30%','33,34'),('Sableye','Sky Pillar 5F','Walking','S','30%','54,56'),('Sableye','Sky Pillar 5F','Walking','E','30%','33,34'),
+('Sableye','Victory Road B2F','Cave','SE','35%','40,42,44'),('Mawile','Granite Cave B1F','Cave','R','10%','9-11'),('Mawile','Granite Cave B2F','Cave','R','20%','10-12'),('Mawile',
+'Cave of Origin 1F','Cave','R','30%','30,32,34'),('Mawile','Cave of Origin B1F','Cave','R','30%','30,32,34'),('Mawile','Cave of Origin B2F','Cave','R','30%','30,32,34'),('Mawile',
+'Cave of Origin B3F','Cave','R','30%','30,32,34'),('Mawile','Sky Pillar 1F','Walking','R','30%','48,50'),('Mawile','Sky Pillar 3F','Walking','R','30%','51,53'),('Mawile','Sky Pillar 5F',
+'Walking','R','30%','54,56'),('Mawile','Victory Road B2F','Cave','R','35%','40,42,44'),('Mawile','Victory Road B2F','Cave','E','5%','42,44'),('Aron','Granite Cave Steven Room','Cave',
+'RSE','10%','7,8'),('Aron','Granite Cave B1F','Cave','RSE','40%','9-11'),('Aron','Granite Cave B2F','Cave','RSE','40%','10-12'),('Aron','Victory Road 1F','Cave','RSE','5%','36'),
+('Lairon','Victory Road 1F','Cave','RSE','10%','40'),('Lairon','Victory Road B1F','Cave','RS','15%','40,42'),('Lairon','Victory Road B1F','Cave','E','25%','40,42'),('Lairon',
+'Victory Road B2F','Cave','RS','15%','40,42,44'),('Lairon','Victory Road B2F','Cave','E','25%','40,42,44')
+
+
 
 
 
@@ -246,7 +258,7 @@ VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Sceptile','Evol
 'Level Up','Level 40'),('Hariyama','Evoltuion','Makuhita','Level Up','Level 24'),('Seaking','Evoltuion','Goldeen','Level Up','Level 33'),('Gyarados','Evoltuion','Magikarp','Level Up','Level 20'),('Marill',
 'Evoltuion','Azurill','Friendship','Level up with high friendship'),('Azumarill','Evoltuion','Marill','Level Up','Level 18'),('Graveler','Evoltuion','Geodude','Level Up','Level 25'),('Golem','Evoltuion',
 'Graveler','Trade','Evolves upon trading'),('Delcatty','Evoltuion','Skitty','Item','Moon Stone'),('Golbat','Evoltuion','Zubat','Level Up','Level 22'),('Crobat','Evolution','Golbat','Friendship',
-'Level up with high friendship'),('Tentacruel','Evoltuion','Tentacool','Level Up','Level 30')
+'Level up with high friendship'),('Tentacruel','Evoltuion','Tentacool','Level Up','Level 30'),('Lairon','Evolution','Aron','Level Up','Level 32'),('Aggron','Evolution','Lairon','Level Up','Level 42')
 
 INSERT RandomSafariPokemonRSE (pokemonName, safariArea,
 encounterMethod, gameVersion, encounterChance, levelRange)
