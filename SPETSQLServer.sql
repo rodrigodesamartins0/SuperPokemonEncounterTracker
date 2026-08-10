@@ -235,14 +235,18 @@ VALUES ('Azurill','Breeding','Sea Incense','Marill/Azumarill','Water1/Fairy')
 
 INSERT EvolutionPokemonRSE (pokemonName, encounterMethod,
 evolvesFrom, evolutionMethod, evolutionRequirement)
-VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Combusken','Evoltuion','Torchic','Level Up','Level 16'),('Marshtomp','Evoltuion','Mudkip','Level Up','Level 16'),('Sceptile',
-'Evoltuion','Grovyle','Level Up','Level 36'),('Blaziken','Evoltuion','Combusken','Level Up','Level 36'),('Swampert','Evoltuion','Marshtomp','Level Up','Level 36'),('Beautifly','Evoltuion',
-'Silcoon','Level Up','Level 10'),('Dustox','Evoltuion','Cascoon','Level Up','Level 10'),('Ludicolo','Evoltuion','Lombre','Item','Water Stone'),('Shiftry','Evoltuion','Nuzleaf','Item',
-'Leaf Stone'),('Kirlia','Evoltuion','Ralts','Level Up','Level 20'),('Gardevoir','Evoltuion','Kirlia','Level Up','Level 30'),('Masquerain','Evoltuion','Surskit','Level Up','Level 22'),
-('Breloom','Evoltuion','Shroomish','Level Up','Level 23'),('Vigoroth','Evoltuion','Slakoth','Level Up','Level 18'),('Slaking','Evoltuion','Vigoroth','Level Up','Level 36'),
-('Kadabra','Evoltuion','Abra','Level Up','Level 16'),('Alakazam','Evoltuion','Kadabra','Trade','Evolves upon trading'),('Ninjask','Evoltuion','Nincada','Level Up','Level 20'),
-('Ninjask','Evoltuion','Nincada','Level Up','Level 20 with space in party'),('Exploud','Evoltuion','Loudred','Level Up','Level 40'),('Azumarill','Evoltuion','Marill','Level Up','Level 18'),
-('Golem','Evoltuion','Graveler','Trade','Evolves upon trading'),('Delcatty','Evoltuion','Skitty','Item','Moon Stone'),('Crobat','Evolution','Golbat','Friendship','Level up with high friendship')
+VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Sceptile','Evoltuion','Grovyle','Level Up','Level 36'),('Combusken','Evoltuion','Torchic','Level Up','Level 16'),('Blaziken',
+'Evoltuion','Combusken','Level Up','Level 36'),('Marshtomp','Evoltuion','Mudkip','Level Up','Level 16'),('Swampert','Evoltuion','Marshtomp','Level Up','Level 36'),('Mightyena','Evoltuion',
+'Poochyena','Level Up','Level 18'),('Linoone','Evoltuion','Zigzagoon','Level Up','Level 20'),('Beautifly','Evoltuion','Silcoon','Level Up','Level 10'),('Dustox','Evoltuion','Cascoon','Level Up','Level 10'),
+('Lombre','Evoltuion','Lotad','Level Up','Level 14'),('Ludicolo','Evoltuion','Lombre','Item','Water Stone'),('Nuzleaf','Evoltuion','Seedot','Level Up','Level 14'),('Shiftry','Evoltuion','Nuzleaf','Item',
+'Leaf Stone'),('Swellow','Evoltuion','Taillow','Level Up','Level 22'),('Pelipper','Evoltuion','Wingull','Level Up','Level 25'),('Kirlia','Evoltuion','Ralts','Level Up','Level 20'),('Gardevoir','Evoltuion',
+'Kirlia','Level Up','Level 30'),('Masquerain','Evoltuion','Surskit','Level Up','Level 22'),('Breloom','Evoltuion','Shroomish','Level Up','Level 23'),('Vigoroth','Evoltuion','Slakoth','Level Up','Level 18'),
+('Slaking','Evoltuion','Vigoroth','Level Up','Level 36'),('Kadabra','Evoltuion','Abra','Level Up','Level 16'),('Alakazam','Evoltuion','Kadabra','Trade','Evolves upon trading'),('Ninjask','Evoltuion',
+'Nincada','Level Up','Level 20'),('Shedinja','Evoltuion','Nincada','Level Up','Level 20 with space in party'),('Loudred','Evoltuion','Whismur','Level Up','Level 20'),('Exploud','Evoltuion','Loudred',
+'Level Up','Level 40'),('Hariyama','Evoltuion','Makuhita','Level Up','Level 24'),('Seaking','Evoltuion','Goldeen','Level Up','Level 33'),('Gyarados','Evoltuion','Magikarp','Level Up','Level 20'),('Marill',
+'Evoltuion','Azurill','Friendship','Level up with high friendship'),('Azumarill','Evoltuion','Marill','Level Up','Level 18'),('Graveler','Evoltuion','Geodude','Level Up','Level 25'),('Golem','Evoltuion',
+'Graveler','Trade','Evolves upon trading'),('Delcatty','Evoltuion','Skitty','Item','Moon Stone'),('Golbat','Evoltuion','Zubat','Level Up','Level 22'),('Crobat','Evolution','Golbat','Friendship',
+'Level up with high friendship'),('Tentacruel','Evoltuion','Tentacool','Level Up','Level 30')
 
 INSERT RandomSafariPokemonRSE (pokemonName, safariArea,
 encounterMethod, gameVersion, encounterChance, levelRange)
