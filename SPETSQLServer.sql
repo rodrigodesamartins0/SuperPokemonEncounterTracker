@@ -124,17 +124,18 @@ VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','G
 ('Loudred','Desert Underpass','Cave','E','16%','38,40,44'),('Makuhita','Granite Cave 1F','Cave','RSE','50%','6-10'),('Makuhita','Granite Cave Steven Room','Cave','RSE','50%','6-10'),('Makuhita',
 'Granite Cave B1F','Cave','RSE','10%','10-11'),('Makuhita','Victory Road 1F','Cave','RSE','10%','36'),('Makuhita','Rustboro City','Trade Slakoth','RS','100%','Same as traded'),('Hariyama',
 'Victory Road 1F','Cave','RSE','25%','38,40'),('Hariyama','Victory Road B1F','Cave','RSE','35%','38,40,42'),('Goldeen','Route 102','Surfing','E','1%','20-30'),('Goldeen','Route 111','Surfing',
-'E','1%','20-30'),('Goldeen','Route 114','Surfing','E','1%','20-30'),('Goldeen','Route 117','Surfing','E','1%','20-30'),('Goldeen','Route 120','Surfing','E','1%','20-30'),('Magikarp','Sootopolis 
-City','Surfing','RSE','100%','5-35'),('Marill','Route 102','Surfing','RSE','99%','5-35'),('Marill','Route 104','Tall Grass','E','20%','4-5'),('Marill','Route 111','Surfing','RSE','99%','5-35'),
+'E','1%','20-30'),('Goldeen','Route 114','Surfing','E','1%','20-30'),('Goldeen','Route 117','Surfing','E','1%','20-30'),('Goldeen','Route 120','Surfing','E','1%','20-30'),('Magikarp','Sootopolis City',
+'Surfing','RSE','100%','5-35'),('Marill','Route 102','Surfing','RSE','99%','5-35'),('Marill','Route 104','Tall Grass','E','20%','4-5'),('Marill','Route 111','Surfing','RSE','99%','5-35'),
 ('Marill','Route 112','Tall Grass','E','25%','14-16'),('Marill','Route 114','Surfing','RSE','99%','5-35'),('Marill','Route 117','Surfing','RSE','99%','5-35'),('Marill','Route 117','Tall Grass',
 'RSE','10%','13'),('Marill','Route 120','Surfing','RSE','99%','5-35'),('Marill','Route 120','Long Grass','RSE','15%','25,27'),('Marill','Petalburg City','Surfing','RSE','100%','5-35'),('Geodude',
 'Route 111','Rock Smash','RSE','100%','5-20'),('Geodude','Route 114','Rock Smash','RSE','100%','5-20'),('Geodude','Victory Road B1F','Rock Smash','RSE','30%','30-40'),('Geodude','Granite Cave 1F',
-'Cave','RSE','10%','6-9'),('Geodude','Granite Cave B2F','Rock Smash','RSE','70%','5-20'),('Geodude','Magma Hideout','Cave','E','55%','27-30'),('Nosepass','Granite Cave B2F','Rock Smash','RSE','30%',
-'10-20'),('Skitty','Route 116','Tall Grass','RSE','2%','7-8'),('Skitty','Fortree City','Trade Pikachu','RSE','100%','Same as traded'),('Zubat','Cave of Origin Entrance','Cave','RSE','90%','28-35'),
-('Zubat','Cave of Origin 1F','Cave','RSE','60%','30-34'),('Zubat','Cave of Origin B1F','Cave','RSE','60%','30-34'),('Zubat','Cave of Origin B2F','Cave','RSE','60%','30-34'),('Zubat','Cave of Origin
-B3F','Cave','RSE','60%','30-34'),('Zubat','Granite Cave 1F','Cave','RSE','30%','7-8'),('Zubat','Granite Cave Steven Room','Cave','RSE','30%','7-8'),('Zubat','Granite Cave B1F','Cave','RSE','30%',
-'9-10'),('Zubat','Granite Cave B2F','Cave','RSE','30%','10-11'),('Zubat','Victory Road 1F','Cave','RSE','10%','36'),('Zubat','Meteor Falls 1F1R','Cave','RSE','80%','14-20'),('Zubat','Meteor Falls
-1F1R','Surfing','RSE','90%','5-35'),('Zubat','Seafloor Cavern','Cave','RSE','90%','28-35'),('Zubat','Seafloor Cavern','Surfing','RSE','35%','5-35'),('Zubat','Shoal Cave Main','Cave','RSE','45%',
+'Cave','RSE','10%','6-9'),('Geodude','Granite Cave B2F','Rock Smash','RSE','70%','5-20'),('Geodude','Magma Hideout','Cave','E','55%','27-30'),('Graveler','Victory Road B1F','Rock Smash','RSE','70%',
+'30-40'),('Graveler','Magma Hideout','Cave','E','15%','30-33'),('Nosepass','Granite Cave B2F','Rock Smash','RSE','30%','10-20'),('Skitty','Route 116','Tall Grass','RSE','2%','7-8'),
+('Skitty','Fortree City','Trade Pikachu','RSE','100%','Same as traded'),('Zubat','Cave of Origin Entrance','Cave','RSE','90%','28-35'),('Zubat','Cave of Origin 1F','Cave','RSE','60%',
+'30-34'),('Zubat','Cave of Origin B1F','Cave','RSE','60%','30-34'),('Zubat','Cave of Origin B2F','Cave','RSE','60%','30-34'),('Zubat','Cave of OriginB3F','Cave','RSE','60%','30-34'),('Zubat',
+'Granite Cave 1F','Cave','RSE','30%','7-8'),('Zubat','Granite Cave Steven Room','Cave','RSE','30%','7-8'),('Zubat','Granite Cave B1F','Cave','RSE','30%','9-10'),('Zubat','Granite Cave B2F',
+'Cave','RSE','30%','10-11'),('Zubat','Victory Road 1F','Cave','RSE','10%','36'),('Zubat','Meteor Falls 1F1R','Cave','RSE','80%','14-20'),('Zubat','Meteor Falls 1F1R',
+'Surfing','RSE','90%','5-35'),('Zubat','Seafloor Cavern','Cave','RSE','90%','28-35'),('Zubat','Seafloor Cavern','Surfing','RSE','35%','5-35'),('Zubat','Shoal Cave Main','Cave','RSE','45%',
 '26,28,30,32'),('Zubat','Shoal Cave Main','Surfing','RSE','30%','5-35'),('Zubat','Shoal Cave Ice','Cave','RSE','40%','26,28,30'),('Zubat','Altering Cave','Cave','E','100%','6,8,10,12,14,16'),
 ('Golbat','Meteor Falls 1F2R','Cave','RSE','65%','33,35,38,40'),('Golbat','Meteor Falls B1F1R','Cave','RSE','65%','33,35,38,40'),('Golbat','Meteor Falls 1F2R','Surfing','RSE','90%','30-35'),
 ('Golbat','Meteor Falls B1F1R','Surfing','RSE','90%','30-35'),('Golbat','Meteor Falls B1F2R','Cave','RSE','50%','33,35,38,40'),('Golbat','Meteor Falls B1F2R','Surfing','RSE','90%','30-35'),
@@ -144,7 +145,19 @@ B3F','Cave','RSE','60%','30-34'),('Zubat','Granite Cave 1F','Cave','RSE','30%','
 'Cave of Origin B1F','Cave','RSE','10%','33-36'),('Golbat','Cave of Origin B2F','Cave','RSE','10%','33-36'),('Golbat','Cave of Origin B3F','Cave','RSE','10%','33-36'),('Golbat','Shoal 
 Cave Main','Cave','RSE','5%','32'),('Golbat','Shoal Cave Ice','Cave','RSE','5%','30,32'),('Golbat','Sky Pillar 1F','Walking','RS','30%','48,50'),('Golbat','Sky Pillar 1F','Walking','E',
 '30%','34,35'),('Golbat','Sky Pillar 3F','Walking','RS','30%','51,53'),('Golbat','Sky Pillar 3F','Walking','E','30%','34,35'),('Golbat','Sky Pillar 5F','Walking','RS','30%','54-56'),
-('Golbat','Sky Pillar 5F','Walking','E','30%','34,35')
+('Golbat','Sky Pillar 5F','Walking','E','30%','34,35'),('Tentacool','Route 128','Surfing','RSE','60%','5-35'),('Tentacool','Ever Grande City','Surfing','RSE','60%','5-35'),
+('Tentacool','Abandoned Ship','Surfing','RSE','99%','5-35'),('Tentacool','Route 103','Surfing','RSE','60%','5-35'),('Tentacool','Route 105','Surfing','RSE','60%','5-35'),('Tentacool',
+'Route 106','Surfing','RSE','60%','5-35'),('Tentacool','Route 107','Surfing','RSE','60%','5-35'),('Tentacool','Route 108','Surfing','RSE','60%','5-35'),('Tentacool','Route 109',
+'Surfing','RSE','60%','5-35'),('Tentacool','Route 110','Surfing','RSE','60%','5-35'),('Tentacool','Route 115','Surfing','RSE','60%','5-35'),('Tentacool','Route 118','Surfing','RSE',
+'60%','5-35'),('Tentacool','Route 119','Surfing','RSE','60%','5-35'),('Tentacool','Route 121','Surfing','RSE','60%','5-35'),('Tentacool','Route 122','Surfing','RSE','60%','5-35'),
+('Tentacool','Route 123','Surfing','RSE','60%','5-35'),('Tentacool','Route 124','Surfing','RSE','60%','5-35'),('Tentacool','Route 125','Surfing','RSE','60%','5-35'),('Tentacool',
+'Route 126','Surfing','RSE','60%','5-35'),('Tentacool','Route 127','Surfing','RSE','60%','5-35'),('Tentacool','Route 129','Surfing','RSE','60%','5-35'),('Tentacool','Route 130',
+'Surfing','RSE','60%','5-35'),('Tentacool','Route 131','Surfing','RSE','60%','5-35'),('Tentacool','Route 132','Surfing','RSE','60%','5-35'),('Tentacool','Route 133','Surfing',
+'RSE','60%','5-35'),('Tentacool','Route 134','Surfing','RSE','60%','5-35'),('Tentacool','Slateport City','Surfing','RSE','60%','5-35'),('Tentacool','Pacifidlog Town','Surfing',
+'RSE','60%','5-35'),('Tentacool','Mossdeep City','Surfing','RSE','60%','5-35'),('Tentacool','Lilycove City','Surfing','RSE','60%','5-35'),('Tentacool','Dewford Town','Surfing',
+'RSE','60%','5-35'),('Tentacool','Shoal Cave Main','Surfing','RSE','60%','5-35'),('Tentacool','Seafloor Cavern','Surfing','RSE','60%','5-35'),('Tentacruel','Abandoned Ship','Surfing',
+'RSE','1%','30-35')
+
 
 
 INSERT FishingPokemonRSE (pokemonName, encounterLocation, 
@@ -184,7 +197,28 @@ VALUES ('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),('Goldeen','Route 10
 'Meteor Falls B1F1R','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls B1F2R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls B1F2R','Good Rod','RSE','60%','10-30'),('Magikarp',
 'Seafloor Cavern','Old Rod','RSE','70%','5-10'),('Magikarp','Seafloor Cavern','Good Rod','RSE','60%','10-30'),('Magikarp','Victory Road B2F','Old Rod','RSE','70%','5-10'),('Magikarp','Victory Road B2F',
 'Good Rod','RSE','60%','10-30'),('Magikarp','Mossdeep City','Old Rod','RSE','70%','5-10'),('Magikarp','Mossdeep City','Good Rod','RSE','60%','10-30'),('Gyarados','Sootopolis City','Super Rod','RSE',
-'20%','5-45'),('Graveler','Victory Road B1F','Rock Smash','RSE','70%','30-40'),('Geodude','Magma Hideout','Cave','E','15%','30-33')
+'20%','5-45'),('Tentacool','Route 128','Old Rod','RSE','30%','5-10'),('Tentacool','Ever Grande City','Old Rod','RSE','30%','5-10'),('Tentacool','Sootopolis City','Old Rod','SE','30%','5-10'),('Tentacool',
+'Abandoned Ship','Old Rod','RSE','30%','5-10'),('Tentacool','Abandoned Ship','Good Rod','RSE','40%','10-30'),('Tentacool','Abandoned Ship','Super Rod','RSE','80%','25-35'),('Tentacool','Route 103','Old Rod',
+'RSE','30%','5-10'),('Tentacool','Route 103','Good Rod','RSE','20%','10-30'),('Tentacool','Route 105','Old Rod','RSE','30%','5-10'),('Tentacool','Route 105','Good Rod','RSE','20%','10-30'),('Tentacool',
+'Route 106','Old Rod','RSE','30%','5-10'),('Tentacool','Route 106','Good Rod','RSE','20%','10-30'),('Tentacool','Route 107','Old Rod','RSE','30%','5-10'),('Tentacool','Route 107','Good Rod',
+'RSE','20%','10-30'),('Tentacool','Route 108','Old Rod','RSE','30%','5-10'),('Tentacool','Route 108','Good Rod','RSE','20%','10-30'),('Tentacool','Route 109','Old Rod','RSE','30%','5-10'),
+('Tentacool','Route 109','Good Rod','RSE','20%','10-30'),('Tentacool','Route 110','Old Rod','RSE','30%','5-10'),('Tentacool','Route 110','Good Rod','RSE','20%','10-30'),('Tentacool','Route 115',
+'Old Rod','RSE','30%','5-10'),('Tentacool','Route 115','Good Rod','RSE','20%','10-30'),('Tentacool','Route 118','Old Rod','RSE','30%','5-10'),('Tentacool','Route 118','Good Rod','RSE','20%','10-30'),
+('Tentacool','Route 119','Old Rod','RSE','30%','5-10'),('Tentacool','Route 119','Good Rod','RSE','20%','10-30'),('Tentacool','Route 121','Old Rod','RSE','30%','5-10'),('Tentacool','Route 121','Good Rod',
+'RSE','20%','10-30'),('Tentacool','Route 122','Old Rod','RSE','30%','5-10'),('Tentacool','Route 122','Good Rod','RSE','20%','10-30'),('Tentacool','Route 123','Old Rod','RSE','30%','5-10'),('Tentacool',
+'Route 123','Good Rod','RSE','20%','10-30'),('Tentacool','Route 124','Old Rod','RSE','30%','5-10'),('Tentacool','Route 124','Good Rod','RSE','20%','10-30'),('Tentacool','Route 125','Old Rod','RSE','30%',
+'5-10'),('Tentacool','Route 125','Good Rod','RSE','20%','10-30'),('Tentacool','Route 126','Old Rod','RSE','30%','5-10'),('Tentacool','Route 126','Good Rod','RSE','20%','10-30'),('Tentacool','Route 127',
+'Old Rod','RSE','30%','5-10'),('Tentacool','Route 127','Good Rod','RSE','20%','10-30'),('Tentacool','Route 129','Old Rod','RSE','30%','5-10'),('Tentacool','Route 129','Good Rod','RSE','20%','10-30'),
+('Tentacool','Route 130','Old Rod','RSE','30%','5-10'),('Tentacool','Route 130','Good Rod','RSE','20%','10-30'),('Tentacool','Route 131','Old Rod','RSE','30%','5-10'),('Tentacool','Route 131','Good Rod',
+'RSE','20%','10-30'),('Tentacool','Route 132','Old Rod','RSE','30%','5-10'),('Tentacool','Route 132','Good Rod','RSE','20%','10-30'),('Tentacool','Route 133','Old Rod','RSE','30%','5-10'),('Tentacool',
+'Route 133','Good Rod','RSE','20%','10-30'),('Tentacool','Route 134','Old Rod','RSE','30%','5-10'),('Tentacool','Route 134','Good Rod','RSE','20%','10-30'),('Tentacool','Slateport City','Old Rod','RSE',
+'30%','5-10'),('Tentacool','Slateport City','Good Rod','RSE','20%','10-30'),('Tentacool','Pacifidlog Town','Old Rod','RSE','30%','5-10'),('Tentacool','Pacifidlog Town','Good Rod','RSE','20%','10-30'),
+('Tentacool','Mossdeep City','Old Rod','RSE','30%','5-10'),('Tentacool','Mossdeep City','Good Rod','RSE','20%','10-30'),('Tentacool','Lilycove City','Old Rod','RSE','30%','5-10'),('Tentacool','Lilycove City',
+'Good Rod','RSE','20%','10-30'),('Tentacool','Dewford Town','Old Rod','RSE','30%','5-10'),('Tentacool','Dewford Town','Good Rod','RSE','20%','10-30'),('Tentacool','Shoal Cave Main','Old Rod','RSE','30%',
+'5-10'),('Tentacool','Shoal Cave Main','Good Rod','RSE','20%','10-30'),('Tentacool','Seafloor Cavern','Old Rod','RSE','30%','5-10'),('Tentacool','Seafloor Cavern','Good Rod','RSE','20%','10-30'),
+('Tentacruel','Abandoned Ship','Super Rod','RSE','20%','20-35')
+
+
 
 INSERT FishingSafariPokemonRSE (pokemonName, safariArea,
 rodType, gameVersion, encounterChance, levelRange)
