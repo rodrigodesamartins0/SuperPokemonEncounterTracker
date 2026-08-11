@@ -169,7 +169,19 @@ Cave Main','Cave','RSE','5%','32'),('Golbat','Shoal Cave Ice','Cave','RSE','5%',
 'Victory Road B2F','Cave','RS','15%','40,42,44'),('Lairon','Victory Road B2F','Cave','E','25%','40,42,44'),('Machop','Route 112','Tall Grass','RS','25%','14-16'),('Machop','Fiery Path',
 'Cave','RSE','15%','15,16'),('Machop','Jagged Pass','Tall Grass','R','25%','18-20'),('Machop','Jagged Pass','Tall Grass','SE','25%','20-22'),('Meditite','Mt.Pyre Exterior','Tall Grass',
 'RS','30%','27,29'),('Meditite','Victory Road B1F','Cave','RS','5%','38'),('Medicham','Victory Road B1F','Cave','RS','10%','40'),('Medicham','Victory Road B2F','Cave','RS','15%','40,42,44'),
-('Electrike','Route 110','Tall Grass','RSE','30%','12,13'),('Electrike','Route 118','Tall Grass','RSE','30%','24,26'),('Manectric','Route 118','Tall Grass','RSE','10%','26')
+('Electrike','Route 110','Tall Grass','RSE','30%','12,13'),('Electrike','Route 118','Tall Grass','RSE','30%','24,26'),('Manectric','Route 118','Tall Grass','RSE','10%','26'),
+('Plusle','Route 110','Tall Grass','RE','2%','12,13'),('Plusle','Route 110','Tall Grass','S','15%','13'),('Plusle','Fortree City','Trade Volbeat','E','100%','Same as traded'),
+('Minun','Route 110','Tall Grass','RE','15%','13'),('Minun','Route 110','Tall Grass','S','2%','12,13'),('Magnemite','New Mauville','Entrance','RSE','50%','22-26'),('Magnemite','New Mauville',
+'Basement','RSE','49%','22-26'),('Magneton','New Mauville','Basement','RSE','1%','26'),('Voltorb','New Mauville','Entrance','RSE','50%','22-26'),('Voltorb','New Mauville','Basement','RSE',
+'49%','22-26'),('Electrode','New Mauville','Basement','RSE','1%','26'),('Electrode','Team Magma Hideout','Static','R','100%','30'),('Electrode','Team Magma Hideout','Static','R','100%','30'),
+('Electrode','Team Aqua Hideout','Static','SE','100%','30'),('Electrode','Team Aqua Hideout','Static','SE','100%','30'),('Volbeat','Route 117','Tall Grass','RE','1%','13'),('Volbeat','Route 117',
+'Tall Grass','S','18%','13,14'),('Illumise','Route 117','Tall Grass','RE','18%','13-14'),('Illumise','Route 117','Tall Grass','S','1%','13'),('Oddish','Route 110','Tall Grass','RSE','10%','13'),
+('Oddish','Route 117','Tall Grass','RS','10%','13'),('Oddish','Route 117','Tall Grass','E','40%','13,14'),('Oddish','Route 119','Long Grass','RSE','30%','24-27'),('Oddish','Route 120','Long Grass',
+'RSE','25%','25-27'),('Oddish','Route 121','Tall Grass','RSE','15%','26,28'),('Oddish','Route 123','Tall Grass','RSE','15%','26,28'),('Gloom','Route 121','Tall Grass','RSE','5%','28'),('Gloom',
+'Route 123','Tall Grass','RSE','5%','28'),('Roselia','Route 117','Tall Grass','RS','30%','13,14'),('Gulpin','Route 110','Tall Grass','RSE','15%','12,13'),('Wailord','Route 129','Surfing','R','1%',
+'35-40'),('Wailord','Route 129','Surfing','SE','1%','25-30')
+
+
 
 INSERT FishingPokemonRSE (pokemonName, encounterLocation, 
 rodType, gameVersion, encounterChance, levelRange)
@@ -227,7 +239,29 @@ VALUES ('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),('Goldeen','Route 10
 ('Tentacool','Mossdeep City','Old Rod','RSE','30%','5-10'),('Tentacool','Mossdeep City','Good Rod','RSE','20%','10-30'),('Tentacool','Lilycove City','Old Rod','RSE','30%','5-10'),('Tentacool','Lilycove City',
 'Good Rod','RSE','20%','10-30'),('Tentacool','Dewford Town','Old Rod','RSE','30%','5-10'),('Tentacool','Dewford Town','Good Rod','RSE','20%','10-30'),('Tentacool','Shoal Cave Main','Old Rod','RSE','30%',
 '5-10'),('Tentacool','Shoal Cave Main','Good Rod','RSE','20%','10-30'),('Tentacool','Seafloor Cavern','Old Rod','RSE','30%','5-10'),('Tentacool','Seafloor Cavern','Good Rod','RSE','20%','10-30'),
-('Tentacruel','Abandoned Ship','Super Rod','RSE','20%','20-35')
+('Tentacruel','Abandoned Ship','Super Rod','RSE','20%','20-35'),('Carvanha','Route 118','Good Rod','RSE','20%','10-30'),('Carvanha','Route 118','Super Rod','RSE','60%','20-25,30-45'),('Carvanha','Route 119',
+'Good Rod','RSE','20%','10-30'),('Carvanha','Route 119','Super Rod','RSE','100%','20-45'),('Sharpedo','Route 103','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 118','Super Rod','RSE','40%','30-35'),
+('Sharpedo','Route 122','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 124','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 125','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 126','Super Rod',
+'RSE','40%','30-35'),('Sharpedo','Route 127','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 129','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 130','Super Rod','RSE','40%','30-35'),('Sharpedo',
+'Route 131','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 132','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 133','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 134','Super Rod','RSE','40%',
+'30-35'),('Sharpedo','Mossdeep City','Super Rod','RSE','40%','30-35'),('Sharpedo','Pacifidlog Town','Super Rod','RSE','40%','30-35'),('Wailmer','Route 103','Good Rod','RSE','20%','10-30'),('Wailmer','Route 103',
+'Super Rod','RSE','60%','25-45'),('Wailmer','Route 105','Good Rod','RSE','20%','10-30'),('Wailmer','Route 105','Super Rod','RSE','100%','20-45'),('Wailmer','Route 106','Good Rod','RSE','20%','10-30'),
+('Wailmer','Route 106','Super Rod','RSE','100%','20-45'),('Wailmer','Route 107','Good Rod','RSE','20%','10-30'),('Wailmer','Route 107','Super Rod','RSE','100%','20-45'),('Wailmer','Route 108','Good Rod','RSE',
+'20%','10-30'),('Wailmer','Route 108','Super Rod','RSE','100%','20-45'),('Wailmer','Route 109','Good Rod','RSE','20%','10-30'),('Wailmer','Route 109','Super Rod','RSE','100%','20-45'),('Wailmer','Route 110',
+'Good Rod','RSE','20%','10-30'),('Wailmer','Route 110','Super Rod','RSE','100%','20-45'),('Wailmer','Route 115','Good Rod','RSE','20%','10-30'),('Wailmer','Route 115','Super Rod','RSE','100%','20-45'),
+('Wailmer','Route 121','Good Rod','RSE','20%','10-30'),('Wailmer','Route 121','Super Rod','RSE','100%','20-45'),('Wailmer','Route 122','Good Rod','RSE','20%','10-30'),('Wailmer','Route 122','Super Rod','RSE',
+'60%','25-45'),('Wailmer','Route 123','Good Rod','RSE','20%','10-30'),('Wailmer','Route 123','Super Rod','RSE','100%','20-45'),('Wailmer','Route 124','Good Rod','RSE','20%','10-30'),('Wailmer','Route 124',
+'Super Rod','RSE','60%','25-45'),('Wailmer','Route 125','Good Rod','RSE','20%','10-30'),('Wailmer','Route 125','Super Rod','RSE','60%','25-45'),('Wailmer','Route 126','Good Rod','RSE','20%','10-30'),
+('Wailmer','Route 126','Super Rod','RSE','60%','25-45'),('Wailmer','Route 127','Good Rod','RSE','20%','10-30'),('Wailmer','Route 127','Super Rod','RSE','60%','25-45'),('Wailmer','Route 128','Good Rod','RSE',
+'20%','10-30'),('Wailmer','Route 128','Super Rod','RSE','45%','30-45'),('Wailmer','Route 129','Good Rod','RSE','20%','10-30'),('Wailmer','Route 129','Super Rod','RSE','60%','25-45'),('Wailmer','Route 130',
+'Good Rod','RSE','20%','10-30'),('Wailmer','Route 130','Super Rod','RSE','60%','25-45'),('Wailmer','Route 131','Good Rod','RSE','20%','10-30'),('Wailmer','Route 131','Super Rod','RSE','60%','25-45'),('Wailmer',
+'Route 132','Good Rod','RSE','20%','10-30'),('Wailmer','Route 132','Super Rod','RSE','45%','30-45'),('Wailmer','Route 133','Good Rod','RSE','20%','10-30'),('Wailmer','Route 133','Super Rod','RSE','45%','30-45'),
+('Wailmer','Route 134','Good Rod','RSE','20%','10-30'),('Wailmer','Route 134','Super Rod','RSE','45%','30-45'),('Wailmer','Dewford Town','Good Rod','RSE','20%','10-30'),('Wailmer','Dewford Town','Super Rod','RSE',
+'100%','20-45'),('Wailmer','Ever Grande City','Good Rod','RSE','20%','10-30'),('Wailmer','Ever Grande City','Super Rod','RSE','45%','30-45'),('Wailmer','Lilycove City','Good Rod','RSE','20%','10-30'),('Wailmer',
+'Lilycove City','Super Rod','RSE','85%','25-45'),('Wailmer','Mossdeep City','Good Rod','RSE','20%','10-30'),('Wailmer','Mossdeep City','Super Rod','RSE','60%','25-45'),('Wailmer','Pacifidlog Town','Good Rod','RSE',
+'20%','10-30'),('Wailmer','Pacifidlog Town','Super Rod','RSE','60%','25-45'),('Wailmer','Seafloor Cavern','Good Rod','RSE','20%','10-30'),('Wailmer','Route 105','Seafloor Cavern','RSE','100%','20-45'),('Wailmer',
+'Shoal Cave','Good Rod','RSE','20%','10-30'),('Wailmer','Shoal Cave','Super Rod','RSE','100%','20-45'),('Wailmer','Slateport City','Good Rod','RSE','20%','10-30'),('Wailmer','Slateport City','Super Rod','RSE','100%',
+'20-45')
 
 INSERT FishingSafariPokemonRSE (pokemonName, safariArea,
 rodType, gameVersion, encounterChance, levelRange)
@@ -257,11 +291,19 @@ VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Sceptile','Evol
 'Graveler','Trade','Evolves upon trading'),('Delcatty','Evoltuion','Skitty','Item','Moon Stone'),('Golbat','Evoltuion','Zubat','Level Up','Level 22'),('Crobat','Evolution','Golbat','Friendship',
 'Level up with high friendship'),('Tentacruel','Evoltuion','Tentacool','Level Up','Level 30'),('Lairon','Evolution','Aron','Level Up','Level 32'),('Aggron','Evolution','Lairon','Level Up','Level 42'),
 ('Machoke','Evolution','Machop','Level Up','Level 28'),('Machamp','Evolution','Machoke','Trade','Evolves upon trading'),('Medicham','Evolution','Meditite','Level Up','Level 37'),('Manectric','Evolution',
-'Electrike','Level Up','Level 26')
+'Electrike','Level Up','Level 26'),('Magneton','Evolution','Magnemite','Level Up','Level 30'),('Electrode','Evolution','Voltorb','Level Up','Level 30'),('Gloom','Evolution','Oddish','Level Up','Level 21'),
+('Vileplume','Evoltuion','Gloom','Item','Leaf Stone'),('Bellossom','Evoltuion','Nuzleaf','Item','Sun Stone'),('Dodrio','Evolution','Doduo','Level Up','Level 31'),('Swalot','Evolution','Gulpin','Level Up',
+'Level 26'),('Sharpedo','Evolution','Carvanha','Level Up','Level 30'),('Wailord','Evolution','Wailmer','Level Up','Level 40')
+
+
 
 INSERT RandomSafariPokemonRSE (pokemonName, safariArea,
 encounterMethod, gameVersion, encounterChance, levelRange)
-VALUES ('Marill','Area 5-East','Surfing','E','39%','5-35'),('Geodude','Area 4-North','Rock Smash','RSE','100%','5-30')
+VALUES ('Marill','Area 5-East','Surfing','E','39%','5-35'),('Geodude','Area 4-North','Rock Smash','RSE','100%','5-30'),('Oddish','Area 1-Central','Tall Grass','RSE','40%','25,27'),('Oddish','Area 2-West',
+'Tall Grass','RSE','40%','25,27'),('Oddish','Area 3-Northwest','Tall Grass','RSE','30%','27,29'),('Oddish','Area 4-North','Tall Grass','RSE','30%','27,29'),('Gloom','Area 1-Central','Tall Grass','RSE',
+'5%','25'),('Gloom','Area 2-West','Tall Grass','RSE','5%','25'),('Gloom','Area 3-Northwest','Tall Grass','RSE','15%','29,31'),('Gloom','Area 4-North','Tall Grass','RSE','15%','29,31'),('Doduo',
+'Area 1-Central','Tall Grass','RSE','10%','25'),('Doduo','Area 2-West','Tall Grass','R','10%','25'),('Doduo','Area 2-West','Tall Grass','SE','10%','27'),('Doduo','Area 3-Northwest','Tall Grass','RSE',
+'15%','27,29'),('Dodrio','Area 3-Northwest','Tall Grass','RSE','5%','29,31')
 
 SELECT (pokemonName) as Pokémon, (safariArea) as Área, (encounterMethod) as Método, (gameVersion) as Versão, (encounterChance) as Chance,
 (levelRange) as Level_Range FROM RandomSafariPokemonRSE
