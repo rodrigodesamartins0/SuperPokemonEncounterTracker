@@ -88,7 +88,17 @@ VALUES ('Bulbasaur'),('Ivysaur'),('Venusaur'),('Charmander'),('Charmeleon'),('Ch
 ('Cacturne'),('Swablu'),('Altaria'),('Zangoose'),('Seviper'),('Lunatone'),('Solrock'),('Barboach'),('Whiscash'),('Corphish'),('Crawdaunt'),('Baltoy'),('Claydol'),('Lileep'),
 ('Cradily'),('Anorith'),('Armaldo'),('Feebas'),('Milotic'),('Castform'),('Kecleon'),('Shuppet'),('Banette'),('Duskull'),('Dusclops'),('Tropius'),('Chimecho'),('Absol'),
 ('Wynaut'),('Snorunt'),('Glalie'),('Spheal'),('Sealeo'),('Walrein'),('Clamperl'),('Huntail'),('Gorebyss'),('Relicanth'),('Luvdisc'),('Bagon'),('Shelgon'),('Salamence'),
-('Beldum'),('Metang'),('Metagross'),('Regirock'),('Regice'),('Registeel'),('Latias'),('Latios'),('Kyogre'),('Groudon'),('Rayquaza'),('Jirachi'),('Deoxys')
+('Beldum'),('Metang'),('Metagross'),('Regirock'),('Regice'),('Registeel'),('Latias'),('Latios'),('Kyogre'),('Groudon'),('Rayquaza'),('Jirachi'),('Deoxys'),('Turtwig'),
+('Grotle'),('Torterra'),('Chimchar'),('Monferno'),('Infernape'),('Piplup'),('Prinplup'),('Empoleon'),('Starly'),('Staravia'),('Staraptor'),('Bidoof'),('Bibarel'),
+('Kricketot'),('Kricketune'),('Shinx'),('Luxio'),('Luxray'),('Budew'),('Roserade'),('Cranidos'),('Rampardos'),('Shieldon'),('Bastiodon'),('Burmy'),('Wormadam'),('Mothim'),
+('Combee'),('Vespiquen'),('Pachirisu'),('Buizel'),('Floatzel'),('Cherubi'),('Cherrim'),('Shellos'),('Gastrodon'),('Ambipom'),('Drifloon'),('Drifblim'),('Buneary'),('Lopunny'),
+('Mismagius'),('Honchkrow'),('Glameow'),('Purugly'),('Chingling'),('Stunky'),('Skuntank'),('Bronzor'),('Bronzong'),('Bonsly'),('MimeJr.'),('Happiny'),('Chatot'),('Spiritomb'),
+('Gible'),('Gabite'),('Garchomp'),('Munchlax'),('Riolu'),('Lucario'),('Hippopotas'),('Hippowdon'),('Skorupi'),('Drapion'),('Croagunk'),('Toxicroak'),('Carnivine'),('Finneon'),
+('Lumineon'),('Mantyke'),('Snover'),('Abomasnow'),('Weavile'),('Magnezone'),('Lickilicky'),('Rhyperior'),('Tangrowth'),('Electivire'),('Magmortar'),('Togekiss'),('Yanmega'),
+('Leafeon'),('Glaceon'),('Gliscor'),('Mamoswine'),('PorygonZ'),('Gallade'),('Probopass'),('Dusknoir'),('Froslass'),('Rotom'),('Uxie'),('Mesprit'),('Azelf'),('Dialga'),('Palkia'),
+('Heatran'),('Regigigas'),('Giratina'),('Cresselia'),('Phione'),('Manaphy'),('Darkrai'),('Shaymin'),('Arceus')
+
+
 
 INSERT LocationsHoenn (locationName)
 VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('Route 106'),('Route 107'),('Route 108'),('Route 109'),('Route 110'),('Route 111'),('Route 112'),('Route 113'),
