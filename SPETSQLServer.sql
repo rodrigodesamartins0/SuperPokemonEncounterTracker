@@ -11,6 +11,87 @@ CREATE DATABASE SPET
 GO
 USE SPET
 GO
+CREATE TABLE LocationsHoenn
+(
+	locationID INT IDENTITY (1,1)
+		CONSTRAINT LOC_HOENN PRIMARY KEY,
+	locationName VARCHAR (50)
+)
+GO
+CREATE TABLE NationalDex
+(
+	nationalDexNumber INT IDENTITY (1,1)
+		CONSTRAINT PKMN_DEX PRIMARY KEY,
+	pokemonName VARCHAR (50)
+)
+GO
+CREATE TABLE EncounterMethods
+(
+	encounterID INT IDENTITY (1,1)
+		CONSTRAINT ENC_METHOD PRIMARY KEY,
+	encounterMethod VARCHAR (50)
+)
+GO
+CREATE TABLE GameVersion 
+(
+	gameVerID INT IDENTITY (1,1)
+		CONSTRAINT GAME_VER PRIMARY KEY,
+	gameVersion VARCHAR (50)
+)
+GO
+CREATE TABLE FishingRod
+(
+	fishingRodID INT IDENTITY (1,1)
+		CONSTRAINT FISH_ROD PRIMARY KEY,
+	fishingRodType VARCHAR (50)
+)
+GO
+CREATE TABLE EvolutionMethod 
+(
+	evolutionID INT IDENTITY (1,1)
+		CONSTRAINT EVO_METHOD PRIMARY KEY,
+	evolutionMethod VARCHAR (50)
+)
+GO
+CREATE TABLE HoennSafari
+(
+	safariAreaID INT IDENTITY (1,1)
+		CONSTRAINT SAF_HOENN PRIMARY KEY,
+	safariArea VARCHAR (50)
+)
+
+INSERT LocationsHoenn (locationName)
+VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('Route 106'),('Route 107'),('Route 108'),('Route 109'),('Route 110'),('Route 111'),('Route 112'),('Route 113'),
+('Route 114'),('Route 115'),('Route 116'),('Route 117'),('Route 118'),('Route 119'),('Route 120'),('Route 121'),('Route 122'),('Route 123'),('Route 124'),('Route 125'),('Route 126'),
+('Route 127'),('Route 128'),('Route 129'),('Route 130'),('Route 131'),('Route 132'),('Route 133'),('Route 134'),('Abandoned Ship'),('Altering Cave'),('Artisan Cave'),('Battle Resort'),
+('Battle Tower'),('Birth Island'),('Cave of Origin 1F'),('Cave of Origin B1F'),('Cave of Origin B2F'),('Cave of Origin B3F'),('Cave of Origin B4F'),('Desert Underpass'),('Dewford Town'),
+('Ever Grande City'),('Faraway Island'),('Fiery Path'),('Fortree City'),('Granite Cave 1F'),('Granite Cave Steven Room'),('Granite Cave B1F'),('Granite Cave B2F'),('Jagged Pass'),
+('Lilycove City'),('Littleroot Town'),('Marine Cave'),('Meteor Falls 1F1R'),('Meteor Falls 1F2R'),('Meteor Falls B1F1R'),('Meteor Falls B1F2R'),
+('Meteor Falls Steven Cave'),('Mirage Island'),('Mirage Spots'),('Mirage Tower'),('Mossdeep City'),('Mt Pyre Exterior'),('Mt Pyre Interior'),('Mt Pyre Summit'),
+('New Mauville Entrance'),('New Mauville Basement'),('Pacifidlog Town'),('Petalburg City'),('Petalburg Woods'),('Roaming Hoenn'),('Rustboro City'),('Rusturf Tunnel'),('Scorched Slab'),
+('Sea Mauville'),('Seafloor Cavern'),('Sealed Chamber'),('Shoal Cave Main'),('Shoal Cave Ice'),('Sky Pillar 1F'),('Sky Pillar 3F'),('Sky Pillar 5F'),('Slaterport City'),('Sootopolis City'),
+('Southern Island'),('Team Magma Hideout'),('Team Aqua Hideout'),('Terra Cave'),('Victory Road 1F'),('Victory Road B1F'),('Victory Road B2F')
+
+INSERT EncounterMethods (encounterMethod)
+VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gift')
+
+INSERT GameVersion (gameVersion)
+VALUES ('RSE'),('RS'),('RE'),('SE'),('R'),('S'),('E')
+
+INSERT FishingRod (fishingRodType)
+VALUES ('Old Rod'),('Good Rod'),('Super Rod')
+
+INSERT HoennSafari (safariArea)
+VALUES ('Area 1-Central'),('Area 2-West'),('Area 3-Northwest'),('Area 4-North'),('Area 5-East'),('Area 6-Northeast')
+
+SELECT * FROM HoennSafari
+SELECT * FROM FishingRod
+SELECT * FROM GameVersion
+SELECT * FROM EncounterMethods
+SELECT * FROM LocationsHoenn
+
+
+GO
 CREATE TABLE RandomPokemonRSE
 (
 	pokemonName VARCHAR (50),
@@ -69,7 +150,6 @@ CREATE TABLE EvolutionPokemonRSE
 	evolutionRequirement VARCHAR (50),	
 )
 GO
-
 
 INSERT RandomPokemonRSE (pokemonName, encounterLocation, 
 encounterMethod, gameVersion, encounterChance, levelRange)
@@ -294,8 +374,6 @@ VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Sceptile','Evol
 'Electrike','Level Up','Level 26'),('Magneton','Evolution','Magnemite','Level Up','Level 30'),('Electrode','Evolution','Voltorb','Level Up','Level 30'),('Gloom','Evolution','Oddish','Level Up','Level 21'),
 ('Vileplume','Evoltuion','Gloom','Item','Leaf Stone'),('Bellossom','Evoltuion','Nuzleaf','Item','Sun Stone'),('Dodrio','Evolution','Doduo','Level Up','Level 31'),('Swalot','Evolution','Gulpin','Level Up',
 'Level 26'),('Sharpedo','Evolution','Carvanha','Level Up','Level 30'),('Wailord','Evolution','Wailmer','Level Up','Level 40')
-
-
 
 INSERT RandomSafariPokemonRSE (pokemonName, safariArea,
 encounterMethod, gameVersion, encounterChance, levelRange)
