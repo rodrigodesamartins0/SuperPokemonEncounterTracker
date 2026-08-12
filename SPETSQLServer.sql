@@ -79,7 +79,16 @@ VALUES ('Bulbasaur'),('Ivysaur'),('Venusaur'),('Charmander'),('Charmeleon'),('Ch
 ('Gligar'),('Steelix'),('Snubbull'),('Granbull'),('Qwilfish'),('Scizor'),('Shuckle'),('Heracross'),('Sneasel'),('Teddiursa'),('Ursaring'),('Slugma'),('Magcargo'),('Swinub'),
 ('Piloswine'),('Corsola'),('Remoraid'),('Octillery'),('Delibird'),('Mantine'),('Skarmory'),('Houndour'),('Houndoom'),('Kingdra'),('Phanpy'),('Donphan'),('Porygon2'),
 ('Stantler'),('Smeargle'),('Tyrogue'),('Hitmontop'),('Smoochum'),('Elekid'),('Magby'),('Miltank'),('Blissey'),('Raikou'),('Entei'),('Suicune'),('Larvitar'),('Pupitar'),
-('Tyranitar'),('Lugia'),('Ho-Oh'),('Celebi')
+('Tyranitar'),('Lugia'),('HoOh'),('Celebi'),('Treecko'),('Grovyle'),('Sceptile'),('Torchic'),('Combusken'),('Blaziken'),('Mudkip'),('Marshtomp'),('Swampert'),('Poochyena'),
+('Mightyena'),('Zigzagoon'),('Linoone'),('Wurmple'),('Silcoon'),('Beautifly'),('Cascoon'),('Dustox'),('Lotad'),('Lombre'),('Ludicolo'),('Seedot'),('Nuzleaf'),('Shiftry'),
+('Taillow'),('Swellow'),('Wingull'),('Pelipper'),('Ralts'),('Kirlia'),('Gardevoir'),('Surskit'),('Masquerain'),('Shroomish'),('Breloom'),('Slakoth'),('Vigoroth'),('Slaking'),
+('Nincada'),('Ninjask'),('Shedinja'),('Whismur'),('Loudred'),('Exploud'),('Makuhita'),('Hariyama'),('Azurill'),('Nosepass'),('Skitty'),('Delcatty'),('Sableye'),('Mawile'),
+('Aron'),('Lairon'),('Aggron'),('Meditite'),('Medicham'),('Electrike'),('Manectric'),('Plusle'),('Minun'),('Volbeat'),('Illumise'),('Roselia'),('Gulpin'),('Swalot'),
+('Carvanha'),('Sharpedo'),('Wailmer'),('Wailord'),('Numel'),('Camerupt'),('Torkoal'),('Spoink'),('Grumpig'),('Spinda'),('Trapinch'),('Vibrava'),('Flygon'),('Cacnea'),
+('Cacturne'),('Swablu'),('Altaria'),('Zangoose'),('Seviper'),('Lunatone'),('Solrock'),('Barboach'),('Whiscash'),('Corphish'),('Crawdaunt'),('Baltoy'),('Claydol'),('Lileep'),
+('Cradily'),('Anorith'),('Armaldo'),('Feebas'),('Milotic'),('Castform'),('Kecleon'),('Shuppet'),('Banette'),('Duskull'),('Dusclops'),('Tropius'),('Chimecho'),('Absol'),
+('Wynaut'),('Snorunt'),('Glalie'),('Spheal'),('Sealeo'),('Walrein'),('Clamperl'),('Huntail'),('Gorebyss'),('Relicanth'),('Luvdisc'),('Bagon'),('Shelgon'),('Salamence'),
+('Beldum'),('Metang'),('Metagross'),('Regirock'),('Regice'),('Registeel'),('Latias'),('Latios'),('Kyogre'),('Groudon'),('Rayquaza'),('Jirachi'),('Deoxys')
 
 INSERT LocationsHoenn (locationName)
 VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('Route 106'),('Route 107'),('Route 108'),('Route 109'),('Route 110'),('Route 111'),('Route 112'),('Route 113'),
