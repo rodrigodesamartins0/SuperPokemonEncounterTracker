@@ -60,6 +60,20 @@ CREATE TABLE HoennSafari
 	safariArea VARCHAR (50)
 )
 
+INSERT NationalDex (pokemonName)
+VALUES ('Bulbasaur'),('Ivysaur'),('Venusaur'),('Charmander'),('Charmeleon'),('Charizard'),('Squirtle'),('Wartortle'),('Blastoise'),('Caterpie'),('Metapod'),('Butterfree'),('Weedle'),
+('Kakuna'),('Beedril'),('Pidgey'),('Pidgeotto'),('Pidgeot'),('Rattata'),('Raticate'),('Spearow'),('Fearow'),('Ekans'),('Arbok'),('Pikachu'),('Raichu'),('Sandshrew'),
+('Sandslash'),('Nidoran-F'),('Nidorina'),('Nidoqueen'),('Nidoran-M'),('Nidorino'),('Nidoking'),('Clefairy'),('Clefable'),('Vulpix'),('Ninetales'),('Jigglypuff'),
+('Wigglytuff'),('Zubat'),('Golbat'),('Oddish'),('Gloom'),('Vileplume'),('Paras'),('Parasect'),('Venonat'),('Venomoth'),('Diglett'),('Dugtrio'),('Meowth'),('Persian'),
+('Psyduck'),('Golduck'),('Mankey'),('Primeape'),('Growlithe'),('Arcanine'),('Poliwag'),('Poliwhirl'),('Poliwrath'),('Abra'),('Kadabra'),('Alakazam'),('Machop'),('Machoke'),
+('Machamp'),('Bellsprout'),('Weepinbell'),('Victreebel'),('Tentacool'),('Tentacruel'),('Geodude'),('Graveler'),('Golem'),('Ponyta'),('Rapidash'),('Slowpoke'),('Slowbro'),
+('Magnemite'),('Magneton'),('Farfetchd'),('Doduo'),('Dodrio'),('Seel'),('Dewgong'),('Grimer'),('Muk'),('Shellder'),('Cloyster'),('Gastly'),('Haunter'),('Gengar'),('Onix'),
+('Drowzee'),('Hypno'),('Krabby'),('Kingler'),('Voltorb'),('Electrode'),('Exeggcute'),('Exeggutor'),('Cubone'),('Marowak'),('Hitmonlee'),('Hitmonchan'),('Lickitung'),
+('Koffing'),('Weezing'),('Rhyhorn'),('Rhydon'),('Chansey'),('Tangela'),('Kangaskhan'),('Horsea'),('Seadra'),('Goldeen'),('Seaking'),('Staryu'),('Starmie'),('Mr.Mime'),
+('Scyther'),('Jynx'),('Electabuzz'),('Magmar'),('Pinsir'),('Tauros'),('Magikarp'),('Gyarados'),('Lapras'),('Ditto'),('Eevee'),('Vaporeon'),('Jolteon'),('Flareon'),('Porygon'),
+('Omanyte'),('Omastar'),('Kabuto'),('Kabutops'),('Aerodactyl'),('Snorlax'),('Articuno'),('Zapdos'),('Moltres'),('Dratini'),('Dragonair'),('Dragonite'),('Mewtwo'),('Mew')
+
+
 INSERT LocationsHoenn (locationName)
 VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('Route 106'),('Route 107'),('Route 108'),('Route 109'),('Route 110'),('Route 111'),('Route 112'),('Route 113'),
 ('Route 114'),('Route 115'),('Route 116'),('Route 117'),('Route 118'),('Route 119'),('Route 120'),('Route 121'),('Route 122'),('Route 123'),('Route 124'),('Route 125'),('Route 126'),
@@ -84,6 +98,7 @@ VALUES ('Old Rod'),('Good Rod'),('Super Rod')
 INSERT HoennSafari (safariArea)
 VALUES ('Area 1-Central'),('Area 2-West'),('Area 3-Northwest'),('Area 4-North'),('Area 5-East'),('Area 6-Northeast')
 
+SELECT * FROM NationalDex
 SELECT * FROM HoennSafari
 SELECT * FROM FishingRod
 SELECT * FROM GameVersion
