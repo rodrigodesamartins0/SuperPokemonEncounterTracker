@@ -119,7 +119,14 @@ VALUES ('Bulbasaur'),('Ivysaur'),('Venusaur'),('Charmander'),('Charmeleon'),('Ch
 ('Stufful'),('Bewear'),('Bounsweet'),('Steenee'),('Tsareena'),('Comfey'),('Oranguru'),('Passimian'),('Wimpod'),('Golisopod'),('Sandygast'),('Palossand'),('Pyukumuku'),
 ('Type:Null'),('Silvally'),('Minior'),('Komala'),('Turtonator'),('Togedemaru'),('Mimikyu'),('Bruxish'),('Drampa'),('Dhelmise'),('Jangmo-o'),('Hakamo-o'),('Kommo-o'),('Tapu Koko'),
 ('Tapu Lele'),('Tapu Bulu'),('Tapu Fini'),('Cosmog'),('Cosmoem'),('Solgaleo'),('Lunala'),('Nihilego'),('Buzzwole'),('Pheromosa'),('Xurkitree'),('Celesteela'),('Kartana'),('Guzzlord'),
-('Necrozma'),('Magearna'),('Marshadow'),('Poipole'),('Naganadel'),('Stakataka'),('Blacephalon'),('Zeraora'),('Meltan'),('Melmetal')
+('Necrozma'),('Magearna'),('Marshadow'),('Poipole'),('Naganadel'),('Stakataka'),('Blacephalon'),('Zeraora'),('Meltan'),('Melmetal'),('Grookey'),('Thwackey'),('Rillaboom'),
+('Scorbunny'),('Raboot'),('Cinderace'),('Sobble'),('Drizzile'),('Inteleon'),('Skwovet'),('Greedent'),('Rookidee'),('Corvisquire'),('Corviknight'),('Blipbug'),('Dottler'),
+('Orbeetle'),('Nickit'),('Thievul'),('Gossifleur'),('Eldegoss'),('Wooloo'),('Dubwool'),('Chewtle'),('Drednaw'),('Yamper'),('Boltund'),('Rolycoly'),('Carkol'),('Coalossal'),
+('Applin'),('Flapple'),('Appletun'),('Silicobra'),('Sandaconda'),('Cramorant'),('Arrokuda'),('Barraskewda'),('Toxel'),('Toxtricity'),('Sizzlipede'),('Centiskorch'),('Clobbopus'),
+('Grapploct'),('Sinistea'),('Polteageist'),('Hatenna'),('Hattrem'),('Hatterene'),('Impidimp'),('Morgrem'),('Grimmsnarl'),('Obstagoon'),('Perrserker'),('Cursola'),('Sirfetchd'),
+('Mr. Rime'),('Runerigus'),('Milcery'),('Alcremie'),('Falinks'),('Pincurchin'),('Snom'),('Frosmoth'),('Stonjourner'),('Eiscue'),('Indeedee'),('Morpeko'),('Cufant'),('Copperajah'),
+('Dracozolt'),('Arctozolt'),('Dracovish'),('Arctovish'),('Duraludon'),('Dreepy'),('Drakloak'),('Dragapult'),('Zacian'),('Zamazenta'),('Eternatus'),('Kubfu'),('Urshifu'),('Zarude'),
+('Regieleki'),('Regidrago'),('Glastrier'),('Spectrier'),('Calyrex'),('Wyrdeer'),('Kleavor'),('Ursaluna'),('Basculegion'),('Sneasler'),('Overqwil'),('Enamorus')
 
 
 
