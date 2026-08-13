@@ -48,7 +48,7 @@ CREATE TABLE FishingRod
 GO
 CREATE TABLE EvolutionMethod 
 (
-	evolutionID INT IDENTITY (1,1)
+	evolutionMethodID INT IDENTITY (1,1)
 		CONSTRAINT EVO_METHOD PRIMARY KEY,
 	evolutionMethod VARCHAR (50)
 )
@@ -59,6 +59,20 @@ CREATE TABLE HoennSafari
 		CONSTRAINT SAF_HOENN PRIMARY KEY,
 	safariArea VARCHAR (50)
 )
+GO
+CREATE TABLE GeneralItems
+(
+	itemID INT IDENTITY (1,1)
+		CONSTRAINT IT_EM PRIMARY KEY,
+	itemName VARCHAR (50)
+)
+
+INSERT GeneralItems
+VALUES ('None'),('Fire Stone'),('Water Stone'),('Thunder Stone'),('Leaf Stone'),('Moon Stone'),('Sun Stone'),('Shiny Stone'),('Dusk Stone'),('Dawn Stone'),('Ice Stone'),('Auspicious Armor'),('Black Augurite'),('Chipped Pot'),('Cracked Pot'),
+('Galarica Cuff'),('Galarica Wreath'),('Malicious Armor'),('Masterpiece Teacup'),('Metal Alloy'),('Peat Block'),('Scroll of Darkness'),('Scroll of Waters'),('Sweet Apple'),('Syrupy Apple'),('Tart Apple'),('Unremarkable Teacup'),('Deep Sea Scale'),
+('Deep Sea Tooth '),('Dragon Scale'),('Dubious Disc'),('Electirizer'),('Kings Rock'),('Magmarizer'),('Metal Coat'),('Oval Stone'),('Prism Scale'),('Protector'),('Razor Claw'),('Razor Fang'),('Reaper Cloth'),('Sachet'),('Upgrade'),('Whipped Dream'),
+('Strawberry Sweet'),('Love Sweet'),('Berry Sweet'),('Clover Sweet'),('Flower Sweet'),('Star Sweet '),('Ribbon Sweet'),('Leaders Crest'),('Gimmighoul Coin'),('Full Incense'),('Lax Incense'),('Luck Incense'),('Odd Incense'),('Pure Incense'),('Rock Incense'),
+('Rose Incense'),('Sea Incense'),('Wave Incense'),('Linking Cord')
 
 INSERT NationalDex (pokemonName)
 VALUES ('Bulbasaur'),('Ivysaur'),('Venusaur'),('Charmander'),('Charmeleon'),('Charizard'),('Squirtle'),('Wartortle'),('Blastoise'),('Caterpie'),('Metapod'),('Butterfree'),('Weedle'),
@@ -141,8 +155,6 @@ VALUES ('Wo-Chien'),('Chien-Pao'),('Ting-Lu'),('Chi-Yu'),('Roaring Moon'),('Iron
 ('Poltchageist'),('Sinistcha'),('Okidogi'),('Munkidori'),('Fezandipiti'),('Ogerpon'),('Archaludon'),('Hydrapple'),('Gouging Fire'),('Raging Bolt'),('Iron Boulder'),('Iron Crown'),
 ('Terapagos'),('Pecharunt')
 
-
-
 INSERT LocationsHoenn (locationName)
 VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('Route 106'),('Route 107'),('Route 108'),('Route 109'),('Route 110'),('Route 111'),('Route 112'),('Route 113'),
 ('Route 114'),('Route 115'),('Route 116'),('Route 117'),('Route 118'),('Route 119'),('Route 120'),('Route 121'),('Route 122'),('Route 123'),('Route 124'),('Route 125'),('Route 126'),
@@ -152,11 +164,12 @@ VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('R
 ('Lilycove City'),('Littleroot Town'),('Marine Cave'),('Meteor Falls 1F1R'),('Meteor Falls 1F2R'),('Meteor Falls B1F1R'),('Meteor Falls B1F2R'),
 ('Meteor Falls Steven Cave'),('Mirage Island'),('Mirage Spots'),('Mirage Tower'),('Mossdeep City'),('Mt Pyre Exterior'),('Mt Pyre Interior'),('Mt Pyre Summit'),
 ('New Mauville Entrance'),('New Mauville Basement'),('Pacifidlog Town'),('Petalburg City'),('Petalburg Woods'),('Roaming Hoenn'),('Rustboro City'),('Rusturf Tunnel'),('Scorched Slab'),
-('Sea Mauville'),('Seafloor Cavern'),('Sealed Chamber'),('Shoal Cave Main'),('Shoal Cave Ice'),('Sky Pillar 1F'),('Sky Pillar 3F'),('Sky Pillar 5F'),('Slaterport City'),('Sootopolis City'),
+('Sea Mauville'),('Seafloor Cavern'),('Sealed Chamber'),('Shoal Cave Main'),('Shoal Cave Ice'),('Sky Pillar 1F'),('Sky Pillar 3F'),('Sky Pillar 5F'),('Slateport City'),('Sootopolis City'),
 ('Southern Island'),('Team Magma Hideout'),('Team Aqua Hideout'),('Terra Cave'),('Victory Road 1F'),('Victory Road B1F'),('Victory Road B2F')
 
 INSERT EncounterMethods (encounterMethod)
-VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gift')
+VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gift'),('Trade Slakoth'),('Trade Pikachu'),('Trade Bellossom'),('Trade Ralts'),('Trade Volbeat'),
+('Trade Bagon'),('Trade Skitty'),('Walking'),('Cave'),('Rock Smash'),('Static')
 
 INSERT GameVersion (gameVersion)
 VALUES ('RSE'),('RS'),('RE'),('SE'),('R'),('S'),('E')
@@ -167,6 +180,11 @@ VALUES ('Old Rod'),('Good Rod'),('Super Rod')
 INSERT HoennSafari (safariArea)
 VALUES ('Area 1-Central'),('Area 2-West'),('Area 3-Northwest'),('Area 4-North'),('Area 5-East'),('Area 6-Northeast')
 
+INSERT EvolutionMethod (evolutionMethod)
+VALUES ('Level Up'),('Friendship'),('Move'),('Location'),('Time'),('Item'),('Gender'),('Game'),('Lets Go!'),('Special')
+
+SELECT * FROM EvolutionMethod
+SELECT * FROM GeneralItems
 SELECT * FROM NationalDex
 SELECT * FROM HoennSafari
 SELECT * FROM FishingRod
@@ -174,313 +192,330 @@ SELECT * FROM GameVersion
 SELECT * FROM EncounterMethods
 SELECT * FROM LocationsHoenn
 
-
 GO
 CREATE TABLE RandomPokemonRSE
 (
-	pokemonName VARCHAR (50),
-    encounterLocation VARCHAR (50),
-	encounterMethod VARCHAR (50),
-    gameVersion VARCHAR (50),
+	randomID INT IDENTITY (1,1)
+		CONSTRAINT PKMN_RANDOM PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT RANDOM_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	locationID INT
+		CONSTRAINT RANDOM_LOC FOREIGN KEY REFERENCES LocationsHoenn (locationID),
+	methodID INT
+		CONSTRAINT RANDOM_METHOD FOREIGN KEY REFERENCES EncounterMethods (encounterID),
+	gameVerID INT
+		CONSTRAINT RANDOM_GAMEVER FOREIGN KEY REFERENCES GameVersion (gameVerID),
 	encounterChance VARCHAR (50),
-	levelRange VARCHAR (50),
+	levelRange VARCHAR (50)
 )
 GO
 CREATE TABLE FishingPokemonRSE
 (
-	pokemonName VARCHAR (50),
-	encounterlocation VARCHAR (50),
-	rodType VARCHAR (50),
-	gameVersion VARCHAR (50),
+	fishingID INT IDENTITY (1,1)
+		CONSTRAINT PKMN_FISH PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT FISHING_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	locationID INT
+		CONSTRAINT FISHING_LOC FOREIGN KEY REFERENCES LocationsHoenn (locationID),
+	fishingRodID INT
+		CONSTRAINT FISHING_ROD FOREIGN KEY REFERENCES FishingRod (fishingRodID),
+	gameVerID INT
+		CONSTRAINT FISHING_GAMEVER FOREIGN KEY REFERENCES GameVersion (gameVerID),
 	encounterChance VARCHAR (50),
-	levelRange VARCHAR (50),
+	levelRange VARCHAR (50)
 )
 GO
 CREATE TABLE FishingSafariPokemonRSE
 (
-	pokemonName VARCHAR (50),
-	safariArea VARCHAR (50),
-	rodType VARCHAR (50),
-	gameVersion VARCHAR (50),
+	safariFishingID INT IDENTITY (1,1)
+		CONSTRAINT SAFARI_FISH PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT SAFISH_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	safariAreaID INT
+		CONSTRAINT FISH_AREA FOREIGN KEY REFERENCES HoennSafari (safariAreaID),
+	fishingRodID INT
+		CONSTRAINT SAFARI_ROD FOREIGN KEY REFERENCES FishingRod (fishingRodID),
+	gameVerID INT
+		CONSTRAINT SAFISH_GAMEVER FOREIGN KEY REFERENCES GameVersion (gameVerID),
 	encounterChance VARCHAR (50),
-	levelRange VARCHAR (50),
+	levelRange VARCHAR (50)
 )
 GO
 CREATE TABLE RandomSafariPokemonRSE
 (
-	pokemonName VARCHAR (50),
-	safariArea VARCHAR (50),
-	encounterMethod VARCHAR (50),
-	gameVersion VARCHAR (50),
+	safariRandomID INT IDENTITY (1,1)
+		CONSTRAINT SAF_RANDOM PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT SARAN_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	safariAreaID INT
+		CONSTRAINT RANDOM_AREA FOREIGN KEY REFERENCES HoennSafari (safariAreaID),
+	methodID INT
+		CONSTRAINT SARAN_METHOD FOREIGN KEY REFERENCES EncounterMethods (encounterID),
+	gameVERID INT 
+		CONSTRAINT SARAN_GAMEVER FOREIGN KEY REFERENCES GameVersion (gameVerID),
 	encounterChance VARCHAR (50),
-	levelRange VARCHAR (50),
+	levelRange VARCHAR (50)
 )
 GO
 CREATE TABLE BreedingPokemonRSE
 (
-	pokemonName VARCHAR (50),
-	encounterMethod VARCHAR (50),
-	breedingItem VARCHAR (50),
+	breedingID INT IDENTITY (1,1)
+		CONSTRAINT BREE_DING PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT BRED_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	methodID INT
+		CONSTRAINT BRED_METHOD FOREIGN KEY REFERENCES EncounterMethods (encounterID),
+	itemID INT
+		CONSTRAINT BRED_ITEM FOREIGN KEY REFERENCES GeneralItems (itemID),
 	breedingParent VARCHAR (50),
-	eggGroups VARCHAR (50),
+	eggGroups VARCHAR (50)
 )
 GO
 CREATE TABLE EvolutionPokemonRSE
 (
-	pokemonName VARCHAR (50),
-	encounterMethod VARCHAR (50),
-	evolvesFrom VARCHAR (50),
-	evolutionMethod VARCHAR (50),
-	evolutionRequirement VARCHAR (50),	
+	evolutionID INT IDENTITY (1,1)
+		CONSTRAINT EVO_TABLE PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT EVO_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	methodID INT
+		CONSTRAINT EVOTABLE_METHOD FOREIGN KEY REFERENCES EncounterMethods (encounterID),
+	evolvesFrom INT
+		CONSTRAINT EVOFROM_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	evolutionMethodID INT
+		CONSTRAINT EVO_HOW FOREIGN KEY REFERENCES EvolutionMethod (evolutionMethodID),
+	evolutionRequirement VARCHAR (50)
 )
 GO
-
-INSERT RandomPokemonRSE (pokemonName, encounterLocation, 
-encounterMethod, gameVersion, encounterChance, levelRange)
-VALUES ('Treecko','Route 101','Gift','RSE','100%','5'),('Torchic','Route 101','Gift','RSE','100%','5'),('Mudkip','Route 101','Gift','RSE','100%','5'),
-('Poochyena','Route 101','Tall Grass','RS','10%','2-3'),('Poochyena','Route 101','Tall Grass','E','45%','2-3'),('Poochyena','Route 102','Tall Grass','RS','15%','3-4'),
-('Poochyena','Route 102','Tall Grass','E','30%','3-4'),('Poochyena','Route 103','Tall Grass','RS','30%','2-4'),('Poochyena','Route 103','Tall Grass','E','60%','2-4'),
-('Poochyena','Route 104','Tall Grass','E','40%','4-5'),('Poochyena','Route 110','Tall Grass','E','20%','12'),('Poochyena','Route 116','Tall Grass','E','28%','6-8'),
-('Poochyena','Route 117','Tall Grass','E','30%','13-14'),('Poochyena','Route 120','Long Grass','E','20%','25'),('Poochyena','Route 121','Tall Grass','E','20%','26'),
-('Poochyena','Route 123','Tall Grass','E','20%','26'),('Poochyena','Petalburg Woods','Tall Grass','E','30%','5-6'),('Mightyena','Route 120','Long Grass','E','30%','25,27'),
-('Mightyena','Route 121','Tall Grass','E','20%','26-28'),('Mightyena','Route 123','Tall Grass','E','20%','26-28'),('Mightyena','Route 121','Tall Grass','E','20%','26-28'),
-('Zigzagoon','Route 101','Tall Grass','RS','45%','2-3'),('Zigzagoon','Route 101','Tall Grass','E','10%','2-3'),('Zigzagoon','Route 102','Tall Grass','RS','30%','3-4'),
-('Zigzagoon','Route 102','Tall Grass','E','15%','3-4'),('Zigzagoon','Route 103','Tall Grass','RS','60%','2-4'),('Zigzagoon','Route 103','Tall Grass','E','20%','3-4'),
-('Zigzagoon','Route 104','Tall Grass','RS','50%','4-5'),('Zigzagoon','Route 110','Tall Grass','RS','20%','12'),('Zigzagoon','Route 116','Tall Grass','RS','28%','6-8'),
-('Zigzagoon','Route 117','Tall Grass','RS','30%','13-14'),('Zigzagoon','Route 118','Tall Grass','RSE','30%','24,26'),('Zigzagoon','Route 119','Long Grass','RSE','30%','24-27'),
-('Zigzagoon','Route 120','Long Grass','RS','20%','25'),('Zigzagoon','Route 121','Tall Grass','RS','20%','26'),('Zigzagoon','Route 123','Tall Grass','RS','20%','26'),('Zigzagoon',
-'Petalburg Woods','Tall Grass','RS','30%','5-6'),('Linoone','Route 118','Tall Grass','RSE','10%','26'),('Linoone','Route 119','Long Grass','RSE','30%','25,27'),('Linoone',
-'Route 120','Long Grass','RS','30%','25,27'),('Linoone','Route 121','Tall Grass','RS','20%','26,28'),('Linoone','Route 123','Tall Grass','RS','20%','26,28'),('Wurmple','Route 101',
-'Tall Grass','RSE','45%','2-3'),('Wurmple','Route 102','Tall Grass','RSE','30%','3-4'),('Wurmple','Route 104','Tall Grass','RS','30%','4-5'),('Wurmple','Route 104','Tall Grass',
-'E','20%','4'),('Wurmple','Petalburg Woods','Tall Grass','RSE','25%','5-6'),('Silcoon','Petalburg Woods','Tall Grass','RSE','10%','5'),('Cascoon','Petalburg Woods',
-'Tall Grass','RSE','10%','5'),('Lotad','Route 102','Tall Grass','SE','20%','3-4'),('Lotad','Route 114','Tall Grass','SE','30%','15-16'),('Lombre','Route 114','Tall Grass','S','10%','16,18'),
-('Lombre','Route 114','Tall Grass','E','20%','16-18'),('Seedot','Route 102','Tall Grass','R','20%','3-4'),('Seedot','Route 102','Tall Grass','E','1%','3'),('Seedot','Route 114','Tall Grass',
-'R','30%','15-16'),('Seedot','Route 117','Tall Grass','E','1%','13'),('Seedot','Route 120','Long Grass','E','1%','25'),('Seedot','Rustboro City','Trade Ralts','E','100%','Same as traded'),('Nuzleaf',
-'Route 114','Tall Grass','R','10%','16,18'),('Nuzleaf','Route 114','Tall Grass','E','1%','15'),('Tailow','Route 104','Tall Grass','RSE','10%','4-5'),('Tailow','Route 115','Tall Grass',
-'RSE','40%','23-25'),('Tailow','Route 116','Tall Grass','RSE','20%','6-8'),('Tailow','Petalburg Woods','Tall Grass','RSE','5%','5-6'),('Swellow','Route 115','Tall Grass','RSE','10%','25'),
-('Wingull','Route 103','Tall Grass','RS','10%','2-4'),('Wingull','Route 103','Tall Grass','E','20%','2-4'),('Wingull','Route 103','Surfing','RSE','35%','10-30'),('Wingull','Route 104',
-'Tall Grass','RSE','10%','3-5'),('Wingull','Route 104','Surfing','RSE','95%','10-30'),('Wingull','Route 110','Tall Grass','RSE','8%','12'),('Wingull','Route 110','Surfing','RSE','35%','10-30'),
-('Wingull','Route 115','Tall Grass','RSE','30%','23,25'),('Wingull','Route 115','Surfing','RSE','35%','10-30'),('Wingull','Route 118','Tall Grass','RSE','19%','25-27'),('Wingull','Route 118',
-'Surfing','RSE','35%','10-30'),('Wingull','Route 121','Tall Grass','RSE','9%','26-28'),('Wingull','Route 121','Surfing','RSE','35%','10-30'),('Wingull','Route 123','Tall Grass','RSE','9%',
-'26-28'),('Wingull','Route 123','Surfing','RSE','35%','10-30'),('Wingull','Mt.Pyre Exterior','Tall Grass','RSE','10%','26-28'),('Wingull','Route 105','Surfing','RSE','35%','10-30'),('Wingull',
-'Route 106','Surfing','RSE','35%','10-30'),('Wingull','Route 107','Surfing','RSE','35%','10-30'),('Wingull','Route 108','Surfing','RSE','35%','10-30'),('Wingull','Route 109','Surfing','RSE',
-'35%','10-30'),('Wingull','Route 119','Surfing','RSE','35%','10-30'),('Wingull','Route 122','Surfing','RSE','35%','10-30'),('Wingull','Route 124','Surfing','RSE','35%','10-30'),('Wingull',
-'Route 125','Surfing','RSE','35%','10-30'),('Wingull','Route 126','Surfing','RSE','35%','10-30'),('Wingull','Route 127','Surfing','RSE','35%','10-30'),('Wingull','Route 128','Surfing','RSE',
-'35%','10-30'),('Wingull','Route 129','Surfing','RSE','35%','10-30'),('Wingull','Route 130','Surfing','RSE','35%','10-30'),('Wingull','Route 131','Surfing','RSE','35%','10-30'),('Wingull',
-'Route 132','Surfing','RSE','35%','10-30'),('Wingull','Route 133','Surfing','RSE','35%','10-30'),('Wingull','Route 134','Surfing','RSE','35%','10-30'),('Wingull','Dewford Town','Surfing',
-'RSE','35%','10-30'),('Wingull','Ever Grande City','Surfing','RSE','35%','10-30'),('Wingull','Lilycove City','Surfing','RSE','35%','10-30'),('Wingull','Mossdeep City','Surfing','RSE',
-'35%','10-30'),('Wingull','Pacifidlog Town','Surfing','RSE','35%','10-30'),('Wingull','Slaterport City','Surfing','RSE','35%','10-30'),('Pelipper','Route 103','Surfing','RSE','5%','25-30'),
-('Pelipper','Route 104','Surfing','RSE','5%','25-30'),('Pelipper','Route 105','Surfing','RSE','5%','25-30'),('Pelipper','Route 106','Surfing','RSE','5%','25-30'),('Pelipper','Route 107',
-'Surfing','RSE','5%','25-30'),('Pelipper','Route 108','Surfing','RSE','5%','25-30'),('Pelipper','Route 109','Surfing','RSE','5%','25-30'),('Pelipper','Route 110','Surfing','RSE','5%','25-30'),
-('Pelipper','Route 115','Surfing','RSE','5%','25-30'),('Pelipper','Route 118','Surfing','RSE','5%','25-30'),('Pelipper','Route 119','Surfing','RSE','5%','25-30'),('Pelipper','Route 121',
-'Surfing','RSE','5%','25-30'),('Pelipper','Route 122','Surfing','RSE','5%','25-30'),('Pelipper','Route 123','Surfing','RSE','5%','25-30'),('Pelipper','Route 124','Surfing','RSE','5%','25-30'),
-('Pelipper','Route 125','Surfing','RSE','5%','25-30'),('Pelipper','Route 126','Surfing','RSE','5%','25-30'),('Pelipper','Route 127','Surfing','RSE','5%','25-30'),('Pelipper','Route 128',
-'Surfing','RSE','5%','25-30'),('Pelipper','Route 129','Surfing','RSE','4%','25-30'),('Pelipper','Route 130','Surfing','RSE','5%','25-30'),('Pelipper','Route 131','Surfing','RSE','5%','25-30'),
-('Pelipper','Route 132','Surfing','RSE','5%','25-30'),('Pelipper','Route 133','Surfing','RSE','5%','25-30'),('Pelipper','Route 134','Surfing','RSE','5%','25-30'),('Pelipper','Dewford Town',
-'Surfing','RSE','5%','25-30'),('Pelipper','Ever Grande City','Surfing','RSE','5%','25-30'),('Pelipper','Lilycove City','Surfing','RSE','5%','25-30'),('Pelipper','Mossdeep City','Surfing',
-'RSE','5%','25-30'),('Pelipper','Pacifidlog Town','Surfing','RSE','5%','25-30'),('Pelipper','Slaterport City','Surfing','RSE','5%','25-30'),('Ralts','Route 102','Tall Grass','RSE','4%','4'),
-('Surskit','Route 102','Tall Grass','RS','1%','3'),('Surskit','Route 111','Surfing','RS','1%','20-30'),('Surskit','Route 114','Tall Grass','RS','1%','15'),('Surskit','Route 114','Surfing','RS',
-'1%','20-30'),('Surskit','Route 117','Tall Grass','RS','1%','13'),('Surskit','Route 117','Surfing','RS','1%','20-30'),('Surskit','Route 120','Long Grass','RS','1%','25'),('Surskit','Route 120',
-'Surfing','RS','1%','20-30'),('Shroomish','Petalburg Woods','Tall Grass','RSE','15%','5-6'),('Slakoth','Petalburg Woods','Tall Grass','RSE','5%','5-6'),('Abra','Granite Cave 1F','Cave','RSE',
-'10%','8'),('Abra','Granite Cave Steven Room','Cave','RSE','10%','8'),('Abra','B1F','Cave','RSE','10%','9'),('Abra','B2F','Cave','RSE','10%','10'),('Abra','Route 116','Tall Grass','E','10%',
-'7'),('Nincada','Route 116','Tall Grass','RSE','20%','6-7'),('Whismur','Route 116','Tall Grass','RS','30%','6-7'),('Whismur','Route 116','Tall Grass','E','20%','6'),('Whismur','Rusturf Tunnel',
-'Cave','RSE','100%','5-8'),('Whismur','Victory Road 1F','Cave','RSE','5%','36'),('Whismur','Desert Underpass','Cave','E','34%','35,36,38'),('Loudred','Victory Road 1F','Cave','RSE','10%','40'),
-('Loudred','Desert Underpass','Cave','E','16%','38,40,44'),('Makuhita','Granite Cave 1F','Cave','RSE','50%','6-10'),('Makuhita','Granite Cave Steven Room','Cave','RSE','50%','6-10'),('Makuhita',
-'Granite Cave B1F','Cave','RSE','10%','10-11'),('Makuhita','Victory Road 1F','Cave','RSE','10%','36'),('Makuhita','Rustboro City','Trade Slakoth','RS','100%','Same as traded'),('Hariyama',
-'Victory Road 1F','Cave','RSE','25%','38,40'),('Hariyama','Victory Road B1F','Cave','RSE','35%','38,40,42'),('Goldeen','Route 102','Surfing','E','1%','20-30'),('Goldeen','Route 111','Surfing',
-'E','1%','20-30'),('Goldeen','Route 114','Surfing','E','1%','20-30'),('Goldeen','Route 117','Surfing','E','1%','20-30'),('Goldeen','Route 120','Surfing','E','1%','20-30'),('Magikarp','Sootopolis City',
-'Surfing','RSE','100%','5-35'),('Marill','Route 102','Surfing','RSE','99%','5-35'),('Marill','Route 104','Tall Grass','E','20%','4-5'),('Marill','Route 111','Surfing','RSE','99%','5-35'),
-('Marill','Route 112','Tall Grass','E','25%','14-16'),('Marill','Route 114','Surfing','RSE','99%','5-35'),('Marill','Route 117','Surfing','RSE','99%','5-35'),('Marill','Route 117','Tall Grass',
-'RSE','10%','13'),('Marill','Route 120','Surfing','RSE','99%','5-35'),('Marill','Route 120','Long Grass','RSE','15%','25,27'),('Marill','Petalburg City','Surfing','RSE','100%','5-35'),('Geodude',
-'Route 111','Rock Smash','RSE','100%','5-20'),('Geodude','Route 114','Rock Smash','RSE','100%','5-20'),('Geodude','Victory Road B1F','Rock Smash','RSE','30%','30-40'),('Geodude','Granite Cave 1F',
-'Cave','RSE','10%','6-9'),('Geodude','Granite Cave B2F','Rock Smash','RSE','70%','5-20'),('Geodude','Magma Hideout','Cave','E','55%','27-30'),('Graveler','Victory Road B1F','Rock Smash','RSE','70%',
-'30-40'),('Graveler','Magma Hideout','Cave','E','15%','30-33'),('Nosepass','Granite Cave B2F','Rock Smash','RSE','30%','10-20'),('Skitty','Route 116','Tall Grass','RSE','2%','7-8'),
-('Skitty','Fortree City','Trade Pikachu','RSE','100%','Same as traded'),('Zubat','Cave of Origin Entrance','Cave','RSE','90%','28-35'),('Zubat','Cave of Origin 1F','Cave','RSE','60%',
-'30-34'),('Zubat','Cave of Origin B1F','Cave','RSE','60%','30-34'),('Zubat','Cave of Origin B2F','Cave','RSE','60%','30-34'),('Zubat','Cave of OriginB3F','Cave','RSE','60%','30-34'),('Zubat',
-'Granite Cave 1F','Cave','RSE','30%','7-8'),('Zubat','Granite Cave Steven Room','Cave','RSE','30%','7-8'),('Zubat','Granite Cave B1F','Cave','RSE','30%','9-10'),('Zubat','Granite Cave B2F',
-'Cave','RSE','30%','10-11'),('Zubat','Victory Road 1F','Cave','RSE','10%','36'),('Zubat','Meteor Falls 1F1R','Cave','RSE','80%','14-20'),('Zubat','Meteor Falls 1F1R',
-'Surfing','RSE','90%','5-35'),('Zubat','Seafloor Cavern','Cave','RSE','90%','28-35'),('Zubat','Seafloor Cavern','Surfing','RSE','35%','5-35'),('Zubat','Shoal Cave Main','Cave','RSE','45%',
-'26,28,30,32'),('Zubat','Shoal Cave Main','Surfing','RSE','30%','5-35'),('Zubat','Shoal Cave Ice','Cave','RSE','40%','26,28,30'),('Zubat','Altering Cave','Cave','E','100%','6,8,10,12,14,16'),
-('Golbat','Meteor Falls 1F2R','Cave','RSE','65%','33,35,38,40'),('Golbat','Meteor Falls B1F1R','Cave','RSE','65%','33,35,38,40'),('Golbat','Meteor Falls 1F2R','Surfing','RSE','90%','30-35'),
-('Golbat','Meteor Falls B1F1R','Surfing','RSE','90%','30-35'),('Golbat','Meteor Falls B1F2R','Cave','RSE','50%','33,35,38,40'),('Golbat','Meteor Falls B1F2R','Surfing','RSE','90%','30-35'),
-('Golbat','Meteor Falls Steven Cave','Cave','E','65%','33,35,38,40'),('Golbat','Seafloor Cavern','Cave','RSE','10%','33-36'),('Golbat','Seafloor Cavern','Surfing','RSE','5%','30-35'),
-('Golbat','Victory Road 1F','Cave','RSE','25%','38,40'),('Golbat','Victory Road B1F','Cave','RSE','35%','38,40,42'),('Golbat','Victory Road B2F','Cave','RSE','35%','40,42,44'),('Golbat',
-'Victory Road B2F','Surfing','RSE','100%','25-40'),('Golbat','Cave of Origin Entrance','Cave','RSE','10%','33-36'),('Golbat','Cave of Origin 1F','Cave','RSE','10%','33-36'),('Golbat',
-'Cave of Origin B1F','Cave','RSE','10%','33-36'),('Golbat','Cave of Origin B2F','Cave','RSE','10%','33-36'),('Golbat','Cave of Origin B3F','Cave','RSE','10%','33-36'),('Golbat','Shoal 
-Cave Main','Cave','RSE','5%','32'),('Golbat','Shoal Cave Ice','Cave','RSE','5%','30,32'),('Golbat','Sky Pillar 1F','Walking','RS','30%','48,50'),('Golbat','Sky Pillar 1F','Walking','E',
-'30%','34,35'),('Golbat','Sky Pillar 3F','Walking','RS','30%','51,53'),('Golbat','Sky Pillar 3F','Walking','E','30%','34,35'),('Golbat','Sky Pillar 5F','Walking','RS','30%','54-56'),
-('Golbat','Sky Pillar 5F','Walking','E','30%','34,35'),('Tentacool','Route 128','Surfing','RSE','60%','5-35'),('Tentacool','Ever Grande City','Surfing','RSE','60%','5-35'),
-('Tentacool','Abandoned Ship','Surfing','RSE','99%','5-35'),('Tentacool','Route 103','Surfing','RSE','60%','5-35'),('Tentacool','Route 105','Surfing','RSE','60%','5-35'),('Tentacool',
-'Route 106','Surfing','RSE','60%','5-35'),('Tentacool','Route 107','Surfing','RSE','60%','5-35'),('Tentacool','Route 108','Surfing','RSE','60%','5-35'),('Tentacool','Route 109',
-'Surfing','RSE','60%','5-35'),('Tentacool','Route 110','Surfing','RSE','60%','5-35'),('Tentacool','Route 115','Surfing','RSE','60%','5-35'),('Tentacool','Route 118','Surfing','RSE',
-'60%','5-35'),('Tentacool','Route 119','Surfing','RSE','60%','5-35'),('Tentacool','Route 121','Surfing','RSE','60%','5-35'),('Tentacool','Route 122','Surfing','RSE','60%','5-35'),
-('Tentacool','Route 123','Surfing','RSE','60%','5-35'),('Tentacool','Route 124','Surfing','RSE','60%','5-35'),('Tentacool','Route 125','Surfing','RSE','60%','5-35'),('Tentacool',
-'Route 126','Surfing','RSE','60%','5-35'),('Tentacool','Route 127','Surfing','RSE','60%','5-35'),('Tentacool','Route 129','Surfing','RSE','60%','5-35'),('Tentacool','Route 130',
-'Surfing','RSE','60%','5-35'),('Tentacool','Route 131','Surfing','RSE','60%','5-35'),('Tentacool','Route 132','Surfing','RSE','60%','5-35'),('Tentacool','Route 133','Surfing',
-'RSE','60%','5-35'),('Tentacool','Route 134','Surfing','RSE','60%','5-35'),('Tentacool','Slateport City','Surfing','RSE','60%','5-35'),('Tentacool','Pacifidlog Town','Surfing',
-'RSE','60%','5-35'),('Tentacool','Mossdeep City','Surfing','RSE','60%','5-35'),('Tentacool','Lilycove City','Surfing','RSE','60%','5-35'),('Tentacool','Dewford Town','Surfing',
-'RSE','60%','5-35'),('Tentacool','Shoal Cave Main','Surfing','RSE','60%','5-35'),('Tentacool','Seafloor Cavern','Surfing','RSE','60%','5-35'),('Tentacruel','Abandoned Ship','Surfing',
-'RSE','1%','30-35'),('Sableye','Granite Cave B1F','Cave','SE','10%','9-11'),('Sableye','Granite Cave B2F','Cave','SE','20%','10-12'),('Sableye','Cave of Origin 1F','Cave','SE','30%',
-'30,32,34'),('Sableye','Cave of Origin B1F','Cave','SE','30%','30,32,34'),('Sableye','Cave of Origin B2F','Cave','SE','30%','30,32,34'),('Sableye','Cave of Origin B3F','Cave','SE',
-'30%','30,32,34'),('Sableye','Sky Pillar 1F','Walking','S','30%','48,50'),('Sableye','Sky Pillar 1F','Walking','E','30%','33,34'),('Sableye','Sky Pillar 3F','Walking','S','30%',
-'51,53'),('Sableye','Sky Pillar 3F','Walking','E','30%','33,34'),('Sableye','Sky Pillar 5F','Walking','S','30%','54,56'),('Sableye','Sky Pillar 5F','Walking','E','30%','33,34'),
-('Sableye','Victory Road B2F','Cave','SE','35%','40,42,44'),('Mawile','Granite Cave B1F','Cave','R','10%','9-11'),('Mawile','Granite Cave B2F','Cave','R','20%','10-12'),('Mawile',
-'Cave of Origin 1F','Cave','R','30%','30,32,34'),('Mawile','Cave of Origin B1F','Cave','R','30%','30,32,34'),('Mawile','Cave of Origin B2F','Cave','R','30%','30,32,34'),('Mawile',
-'Cave of Origin B3F','Cave','R','30%','30,32,34'),('Mawile','Sky Pillar 1F','Walking','R','30%','48,50'),('Mawile','Sky Pillar 3F','Walking','R','30%','51,53'),('Mawile','Sky Pillar 5F',
-'Walking','R','30%','54,56'),('Mawile','Victory Road B2F','Cave','R','35%','40,42,44'),('Mawile','Victory Road B2F','Cave','E','5%','42,44'),('Aron','Granite Cave Steven Room','Cave',
-'RSE','10%','7,8'),('Aron','Granite Cave B1F','Cave','RSE','40%','9-11'),('Aron','Granite Cave B2F','Cave','RSE','40%','10-12'),('Aron','Victory Road 1F','Cave','RSE','5%','36'),
-('Lairon','Victory Road 1F','Cave','RSE','10%','40'),('Lairon','Victory Road B1F','Cave','RS','15%','40,42'),('Lairon','Victory Road B1F','Cave','E','25%','40,42'),('Lairon',
-'Victory Road B2F','Cave','RS','15%','40,42,44'),('Lairon','Victory Road B2F','Cave','E','25%','40,42,44'),('Machop','Route 112','Tall Grass','RS','25%','14-16'),('Machop','Fiery Path',
-'Cave','RSE','15%','15,16'),('Machop','Jagged Pass','Tall Grass','R','25%','18-20'),('Machop','Jagged Pass','Tall Grass','SE','25%','20-22'),('Meditite','Mt.Pyre Exterior','Tall Grass',
-'RS','30%','27,29'),('Meditite','Victory Road B1F','Cave','RS','5%','38'),('Medicham','Victory Road B1F','Cave','RS','10%','40'),('Medicham','Victory Road B2F','Cave','RS','15%','40,42,44'),
-('Electrike','Route 110','Tall Grass','RSE','30%','12,13'),('Electrike','Route 118','Tall Grass','RSE','30%','24,26'),('Manectric','Route 118','Tall Grass','RSE','10%','26'),
-('Plusle','Route 110','Tall Grass','RE','2%','12,13'),('Plusle','Route 110','Tall Grass','S','15%','13'),('Plusle','Fortree City','Trade Volbeat','E','100%','Same as traded'),
-('Minun','Route 110','Tall Grass','RE','15%','13'),('Minun','Route 110','Tall Grass','S','2%','12,13'),('Magnemite','New Mauville','Entrance','RSE','50%','22-26'),('Magnemite','New Mauville',
-'Basement','RSE','49%','22-26'),('Magneton','New Mauville','Basement','RSE','1%','26'),('Voltorb','New Mauville','Entrance','RSE','50%','22-26'),('Voltorb','New Mauville','Basement','RSE',
-'49%','22-26'),('Electrode','New Mauville','Basement','RSE','1%','26'),('Electrode','Team Magma Hideout','Static','R','100%','30'),('Electrode','Team Magma Hideout','Static','R','100%','30'),
-('Electrode','Team Aqua Hideout','Static','SE','100%','30'),('Electrode','Team Aqua Hideout','Static','SE','100%','30'),('Volbeat','Route 117','Tall Grass','RE','1%','13'),('Volbeat','Route 117',
-'Tall Grass','S','18%','13,14'),('Illumise','Route 117','Tall Grass','RE','18%','13-14'),('Illumise','Route 117','Tall Grass','S','1%','13'),('Oddish','Route 110','Tall Grass','RSE','10%','13'),
-('Oddish','Route 117','Tall Grass','RS','10%','13'),('Oddish','Route 117','Tall Grass','E','40%','13,14'),('Oddish','Route 119','Long Grass','RSE','30%','24-27'),('Oddish','Route 120','Long Grass',
-'RSE','25%','25-27'),('Oddish','Route 121','Tall Grass','RSE','15%','26,28'),('Oddish','Route 123','Tall Grass','RSE','15%','26,28'),('Gloom','Route 121','Tall Grass','RSE','5%','28'),('Gloom',
-'Route 123','Tall Grass','RSE','5%','28'),('Roselia','Route 117','Tall Grass','RS','30%','13,14'),('Gulpin','Route 110','Tall Grass','RSE','15%','12,13'),('Wailord','Route 129','Surfing','R','1%',
-'35-40'),('Wailord','Route 129','Surfing','SE','1%','25-30')
-
+INSERT RandomPokemonRSE (nationalDexNumber, locationID, 
+methodID, gameVerID, encounterChance, levelRange)
+VALUES ('252','1','6','1','100%','5'),('255','1','6','1','100%','5'),('258','1','6','1','100%','5'),
+('261','1','1','2','10%','2-3'),('261','1','1','7','45%','2-3'),('261','2','1','2','15%','3-4'),
+('261','2','1','7','30%','3-4'),('261','3','1','2','30%','2-4'),('261','3','1','7','60%','2-4'),
+('261','4','1','7','40%','4-5'),('261','10','1','7','20%','12'),('261','16','1','7','28%','6-8'),
+('261','17','1','7','30%','13-14'),('261','20','2','7','20%','25'),('261','21','1','7','20%','26'),
+('261','23','1','7','20%','26'),('261','76','1','7','30%','5-6'),('262','20','2','7','30%','25,27'),
+('262','21','1','7','20%','26-28'),('262','23','1','7','20%','26-28'),('262','21','1','7','20%','26-28'),
+('263','1','1','2','45%','2-3'),('263','1','1','7','10%','2-3'),('263','2','1','2','30%','3-4'),
+('263','2','1','7','15%','3-4'),('263','3','1','2','60%','2-4'),('263','3','1','7','20%','3-4'),
+('263','4','1','2','50%','4-5'),('263','10','1','2','20%','12'),('263','16','1','2','28%','6-8'),
+('263','17','1','2','30%','13-14'),('263','18','1','1','30%','24,26'),('263','19','2','1','30%','24-27'),
+('263','20','2','2','20%','25'),('263','21','1','2','20%','26'),('263','23','1','2','20%','26'),('263',
+'76','1','2','30%','5-6'),('264','18','1','1','10%','26'),('264','19','2','1','30%','25,27'),('264',
+'20','2','2','30%','25,27'),('264','21','1','2','20%','26,28'),('264','23','1','2','20%','26,28'),('265','1',
+'1','1','45%','2-3'),('265','2','1','1','30%','3-4'),('265','4','1','2','30%','4-5'),('265','4','1',
+'7','20%','4'),('265','76','1','1','25%','5-6'),('266','76','1','1','10%','5'),('268','76',
+'1','1','10%','5'),('270','2','1','4','20%','3-4'),('270','14','1','4','30%','15-16'),('271','14','1','6','10%','16,18'),
+('271','14','1','7','20%','16-18'),('273','2','1','5','20%','3-4'),('273','2','1','7','1%','3'),('273','14','1',
+'5','30%','15-16'),('273','17','1','7','1%','13'),('273','20','2','7','1%','25'),('273','78','10','7','100%','Same as traded'),('274',
+'14','1','5','10%','16,18'),('274','14','1','7','1%','15'),('276','4','1','1','10%','4-5'),('276','15','1',
+'1','40%','23-25'),('276','16','1','1','20%','6-8'),('276','76','1','1','5%','5-6'),('276','15','1','1','10%','25'),
+('278','3','1','2','10%','2-4'),('278','3','1','7','20%','2-4'),('278','3','3','1','35%','10-30'),('278','4',
+'1','1','10%','3-5'),('278','4','3','1','95%','10-30'),('278','10','1','1','8%','12'),('278','10','3','1','35%','10-30'),
+('278','15','1','1','30%','23,25'),('278','15','3','1','35%','10-30'),('278','18','1','1','19%','25-27'),('278','18',
+'3','1','35%','10-30'),('278','21','1','1','9%','26-28'),('278','21','3','1','35%','10-30'),('278','23','1','1','9%',
+'26-28'),('278','23','3','1','35%','10-30'),('278','69','1','1','10%','26-28'),('278','5','3','1','35%','10-30'),('278',
+'6','3','1','35%','10-30'),('278','7','3','1','35%','10-30'),('278','8','3','1','35%','10-30'),('278','9','3','1',
+'35%','10-30'),('278','19','3','1','35%','10-30'),('278','22','3','1','35%','10-30'),('278','24','3','1','35%','10-30'),('278',
+'25','3','1','35%','10-30'),('278','26','3','1','35%','10-30'),('278','27','3','1','35%','10-30'),('278','28','3','1',
+'35%','10-30'),('278','29','3','1','35%','10-30'),('278','30','3','1','35%','10-30'),('278','31','3','1','35%','10-30'),('278',
+'32','3','1','35%','10-30'),('278','33','3','1','35%','10-30'),('278','34','3','1','35%','10-30'),('278','47','3',
+'1','35%','10-30'),('278','48','3','1','35%','10-30'),('278','57','3','1','35%','10-30'),('278','68','3','1',
+'35%','10-30'),('278','74','3','1','35%','10-30'),('278','89','3','1','35%','10-30'),('279','3','3','1','5%','25-30'),
+('279','4','3','1','5%','25-30'),('279','5','3','1','5%','25-30'),('279','6','3','1','5%','25-30'),('279','7',
+'3','1','5%','25-30'),('279','8','3','1','5%','25-30'),('279','9','3','1','5%','25-30'),('279','10','3','1','5%','25-30'),
+('279','15','3','1','5%','25-30'),('279','18','3','1','5%','25-30'),('279','19','3','1','5%','25-30'),('279','21',
+'3','1','5%','25-30'),('279','22','3','1','5%','25-30'),('279','23','3','1','5%','25-30'),('279','24','3','1','5%','25-30'),
+('279','25','3','1','5%','25-30'),('279','26','3','1','5%','25-30'),('279','27','3','1','5%','25-30'),('279','28',
+'3','1','5%','25-30'),('279','29','3','1','4%','25-30'),('279','30','3','1','5%','25-30'),('279','31','3','1','5%','25-30'),
+('279','32','3','1','5%','25-30'),('279','33','3','1','5%','25-30'),('279','34','3','1','5%','25-30'),('279','47',
+'3','1','5%','25-30'),('279','48','3','1','5%','25-30'),('279','57','3','1','5%','25-30'),('279','68','3',
+'1','5%','25-30'),('279','74','3','1','5%','25-30'),('279','89','3','1','5%','25-30'),('280','2','1','1','4%','4'),
+('283','2','1','2','1%','3'),('283','11','3','2','1%','20-30'),('283','14','1','2','1%','15'),('283','14','3','2',
+'1%','20-30'),('283','17','1','2','1%','13'),('283','17','3','2','1%','20-30'),('283','20','2','2','1%','25'),('283','20',
+'3','2','1%','20-30'),('285','76','1','1','15%','5-6'),('287','76','1','1','5%','5-6'),('63','52','15','1',
+'10%','8'),('63','53','15','1','10%','8'),('63','54','15','1','10%','9'),('63','B2F','15','1','10%','10'),('63','16','1','7','10%',
+'7'),('290','16','1','1','20%','6-7'),('293','16','1','2','30%','6-7'),('293','16','1','7','20%','6'),('293','78',
+'15','1','100%','5-8'),('293','95','15','1','5%','36'),('293','46','15','7','34%','35,36,38'),('294','95','15','1','10%','40'),
+('294','46','15','7','16%','38,40,44'),('296','52','15','1','50%','6-10'),('296','53','15','1','50%','6-10'),('296',
+'54','15','1','10%','10-11'),('296','95','15','1','10%','36'),('296','78','7','2','100%','Same as traded'),('297',
+'95','15','1','25%','38,40'),('297','96','15','1','35%','38,40,42'),('118','2','3','7','1%','20-30'),('118','11','3',
+'7','1%','20-30'),('118','14','3','7','1%','20-30'),('118','17','3','7','1%','20-30'),('118','20','3','7','1%','20-30'),('129','90',
+'3','1','100%','5-35'),('183','2','3','1','99%','5-35'),('183','4','1','7','20%','4-5'),('183','11','3','1','99%','5-35'),
+('183','12','1','7','25%','14-16'),('183','14','3','1','99%','5-35'),('183','17','3','1','99%','5-35'),('183','17','1',
+'1','10%','13'),('183','20','3','1','99%','5-35'),('183','20','2','1','15%','25,27'),('183','75','3','1','100%','5-35'),('74',
+'11','16','1','100%','5-20'),('74','14','16','1','100%','5-20'),('74','96','16','1','30%','30-40'),('74','52',
+'15','1','10%','6-9'),('74','55','16','1','70%','5-20'),('74','Magma Hideout (Jagged Pass)','15','7','55%','27-30'),('75','96','16','1','70%',
+'30-40'),('75','Magma Hideout (Jagged Pass)','15','7','15%','30-33'),('299','55','16','1','30%','10-20'),('300','16','1','1','2%','7-8'),
+('300','51','8','1','100%','Same as traded'),('41','Cave of Origin Entrance','15','1','90%','28-35'),('41','41','15','1','60%',
+'30-34'),('41','42','15','1','60%','30-34'),('41','43','15','1','60%','30-34'),('41','Cave of OriginB3F','15','1','60%','30-34'),('41',
+'52','15','1','30%','7-8'),('41','53','15','1','30%','7-8'),('41','54','15','1','30%','9-10'),('41','55',
+'15','1','30%','10-11'),('41','95','15','1','10%','36'),('41','60','15','1','80%','14-20'),('41','60',
+'3','1','90%','5-35'),('41','82','15','1','90%','28-35'),('41','82','3','1','35%','5-35'),('41','84','15','1','45%',
+'26,28,30,32'),('41','84','3','1','30%','5-35'),('41','85','15','1','40%','26,28,30'),('41','36','15','7','100%','6,8,10,12,14,16'),
+('42','61','15','1','65%','33,35,38,40'),('42','62','15','1','65%','33,35,38,40'),('42','61','3','1','90%','30-35'),
+('42','62','3','1','90%','30-35'),('42','63','15','1','50%','33,35,38,40'),('42','63','3','1','90%','30-35'),
+('42','64','15','7','65%','33,35,38,40'),('42','82','15','1','10%','33-36'),('42','82','3','1','5%','30-35'),
+('42','95','15','1','25%','38,40'),('42','96','15','1','35%','38,40,42'),('42','97','15','1','35%','40,42,44'),('42',
+'97','3','1','100%','25-40'),('42','Cave of Origin Entrance','15','1','10%','33-36'),('42','41','15','1','10%','33-36'),('42',
+'42','15','1','10%','33-36'),('42','43','15','1','10%','33-36'),('42','44','15','1','10%','33-36'),('42','Shoal 
+Cave Main','15','1','5%','32'),('42','85','15','1','5%','30,32'),('42','86','14','2','30%','48,50'),('42','86','14','7',
+'30%','34,35'),('42','87','14','2','30%','51,53'),('42','87','14','7','30%','34,35'),('42','88','14','2','30%','54-56'),
+('42','88','14','7','30%','34,35'),('72','28','3','1','60%','5-35'),('72','48','3','1','60%','5-35'),
+('72','35','3','1','99%','5-35'),('72','3','3','1','60%','5-35'),('72','5','3','1','60%','5-35'),('72',
+'6','3','1','60%','5-35'),('72','7','3','1','60%','5-35'),('72','8','3','1','60%','5-35'),('72','9',
+'3','1','60%','5-35'),('72','10','3','1','60%','5-35'),('72','15','3','1','60%','5-35'),('72','18','3','1',
+'60%','5-35'),('72','19','3','1','60%','5-35'),('72','21','3','1','60%','5-35'),('72','22','3','1','60%','5-35'),
+('72','23','3','1','60%','5-35'),('72','24','3','1','60%','5-35'),('72','25','3','1','60%','5-35'),('72',
+'26','3','1','60%','5-35'),('72','27','3','1','60%','5-35'),('72','29','3','1','60%','5-35'),('72','30',
+'3','1','60%','5-35'),('72','31','3','1','60%','5-35'),('72','32','3','1','60%','5-35'),('72','33','3',
+'1','60%','5-35'),('72','34','3','1','60%','5-35'),('72','89','3','1','60%','5-35'),('72','74','3',
+'1','60%','5-35'),('72','68','3','1','60%','5-35'),('72','57','3','1','60%','5-35'),('72','47','3',
+'1','60%','5-35'),('72','84','3','1','60%','5-35'),('72','82','3','1','60%','5-35'),('73','35','3',
+'1','1%','30-35'),('302','54','15','4','10%','9-11'),('302','55','15','4','20%','10-12'),('302','41','15','4','30%',
+'30,32,34'),('302','42','15','4','30%','30,32,34'),('302','43','15','4','30%','30,32,34'),('302','44','15','4',
+'30%','30,32,34'),('302','86','14','6','30%','48,50'),('302','86','14','7','30%','33,34'),('302','87','14','6','30%',
+'51,53'),('302','87','14','7','30%','33,34'),('302','88','14','6','30%','54,56'),('302','88','14','7','30%','33,34'),
+('302','97','15','4','35%','40,42,44'),('303','54','15','5','10%','9-11'),('303','55','15','5','20%','10-12'),('303',
+'41','15','5','30%','30,32,34'),('303','42','15','5','30%','30,32,34'),('303','43','15','5','30%','30,32,34'),('303',
+'44','15','5','30%','30,32,34'),('303','86','14','5','30%','48,50'),('303','87','14','5','30%','51,53'),('303','88',
+'14','5','30%','54,56'),('303','97','15','5','35%','40,42,44'),('303','97','15','7','5%','42,44'),('304','53','15',
+'1','10%','7,8'),('304','54','15','1','40%','9-11'),('304','55','15','1','40%','10-12'),('304','95','15','1','5%','36'),
+('305','95','15','1','10%','40'),('305','96','15','2','15%','40,42'),('305','96','15','7','25%','40,42'),('305',
+'97','15','2','15%','40,42,44'),('305','97','15','7','25%','40,42,44'),('66','12','1','2','25%','14-16'),('66','50',
+'15','1','15%','15,16'),('66','56','1','5','25%','18-20'),('66','56','1','4','25%','20-22'),('307','69','1',
+'2','30%','27,29'),('307','96','15','2','5%','38'),('308','96','15','2','10%','40'),('308','97','15','2','15%','40,42,44'),
+('309','10','1','1','30%','12,13'),('309','18','1','1','30%','24,26'),('310','18','1','1','10%','26'),
+('311','10','1','3','2%','12,13'),('311','10','1','6','15%','13'),('311','51','11','7','100%','Same as traded'),
+('312','10','1','3','15%','13'),('312','10','1','6','2%','12,13'),('81','72','14','1','50%','22-26'),('81','72',
+'14','1','49%','22-26'),('82','73','14','1','1%','26'),('100','72','14','1','50%','22-26'),('100','73','14','1',
+'49%','22-26'),('101','73','14','1','1%','26'),('101','92','17','5','100%','30'),('101','92','17','5','100%','30'),
+('101','93','17','4','100%','30'),('101','93','17','4','100%','30'),('313','17','1','3','1%','13'),('313','17',
+'1','6','18%','13,14'),('314','17','1','3','18%','13-14'),('314','17','1','6','1%','13'),('43','10','1','1','10%','13'),
+('43','17','1','2','10%','13'),('43','17','1','7','40%','13,14'),('43','19','2','1','30%','24-27'),('43','20','2',
+'1','25%','25-27'),('43','21','1','1','15%','26,28'),('43','23','1','1','15%','26,28'),('44','21','1','1','5%','28'),('44',
+'23','1','1','5%','28'),('315','17','1','2','30%','13,14'),('316','10','1','1','15%','12,13'),('321','29','3','5','1%',
+'35-40'),('321','29','3','4','1%','25-30')
 
 
-INSERT FishingPokemonRSE (pokemonName, encounterLocation, 
-rodType, gameVersion, encounterChance, levelRange)
-VALUES ('Goldeen','Route 102','Old Rod','RSE','30%','5-10'),('Goldeen','Route 102','Good Rod','RSE','20%','10-30'),('Goldeen','Route 111','Old Rod','RSE','30%','5-10'),('Goldeen','Route 111',
-'Good Rod','RSE','30%','5-10'),('Goldeen','Route 114','Old Rod','RSE','30%','5-10'),('Goldeen','Route 114','Good Rod','RSE','20%','10-30'),('Goldeen','Route 117','Old Rod','RSE','30%','5-10'),
-('Goldeen','Route 117','Good Rod','RSE','20%','10-30'),('Goldeen','Route 120','Old Rod','RSE','30%','5-10'),('Goldeen','Route 120','Good Rod','RSE','20%','10-30'),('Goldeen','Petalburg City',
-'Old Rod','RSE','30%','5-10'),('Goldeen','Petalburg City','Good Rod','RSE','20%','10-30'),('Goldeen','Meteor Falls 1F1R','Old Rod','RSE','30%','5-10'),('Goldeen','Meteor Falls 1F1R','Good Rod',
-'RSE','20%','10-30'),('Goldeen','Meteor Falls 1F2R','Old Rod','RSE','30%','5-10'),('Goldeen','Meteor Falls 1F2R','Good Rod','RSE','20%','10-30'),('Goldeen','Meteor Falls B1F1R','Old Rod','RSE',
-'30%','5-10'),('Goldeen','Meteor Falls B1F1R','Good Rod','RSE','20%','10-30'),('Goldeen','Meteor Falls B1F2R','Old Rod','RSE','30%','5-10'),('Goldeen','Meteor Falls B1F2R','Good Rod','RSE','20%',
-'10-30'),('Goldeen','Victory Road B2F','Old Rod','RSE','30%','5-10'),('Goldeen','Victory Road B2F','Good Rod','RSE','20%','10-30'),('Magikarp','Route 102','Old Rod','RSE','70%','5-10'),('Magikarp',
-'Route 102','Good Rod','RSE','60%','10-30'),('Magikarp','Route 103','Old Rod','RSE','70%','5-10'),('Magikarp','Route 103','Good Rod','RSE','60%','10-30'),('Magikarp','Route 104','Old Rod','RSE',
-'100%','5-10'),('Magikarp','Route 104','Good Rod','RSE','100%','10-30'),('Magikarp','Route 104','Super Rod','RSE','70%','20-45'),('Magikarp','Route 105','Old Rod','RSE','70%','5-10'),('Magikarp',
-'Route 105','Good Rod','RSE','60%','10-30'),('Magikarp','Route 106','Old Rod','RSE','70%','5-10'),('Magikarp','Route 106','Good Rod','RSE','60%','10-30'),('Magikarp','Route 107','Old Rod','RSE',
-'70%','5-10'),('Magikarp','Route 107','Good Rod','RSE','60%','10-30'),('Magikarp','Route 108','Old Rod','RSE','70%','5-10'),('Magikarp','Route 108','Good Rod','RSE','60%','10-30'),('Magikarp',
-'Route 109','Old Rod','RSE','70%','5-10'),('Magikarp','Route 109','Good Rod','RSE','60%','10-30'),('Magikarp','Route 110','Old Rod','RSE','70%','5-10'),('Magikarp','Route 110','Good Rod','RSE',
-'60%','10-30'),('Magikarp','Route 111','Old Rod','RSE','70%','5-10'),('Magikarp','Route 111','Good Rod','RSE','60%','10-30'),('Magikarp','Route 114','Old Rod','RSE','70%','5-10'),('Magikarp',
-'Route 114','Good Rod','RSE','60%','10-30'),('Magikarp','Route 115','Old Rod','RSE','70%','5-10'),('Magikarp','Route 115','Good Rod','RSE','60%','10-30'),('Magikarp','Route 117','Old Rod','RSE',
-'70%','5-10'),('Magikarp','Route 117','Good Rod','RSE','60%','10-30'),('Magikarp','Route 118','Old Rod','RSE','70%','5-10'),('Magikarp','Route 118','Good Rod','RSE','60%','10-30'),('Magikarp',
-'Route 119','Old Rod','RSE','70%','5-10'),('Magikarp','Route 119','Good Rod','RSE','60%','10-30'),('Magikarp','Route 120','Old Rod','RSE','70%','5-10'),('Magikarp','Route 120','Good Rod','RSE',
-'60%','10-30'),('Magikarp','Route 121','Old Rod','RSE','70%','5-10'),('Magikarp','Route 121','Good Rod','RSE','60%','10-30'),('Magikarp','Route 122','Old Rod','RSE','70%','5-10'),('Magikarp',
-'Route 122','Good Rod','RSE','60%','10-30'),('Magikarp','Route 123','Old Rod','RSE','70%','5-10'),('Magikarp','Route 123','Good Rod','RSE','60%','10-30'),('Magikarp','Route 124','Old Rod','RSE',
-'70%','5-10'),('Magikarp','Route 124','Good Rod','RSE','60%','10-30'),('Magikarp','Route 125','Old Rod','RSE','70%','5-10'),('Magikarp','Route 125','Good Rod','RSE','60%','10-30'),('Magikarp',
-'Route 126','Old Rod','RSE','70%','5-10'),('Magikarp','Route 126','Good Rod','RSE','60%','10-30'),('Magikarp','Route 127','Old Rod','RSE','70%','5-10'),('Magikarp','Route 127','Good Rod','RSE',
-'60%','10-30'),('Magikarp','Route 128','Old Rod','RSE','70%','5-10'),('Magikarp','Route 128','Good Rod','RSE','60%','10-30'),('Magikarp','Route 129','Old Rod','RSE','70%','5-10'),('Magikarp',
-'Route 129','Good Rod','RSE','60%','10-30'),('Magikarp','Route 130','Old Rod','RSE','70%','5-10'),('Magikarp','Route 130','Good Rod','RSE','60%','10-30'),('Magikarp','Route 131','Old Rod','RSE',
-'70%','5-10'),('Magikarp','Route 131','Good Rod','RSE','60%','10-30'),('Magikarp','Route 132','Old Rod','RSE','70%','5-10'),('Magikarp','Route 132','Good Rod','RSE','60%','10-30'),('Magikarp',
-'Route 133','Old Rod','RSE','70%','5-10'),('Magikarp','Route 133','Good Rod','RSE','60%','10-30'),('Magikarp','Route 134','Old Rod','RSE','70%','5-10'),('Magikarp','Route 134','Good Rod','RSE',
-'60%','10-30'),('Magikarp','Sootopolis City','Old Rod','R','100%','5-15'),('Magikarp','Sootopolis City','Old Rod','SE','70%','5-10'),('Magikarp','Sootopolis City','Good Rod','RSE','100%','10-30'),
-('Magikarp','Sootopolis City','Super Rod','RSE','80%','30-35'),('Magikarp','Petalburg City','Old Rod','RSE','70%','5-10'),('Magikarp','Petalburg City','Good Rod','RSE','60%','10-30'),('Magikarp',
-'Dewford Town','Old Rod','RSE','70%','5-10'),('Magikarp','Dewford Town','Good Rod','RSE','60%','10-30'),('Magikarp','Slateport City','Old Rod','RSE','70%','5-10'),('Magikarp','Slateport City',
-'Good Rod','RSE','60%','10-30'),('Magikarp','Lilycove City','Old Rod','RSE','70%','5-10'),('Magikarp','Lilycove City','Good Rod','RSE','60%','10-30'),('Magikarp','Pacifidlog Town','Old Rod',
-'RSE','70%','5-10'),('Magikarp','Pacifidlog Town','Good Rod','RSE','60%','10-30'),('Magikarp','Ever Grande City','Old Rod','RSE','70%','5-10'),('Magikarp','Evergrande City','Good Rod','RSE',
-'60%','10-30'),('Magikarp','Abandoned Ship','Old Rod','RSE','70%','5-10'),('Magikarp','Abandoned Ship','Good Rod','RSE','60%','10-30'),('Magikarp','Shoal Cave Main','Old Rod','RSE','70%','5-10'),
-('Magikarp','Shoal Cave Main','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls 1F1R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls 1F1R','Good Rod','RSE','60%','10-30'),('Magikarp',
-'Meteor Falls 1F2R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls 1F2R','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls B1F1R','Old Rod','RSE','70%','5-10'),('Magikarp',
-'Meteor Falls B1F1R','Good Rod','RSE','60%','10-30'),('Magikarp','Meteor Falls B1F2R','Old Rod','RSE','70%','5-10'),('Magikarp','Meteor Falls B1F2R','Good Rod','RSE','60%','10-30'),('Magikarp',
-'Seafloor Cavern','Old Rod','RSE','70%','5-10'),('Magikarp','Seafloor Cavern','Good Rod','RSE','60%','10-30'),('Magikarp','Victory Road B2F','Old Rod','RSE','70%','5-10'),('Magikarp','Victory Road B2F',
-'Good Rod','RSE','60%','10-30'),('Magikarp','Mossdeep City','Old Rod','RSE','70%','5-10'),('Magikarp','Mossdeep City','Good Rod','RSE','60%','10-30'),('Gyarados','Sootopolis City','Super Rod','RSE',
-'20%','5-45'),('Tentacool','Route 128','Old Rod','RSE','30%','5-10'),('Tentacool','Ever Grande City','Old Rod','RSE','30%','5-10'),('Tentacool','Sootopolis City','Old Rod','SE','30%','5-10'),('Tentacool',
-'Abandoned Ship','Old Rod','RSE','30%','5-10'),('Tentacool','Abandoned Ship','Good Rod','RSE','40%','10-30'),('Tentacool','Abandoned Ship','Super Rod','RSE','80%','25-35'),('Tentacool','Route 103','Old Rod',
-'RSE','30%','5-10'),('Tentacool','Route 103','Good Rod','RSE','20%','10-30'),('Tentacool','Route 105','Old Rod','RSE','30%','5-10'),('Tentacool','Route 105','Good Rod','RSE','20%','10-30'),('Tentacool',
-'Route 106','Old Rod','RSE','30%','5-10'),('Tentacool','Route 106','Good Rod','RSE','20%','10-30'),('Tentacool','Route 107','Old Rod','RSE','30%','5-10'),('Tentacool','Route 107','Good Rod',
-'RSE','20%','10-30'),('Tentacool','Route 108','Old Rod','RSE','30%','5-10'),('Tentacool','Route 108','Good Rod','RSE','20%','10-30'),('Tentacool','Route 109','Old Rod','RSE','30%','5-10'),
-('Tentacool','Route 109','Good Rod','RSE','20%','10-30'),('Tentacool','Route 110','Old Rod','RSE','30%','5-10'),('Tentacool','Route 110','Good Rod','RSE','20%','10-30'),('Tentacool','Route 115',
-'Old Rod','RSE','30%','5-10'),('Tentacool','Route 115','Good Rod','RSE','20%','10-30'),('Tentacool','Route 118','Old Rod','RSE','30%','5-10'),('Tentacool','Route 118','Good Rod','RSE','20%','10-30'),
-('Tentacool','Route 119','Old Rod','RSE','30%','5-10'),('Tentacool','Route 119','Good Rod','RSE','20%','10-30'),('Tentacool','Route 121','Old Rod','RSE','30%','5-10'),('Tentacool','Route 121','Good Rod',
-'RSE','20%','10-30'),('Tentacool','Route 122','Old Rod','RSE','30%','5-10'),('Tentacool','Route 122','Good Rod','RSE','20%','10-30'),('Tentacool','Route 123','Old Rod','RSE','30%','5-10'),('Tentacool',
-'Route 123','Good Rod','RSE','20%','10-30'),('Tentacool','Route 124','Old Rod','RSE','30%','5-10'),('Tentacool','Route 124','Good Rod','RSE','20%','10-30'),('Tentacool','Route 125','Old Rod','RSE','30%',
-'5-10'),('Tentacool','Route 125','Good Rod','RSE','20%','10-30'),('Tentacool','Route 126','Old Rod','RSE','30%','5-10'),('Tentacool','Route 126','Good Rod','RSE','20%','10-30'),('Tentacool','Route 127',
-'Old Rod','RSE','30%','5-10'),('Tentacool','Route 127','Good Rod','RSE','20%','10-30'),('Tentacool','Route 129','Old Rod','RSE','30%','5-10'),('Tentacool','Route 129','Good Rod','RSE','20%','10-30'),
-('Tentacool','Route 130','Old Rod','RSE','30%','5-10'),('Tentacool','Route 130','Good Rod','RSE','20%','10-30'),('Tentacool','Route 131','Old Rod','RSE','30%','5-10'),('Tentacool','Route 131','Good Rod',
-'RSE','20%','10-30'),('Tentacool','Route 132','Old Rod','RSE','30%','5-10'),('Tentacool','Route 132','Good Rod','RSE','20%','10-30'),('Tentacool','Route 133','Old Rod','RSE','30%','5-10'),('Tentacool',
-'Route 133','Good Rod','RSE','20%','10-30'),('Tentacool','Route 134','Old Rod','RSE','30%','5-10'),('Tentacool','Route 134','Good Rod','RSE','20%','10-30'),('Tentacool','Slateport City','Old Rod','RSE',
-'30%','5-10'),('Tentacool','Slateport City','Good Rod','RSE','20%','10-30'),('Tentacool','Pacifidlog Town','Old Rod','RSE','30%','5-10'),('Tentacool','Pacifidlog Town','Good Rod','RSE','20%','10-30'),
-('Tentacool','Mossdeep City','Old Rod','RSE','30%','5-10'),('Tentacool','Mossdeep City','Good Rod','RSE','20%','10-30'),('Tentacool','Lilycove City','Old Rod','RSE','30%','5-10'),('Tentacool','Lilycove City',
-'Good Rod','RSE','20%','10-30'),('Tentacool','Dewford Town','Old Rod','RSE','30%','5-10'),('Tentacool','Dewford Town','Good Rod','RSE','20%','10-30'),('Tentacool','Shoal Cave Main','Old Rod','RSE','30%',
-'5-10'),('Tentacool','Shoal Cave Main','Good Rod','RSE','20%','10-30'),('Tentacool','Seafloor Cavern','Old Rod','RSE','30%','5-10'),('Tentacool','Seafloor Cavern','Good Rod','RSE','20%','10-30'),
-('Tentacruel','Abandoned Ship','Super Rod','RSE','20%','20-35'),('Carvanha','Route 118','Good Rod','RSE','20%','10-30'),('Carvanha','Route 118','Super Rod','RSE','60%','20-25,30-45'),('Carvanha','Route 119',
-'Good Rod','RSE','20%','10-30'),('Carvanha','Route 119','Super Rod','RSE','100%','20-45'),('Sharpedo','Route 103','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 118','Super Rod','RSE','40%','30-35'),
-('Sharpedo','Route 122','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 124','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 125','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 126','Super Rod',
-'RSE','40%','30-35'),('Sharpedo','Route 127','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 129','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 130','Super Rod','RSE','40%','30-35'),('Sharpedo',
-'Route 131','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 132','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 133','Super Rod','RSE','40%','30-35'),('Sharpedo','Route 134','Super Rod','RSE','40%',
-'30-35'),('Sharpedo','Mossdeep City','Super Rod','RSE','40%','30-35'),('Sharpedo','Pacifidlog Town','Super Rod','RSE','40%','30-35'),('Wailmer','Route 103','Good Rod','RSE','20%','10-30'),('Wailmer','Route 103',
-'Super Rod','RSE','60%','25-45'),('Wailmer','Route 105','Good Rod','RSE','20%','10-30'),('Wailmer','Route 105','Super Rod','RSE','100%','20-45'),('Wailmer','Route 106','Good Rod','RSE','20%','10-30'),
-('Wailmer','Route 106','Super Rod','RSE','100%','20-45'),('Wailmer','Route 107','Good Rod','RSE','20%','10-30'),('Wailmer','Route 107','Super Rod','RSE','100%','20-45'),('Wailmer','Route 108','Good Rod','RSE',
-'20%','10-30'),('Wailmer','Route 108','Super Rod','RSE','100%','20-45'),('Wailmer','Route 109','Good Rod','RSE','20%','10-30'),('Wailmer','Route 109','Super Rod','RSE','100%','20-45'),('Wailmer','Route 110',
-'Good Rod','RSE','20%','10-30'),('Wailmer','Route 110','Super Rod','RSE','100%','20-45'),('Wailmer','Route 115','Good Rod','RSE','20%','10-30'),('Wailmer','Route 115','Super Rod','RSE','100%','20-45'),
-('Wailmer','Route 121','Good Rod','RSE','20%','10-30'),('Wailmer','Route 121','Super Rod','RSE','100%','20-45'),('Wailmer','Route 122','Good Rod','RSE','20%','10-30'),('Wailmer','Route 122','Super Rod','RSE',
-'60%','25-45'),('Wailmer','Route 123','Good Rod','RSE','20%','10-30'),('Wailmer','Route 123','Super Rod','RSE','100%','20-45'),('Wailmer','Route 124','Good Rod','RSE','20%','10-30'),('Wailmer','Route 124',
-'Super Rod','RSE','60%','25-45'),('Wailmer','Route 125','Good Rod','RSE','20%','10-30'),('Wailmer','Route 125','Super Rod','RSE','60%','25-45'),('Wailmer','Route 126','Good Rod','RSE','20%','10-30'),
-('Wailmer','Route 126','Super Rod','RSE','60%','25-45'),('Wailmer','Route 127','Good Rod','RSE','20%','10-30'),('Wailmer','Route 127','Super Rod','RSE','60%','25-45'),('Wailmer','Route 128','Good Rod','RSE',
-'20%','10-30'),('Wailmer','Route 128','Super Rod','RSE','45%','30-45'),('Wailmer','Route 129','Good Rod','RSE','20%','10-30'),('Wailmer','Route 129','Super Rod','RSE','60%','25-45'),('Wailmer','Route 130',
-'Good Rod','RSE','20%','10-30'),('Wailmer','Route 130','Super Rod','RSE','60%','25-45'),('Wailmer','Route 131','Good Rod','RSE','20%','10-30'),('Wailmer','Route 131','Super Rod','RSE','60%','25-45'),('Wailmer',
-'Route 132','Good Rod','RSE','20%','10-30'),('Wailmer','Route 132','Super Rod','RSE','45%','30-45'),('Wailmer','Route 133','Good Rod','RSE','20%','10-30'),('Wailmer','Route 133','Super Rod','RSE','45%','30-45'),
-('Wailmer','Route 134','Good Rod','RSE','20%','10-30'),('Wailmer','Route 134','Super Rod','RSE','45%','30-45'),('Wailmer','Dewford Town','Good Rod','RSE','20%','10-30'),('Wailmer','Dewford Town','Super Rod','RSE',
-'100%','20-45'),('Wailmer','Ever Grande City','Good Rod','RSE','20%','10-30'),('Wailmer','Ever Grande City','Super Rod','RSE','45%','30-45'),('Wailmer','Lilycove City','Good Rod','RSE','20%','10-30'),('Wailmer',
-'Lilycove City','Super Rod','RSE','85%','25-45'),('Wailmer','Mossdeep City','Good Rod','RSE','20%','10-30'),('Wailmer','Mossdeep City','Super Rod','RSE','60%','25-45'),('Wailmer','Pacifidlog Town','Good Rod','RSE',
-'20%','10-30'),('Wailmer','Pacifidlog Town','Super Rod','RSE','60%','25-45'),('Wailmer','Seafloor Cavern','Good Rod','RSE','20%','10-30'),('Wailmer','Route 105','Seafloor Cavern','RSE','100%','20-45'),('Wailmer',
-'Shoal Cave','Good Rod','RSE','20%','10-30'),('Wailmer','Shoal Cave','Super Rod','RSE','100%','20-45'),('Wailmer','Slateport City','Good Rod','RSE','20%','10-30'),('Wailmer','Slateport City','Super Rod','RSE','100%',
+
+INSERT FishingPokemonRSE (nationalDexNumber, locationID, 
+fishingRodID, gameVerID, encounterChance, levelRange)
+VALUES ('118','2','1','1','30%','5-10'),('118','2','2','1','20%','10-30'),('118','11','1','1','30%','5-10'),('118','11',
+'2','1','30%','5-10'),('118','14','1','1','30%','5-10'),('118','14','2','1','20%','10-30'),('118','17','1','1','30%','5-10'),
+('118','17','2','1','20%','10-30'),('118','20','1','1','30%','5-10'),('118','20','2','1','20%','10-30'),('118','75',
+'1','1','30%','5-10'),('118','75','2','1','20%','10-30'),('118','60','1','1','30%','5-10'),('118','60','2',
+'1','20%','10-30'),('118','61','1','1','30%','5-10'),('118','61','2','1','20%','10-30'),('118','62','1','1',
+'30%','5-10'),('118','62','2','1','20%','10-30'),('118','63','1','1','30%','5-10'),('118','63','2','1','20%',
+'10-30'),('118','97','1','1','30%','5-10'),('118','97','2','1','20%','10-30'),('129','2','1','1','70%','5-10'),('129',
+'2','2','1','60%','10-30'),('129','3','1','1','70%','5-10'),('129','3','2','1','60%','10-30'),('129','4','1','1',
+'100%','5-10'),('129','4','2','1','100%','10-30'),('129','4','3','1','70%','20-45'),('129','5','1','1','70%','5-10'),('129',
+'5','2','1','60%','10-30'),('129','6','1','1','70%','5-10'),('129','6','2','1','60%','10-30'),('129','7','1','1',
+'70%','5-10'),('129','7','2','1','60%','10-30'),('129','8','1','1','70%','5-10'),('129','8','2','1','60%','10-30'),('129',
+'9','1','1','70%','5-10'),('129','9','2','1','60%','10-30'),('129','10','1','1','70%','5-10'),('129','10','2','1',
+'60%','10-30'),('129','11','1','1','70%','5-10'),('129','11','2','1','60%','10-30'),('129','14','1','1','70%','5-10'),('129',
+'14','2','1','60%','10-30'),('129','15','1','1','70%','5-10'),('129','15','2','1','60%','10-30'),('129','17','1','1',
+'70%','5-10'),('129','17','2','1','60%','10-30'),('129','18','1','1','70%','5-10'),('129','18','2','1','60%','10-30'),('129',
+'19','1','1','70%','5-10'),('129','19','2','1','60%','10-30'),('129','20','1','1','70%','5-10'),('129','20','2','1',
+'60%','10-30'),('129','21','1','1','70%','5-10'),('129','21','2','1','60%','10-30'),('129','22','1','1','70%','5-10'),('129',
+'22','2','1','60%','10-30'),('129','23','1','1','70%','5-10'),('129','23','2','1','60%','10-30'),('129','24','1','1',
+'70%','5-10'),('129','24','2','1','60%','10-30'),('129','25','1','1','70%','5-10'),('129','25','2','1','60%','10-30'),('129',
+'26','1','1','70%','5-10'),('129','26','2','1','60%','10-30'),('129','27','1','1','70%','5-10'),('129','27','2','1',
+'60%','10-30'),('129','28','1','1','70%','5-10'),('129','28','2','1','60%','10-30'),('129','29','1','1','70%','5-10'),('129',
+'29','2','1','60%','10-30'),('129','30','1','1','70%','5-10'),('129','30','2','1','60%','10-30'),('129','31','1','1',
+'70%','5-10'),('129','31','2','1','60%','10-30'),('129','32','1','1','70%','5-10'),('129','32','2','1','60%','10-30'),('129',
+'33','1','1','70%','5-10'),('129','33','2','1','60%','10-30'),('129','34','1','1','70%','5-10'),('129','34','2','1',
+'60%','10-30'),('129','90','1','5','100%','5-15'),('129','90','1','4','70%','5-10'),('129','90','2','1','100%','10-30'),
+('129','90','3','1','80%','30-35'),('129','75','1','1','70%','5-10'),('129','75','2','1','60%','10-30'),('129',
+'47','1','1','70%','5-10'),('129','47','2','1','60%','10-30'),('129','89','1','1','70%','5-10'),('129','89',
+'2','1','60%','10-30'),('129','57','1','1','70%','5-10'),('129','57','2','1','60%','10-30'),('129','74','1',
+'1','70%','5-10'),('129','74','2','1','60%','10-30'),('129','48','1','1','70%','5-10'),('129','Evergrande City','2','1',
+'60%','10-30'),('129','35','1','1','70%','5-10'),('129','35','2','1','60%','10-30'),('129','84','1','1','70%','5-10'),
+('129','84','2','1','60%','10-30'),('129','60','1','1','70%','5-10'),('129','60','2','1','60%','10-30'),('129',
+'61','1','1','70%','5-10'),('129','61','2','1','60%','10-30'),('129','62','1','1','70%','5-10'),('129',
+'62','2','1','60%','10-30'),('129','63','1','1','70%','5-10'),('129','63','2','1','60%','10-30'),('129',
+'82','1','1','70%','5-10'),('129','82','2','1','60%','10-30'),('129','97','1','1','70%','5-10'),('129','97',
+'2','1','60%','10-30'),('129','68','1','1','70%','5-10'),('129','68','2','1','60%','10-30'),('130','90','3','1',
+'20%','5-45'),('72','28','1','1','30%','5-10'),('72','48','1','1','30%','5-10'),('72','90','1','4','30%','5-10'),('72',
+'35','1','1','30%','5-10'),('72','35','2','1','40%','10-30'),('72','35','3','1','80%','25-35'),('72','3','1',
+'1','30%','5-10'),('72','3','2','1','20%','10-30'),('72','5','1','1','30%','5-10'),('72','5','2','1','20%','10-30'),('72',
+'6','1','1','30%','5-10'),('72','6','2','1','20%','10-30'),('72','7','1','1','30%','5-10'),('72','7','2',
+'1','20%','10-30'),('72','8','1','1','30%','5-10'),('72','8','2','1','20%','10-30'),('72','9','1','1','30%','5-10'),
+('72','9','2','1','20%','10-30'),('72','10','1','1','30%','5-10'),('72','10','2','1','20%','10-30'),('72','15',
+'1','1','30%','5-10'),('72','15','2','1','20%','10-30'),('72','18','1','1','30%','5-10'),('72','18','2','1','20%','10-30'),
+('72','19','1','1','30%','5-10'),('72','19','2','1','20%','10-30'),('72','21','1','1','30%','5-10'),('72','21','2',
+'1','20%','10-30'),('72','22','1','1','30%','5-10'),('72','22','2','1','20%','10-30'),('72','23','1','1','30%','5-10'),('72',
+'23','2','1','20%','10-30'),('72','24','1','1','30%','5-10'),('72','24','2','1','20%','10-30'),('72','25','1','1','30%',
+'5-10'),('72','25','2','1','20%','10-30'),('72','26','1','1','30%','5-10'),('72','26','2','1','20%','10-30'),('72','27',
+'1','1','30%','5-10'),('72','27','2','1','20%','10-30'),('72','29','1','1','30%','5-10'),('72','29','2','1','20%','10-30'),
+('72','30','1','1','30%','5-10'),('72','30','2','1','20%','10-30'),('72','31','1','1','30%','5-10'),('72','31','2',
+'1','20%','10-30'),('72','32','1','1','30%','5-10'),('72','32','2','1','20%','10-30'),('72','33','1','1','30%','5-10'),('72',
+'33','2','1','20%','10-30'),('72','34','1','1','30%','5-10'),('72','34','2','1','20%','10-30'),('72','89','1','1',
+'30%','5-10'),('72','89','2','1','20%','10-30'),('72','74','1','1','30%','5-10'),('72','74','2','1','20%','10-30'),
+('72','68','1','1','30%','5-10'),('72','68','2','1','20%','10-30'),('72','57','1','1','30%','5-10'),('72','57',
+'2','1','20%','10-30'),('72','47','1','1','30%','5-10'),('72','47','2','1','20%','10-30'),('72','84','1','1','30%',
+'5-10'),('72','84','2','1','20%','10-30'),('72','82','1','1','30%','5-10'),('72','82','2','1','20%','10-30'),
+('73','35','3','1','20%','20-35'),('318','18','2','1','20%','10-30'),('318','18','3','1','60%','20-25,30-45'),('318','19',
+'2','1','20%','10-30'),('318','19','3','1','100%','20-45'),('319','3','3','1','40%','30-35'),('319','18','3','1','40%','30-35'),
+('319','22','3','1','40%','30-35'),('319','24','3','1','40%','30-35'),('319','25','3','1','40%','30-35'),('319','26','3',
+'1','40%','30-35'),('319','27','3','1','40%','30-35'),('319','29','3','1','40%','30-35'),('319','30','3','1','40%','30-35'),('319',
+'31','3','1','40%','30-35'),('319','32','3','1','40%','30-35'),('319','33','3','1','40%','30-35'),('319','34','3','1','40%',
+'30-35'),('319','68','3','1','40%','30-35'),('319','74','3','1','40%','30-35'),('320','3','2','1','20%','10-30'),('320','3',
+'3','1','60%','25-45'),('320','5','2','1','20%','10-30'),('320','5','3','1','100%','20-45'),('320','6','2','1','20%','10-30'),
+('320','6','3','1','100%','20-45'),('320','7','2','1','20%','10-30'),('320','7','3','1','100%','20-45'),('320','8','2','1',
+'20%','10-30'),('320','8','3','1','100%','20-45'),('320','9','2','1','20%','10-30'),('320','9','3','1','100%','20-45'),('320','10',
+'2','1','20%','10-30'),('320','10','3','1','100%','20-45'),('320','15','2','1','20%','10-30'),('320','15','3','1','100%','20-45'),
+('320','21','2','1','20%','10-30'),('320','21','3','1','100%','20-45'),('320','22','2','1','20%','10-30'),('320','22','3','1',
+'60%','25-45'),('320','23','2','1','20%','10-30'),('320','23','3','1','100%','20-45'),('320','24','2','1','20%','10-30'),('320','24',
+'3','1','60%','25-45'),('320','25','2','1','20%','10-30'),('320','25','3','1','60%','25-45'),('320','26','2','1','20%','10-30'),
+('320','26','3','1','60%','25-45'),('320','27','2','1','20%','10-30'),('320','27','3','1','60%','25-45'),('320','28','2','1',
+'20%','10-30'),('320','28','3','1','45%','30-45'),('320','29','2','1','20%','10-30'),('320','29','3','1','60%','25-45'),('320','30',
+'2','1','20%','10-30'),('320','30','3','1','60%','25-45'),('320','31','2','1','20%','10-30'),('320','31','3','1','60%','25-45'),('320',
+'32','2','1','20%','10-30'),('320','32','3','1','45%','30-45'),('320','33','2','1','20%','10-30'),('320','33','3','1','45%','30-45'),
+('320','34','2','1','20%','10-30'),('320','34','3','1','45%','30-45'),('320','47','2','1','20%','10-30'),('320','47','3','1',
+'100%','20-45'),('320','48','2','1','20%','10-30'),('320','48','3','1','45%','30-45'),('320','57','2','1','20%','10-30'),('320',
+'57','3','1','85%','25-45'),('320','68','2','1','20%','10-30'),('320','68','3','1','60%','25-45'),('320','74','2','1',
+'20%','10-30'),('320','74','3','1','60%','25-45'),('320','82','2','1','20%','10-30'),('320','5','82','1','100%','20-45'),('320',
+'Shoal Cave','2','1','20%','10-30'),('320','Shoal Cave','3','1','100%','20-45'),('320','89','2','1','20%','10-30'),('320','89','3','1','100%',
 '20-45')
 
-INSERT FishingSafariPokemonRSE (pokemonName, safariArea,
-rodType, gameVersion, encounterChance, levelRange)
-VALUES ('Goldeen','Area 2-West','Old Rod','RSE','30%','5-10'),('Goldeen','Area 2-West','Good Rod','RSE','40%','10-30'),('Goldeen','Area 2-West','Super Rod','RSE','80%','25-35'),('Goldeen',
-'Area 3-Northwest','Old Rod','RSE','30%','5-10'),('Goldeen','Area 3-Northwest','Good Rod','RSE','40%','10-30'),('Goldeen','Area 3-Northwest','Super Rod','RSE','80%','25-35'),('Goldeen',
-'Area 5-East','Old Rod','E','30%','25-30'),('Goldeen','Area 5-East','Good Rod','E','20%','25-30'),('Goldeen','Area 5-East','Super Rod','RSE','40%','25-30'),('Seaking','Area 2-West',
-'Super Rod','RSE','20%','25-40'),('Seaking','Area 3-Northwest','Super Rod','RSE','20%','25-40'),('Magikarp','Area 2-West','Old Rod','RSE','70%','5-10'),('Magikarp','Area 2-West',
-'Good Rod','RSE','60%','10-30'),('Magikarp','Area 3-Northwest','Old Rod','RSE','70%','5-10'),('Magikarp','Area 3-Northwest','Good Rod','RSE','60%','10-30'),('Magikarp','Area 5-East',
-'Old Rod','E','70%','25-30'),('Magikarp','Area 5-East','Good Rod','E','60%','25-30')
+INSERT FishingSafariPokemonRSE (nationalDexNumber, safariAreaID, 
+fishingRodID, gameVerID, encounterChance, levelRange)
+VALUES ('118','2','1','1','30%','5-10'),('118','2','2','1','40%','10-30'),('118','2','3','1','80%','25-35'),('118',
+'3','1','1','30%','5-10'),('118','3','2','1','40%','10-30'),('118','3','3','1','80%','25-35'),('118',
+'5','1','7','30%','25-30'),('118','5','2','7','20%','25-30'),('118','5','3','1','40%','25-30'),('119','2',
+'3','1','20%','25-40'),('119','3','3','1','20%','25-40'),('129','2','1','1','70%','5-10'),('129','2',
+'2','1','60%','10-30'),('129','3','1','1','70%','5-10'),('129','3','2','1','60%','10-30'),('129','5',
+'1','7','70%','25-30'),('129','5','2','7','60%','25-30')
  
-INSERT BreedingPokemonRSE (pokemonName, encounterMethod, 
-breedingItem, breedingParent, eggGroups)
-VALUES ('Azurill','Breeding','Sea Incense','Marill/Azumarill','Water1/Fairy')
+INSERT BreedingPokemonRSE (nationalDexNumber, methodID, 
+itemID, breedingParent, eggGroups)
+VALUES ('298','4','61','Marill/Azumarill','Water1/Fairy')
 
-INSERT EvolutionPokemonRSE (pokemonName, encounterMethod,
-evolvesFrom, evolutionMethod, evolutionRequirement)
-VALUES ('Grovyle','Evoltuion','Treecko','Level Up','Level 16'),('Sceptile','Evoltuion','Grovyle','Level Up','Level 36'),('Combusken','Evoltuion','Torchic','Level Up','Level 16'),('Blaziken',
-'Evoltuion','Combusken','Level Up','Level 36'),('Marshtomp','Evoltuion','Mudkip','Level Up','Level 16'),('Swampert','Evoltuion','Marshtomp','Level Up','Level 36'),('Mightyena','Evoltuion',
-'Poochyena','Level Up','Level 18'),('Linoone','Evoltuion','Zigzagoon','Level Up','Level 20'),('Beautifly','Evoltuion','Silcoon','Level Up','Level 10'),('Dustox','Evoltuion','Cascoon','Level Up','Level 10'),
-('Lombre','Evoltuion','Lotad','Level Up','Level 14'),('Ludicolo','Evoltuion','Lombre','Item','Water Stone'),('Nuzleaf','Evoltuion','Seedot','Level Up','Level 14'),('Shiftry','Evoltuion','Nuzleaf','Item',
-'Leaf Stone'),('Swellow','Evoltuion','Taillow','Level Up','Level 22'),('Pelipper','Evoltuion','Wingull','Level Up','Level 25'),('Kirlia','Evoltuion','Ralts','Level Up','Level 20'),('Gardevoir','Evoltuion',
-'Kirlia','Level Up','Level 30'),('Masquerain','Evoltuion','Surskit','Level Up','Level 22'),('Breloom','Evoltuion','Shroomish','Level Up','Level 23'),('Vigoroth','Evoltuion','Slakoth','Level Up','Level 18'),
-('Slaking','Evoltuion','Vigoroth','Level Up','Level 36'),('Kadabra','Evoltuion','Abra','Level Up','Level 16'),('Alakazam','Evoltuion','Kadabra','Trade','Evolves upon trading'),('Ninjask','Evoltuion',
-'Nincada','Level Up','Level 20'),('Shedinja','Evoltuion','Nincada','Level Up','Level 20 with space in party'),('Loudred','Evoltuion','Whismur','Level Up','Level 20'),('Exploud','Evoltuion','Loudred',
-'Level Up','Level 40'),('Hariyama','Evoltuion','Makuhita','Level Up','Level 24'),('Seaking','Evoltuion','Goldeen','Level Up','Level 33'),('Gyarados','Evoltuion','Magikarp','Level Up','Level 20'),('Marill',
-'Evoltuion','Azurill','Friendship','Level up with high friendship'),('Azumarill','Evoltuion','Marill','Level Up','Level 18'),('Graveler','Evoltuion','Geodude','Level Up','Level 25'),('Golem','Evoltuion',
-'Graveler','Trade','Evolves upon trading'),('Delcatty','Evoltuion','Skitty','Item','Moon Stone'),('Golbat','Evoltuion','Zubat','Level Up','Level 22'),('Crobat','Evolution','Golbat','Friendship',
-'Level up with high friendship'),('Tentacruel','Evoltuion','Tentacool','Level Up','Level 30'),('Lairon','Evolution','Aron','Level Up','Level 32'),('Aggron','Evolution','Lairon','Level Up','Level 42'),
-('Machoke','Evolution','Machop','Level Up','Level 28'),('Machamp','Evolution','Machoke','Trade','Evolves upon trading'),('Medicham','Evolution','Meditite','Level Up','Level 37'),('Manectric','Evolution',
-'Electrike','Level Up','Level 26'),('Magneton','Evolution','Magnemite','Level Up','Level 30'),('Electrode','Evolution','Voltorb','Level Up','Level 30'),('Gloom','Evolution','Oddish','Level Up','Level 21'),
-('Vileplume','Evoltuion','Gloom','Item','Leaf Stone'),('Bellossom','Evoltuion','Nuzleaf','Item','Sun Stone'),('Dodrio','Evolution','Doduo','Level Up','Level 31'),('Swalot','Evolution','Gulpin','Level Up',
-'Level 26'),('Sharpedo','Evolution','Carvanha','Level Up','Level 30'),('Wailord','Evolution','Wailmer','Level Up','Level 40')
+INSERT EvolutionPokemonRSE (nationalDexNumber, methodID, 
+evolvesFrom, evolutionMethodID, evolutionRequirement)
+VALUES ('253','5','252','1','Level 16'),('254','5','253','1','Level 36'),('256','5','255','1','Level 16'),('257',
+'5','256','1','Level 36'),('259','5','258','1','Level 16'),('260','5','259','1','Level 36'),('262','5',
+'261','1','Level 18'),('264','5','263','1','Level 20'),('267','5','266','1','Level 10'),('269','5','268','1','Level 10'),
+('271','5','270','1','Level 14'),('272','5','271','6','Water Stone'),('274','5','273','1','Level 14'),('275','5','274','6',
+'Leaf Stone'),('276','5','276','1','Level 22'),('279','5','278','1','Level 25'),('281','5','280','1','Level 20'),('282','5',
+'281','1','Level 30'),('Masquerain','5','283','1','Level 22'),('286','5','285','1','Level 23'),('288','5','287','1','Level 18'),
+('289','5','288','1','Level 36'),('64','5','63','1','Level 16'),('65','5','64','Trade','Evolves upon trading'),('291','5',
+'290','1','Level 20'),('292','5','290','1','Level 20 with space in party'),('294','5','293','1','Level 20'),('295','5','294',
+'1','Level 40'),('297','5','296','1','Level 24'),('119','5','118','1','Level 33'),('130','5','129','1','Level 20'),('183',
+'5','298','2','Level up with high friendship'),('184','5','183','1','Level 18'),('75','5','74','1','Level 25'),('76','5',
+'75','Trade','Evolves upon trading'),('301','5','300','6','Moon Stone'),('42','5','41','1','Level 22'),('169','5','42','2',
+'Level up with high friendship'),('73','5','72','1','Level 30'),('305','5','304','1','Level 32'),('306','5','305','1','Level 42'),
+('67','5','66','1','Level 28'),('68','5','67','Trade','Evolves upon trading'),('308','5','307','1','Level 37'),('310','5',
+'309','1','Level 26'),('82','5','81','1','Level 30'),('101','5','100','1','Level 30'),('44','5','43','1','Level 21'),
+('45','5','44','6','Leaf Stone'),('182','5','274','6','Sun Stone'),('85','5','84','1','Level 31'),('317','5','316','1',
+'Level 26'),('319','5','318','1','Level 30'),('321','5','320','1','Level 40')
 
-INSERT RandomSafariPokemonRSE (pokemonName, safariArea,
-encounterMethod, gameVersion, encounterChance, levelRange)
-VALUES ('Marill','Area 5-East','Surfing','E','39%','5-35'),('Geodude','Area 4-North','Rock Smash','RSE','100%','5-30'),('Oddish','Area 1-Central','Tall Grass','RSE','40%','25,27'),('Oddish','Area 2-West',
-'Tall Grass','RSE','40%','25,27'),('Oddish','Area 3-Northwest','Tall Grass','RSE','30%','27,29'),('Oddish','Area 4-North','Tall Grass','RSE','30%','27,29'),('Gloom','Area 1-Central','Tall Grass','RSE',
-'5%','25'),('Gloom','Area 2-West','Tall Grass','RSE','5%','25'),('Gloom','Area 3-Northwest','Tall Grass','RSE','15%','29,31'),('Gloom','Area 4-North','Tall Grass','RSE','15%','29,31'),('Doduo',
-'Area 1-Central','Tall Grass','RSE','10%','25'),('Doduo','Area 2-West','Tall Grass','R','10%','25'),('Doduo','Area 2-West','Tall Grass','SE','10%','27'),('Doduo','Area 3-Northwest','Tall Grass','RSE',
-'15%','27,29'),('Dodrio','Area 3-Northwest','Tall Grass','RSE','5%','29,31')
+INSERT RandomSafariPokemonRSE (nationalDexNumber, safariAreaID, 
+methodID, gameVerID, encounterChance, levelRange)
+VALUES ('183','5','3','7','39%','5-35'),('74','4','16','1','100%','5-30'),('43','1','1','1','40%','25,27'),('43','2',
+'1','1','40%','25,27'),('43','3','1','1','30%','27,29'),('43','4','1','1','30%','27,29'),('44','1','1','1',
+'5%','25'),('44','2','1','1','5%','25'),('44','3','1','1','15%','29,31'),('44','4','1','1','15%','29,31'),('84',
+'1','1','1','10%','25'),('84','2','1','5','10%','25'),('84','2','1','4','10%','27'),('84','3','1','1',
+'15%','27,29'),('85','3','1','1','5%','29,31')
 
-SELECT (pokemonName) as Pokémon, (safariArea) as Área, (encounterMethod) as Método, (gameVersion) as Versão, (encounterChance) as Chance,
-(levelRange) as Level_Range FROM RandomSafariPokemonRSE
 
-SELECT (pokemonName) as Pokémon, (encounterMethod) as Método, (evolutionMethod) as Método_Evolução, 
-(evolvesFrom) as Pré_Evolução, (evolutionRequirement) as Requisito_Evolução FROM EvolutionPokemonRSE
-
-SELECT (pokemonName) as Pokémon, (encounterMethod) as Método, (breedingItem) as Item, (breedingParent) as Pais,
-(eggGroups) as Egg_Groups FROM BreedingPokemonRSE
-
-SELECT (pokemonName) as Pokémon, (safariArea) as Área, (rodType) as Vara, (gameVersion) as Versão, (encounterChance) as Chance,
-(levelRange) as Level_Range FROM FishingSafariPokemonRSE
-
-SELECT (pokemonName) as Pokémon, (encounterLocation) as Localização, (rodType) as Vara, (gameVersion) as Versão, (encounterChance) as Chance,
-(levelRange) as Level_Range FROM FishingPokemonRSE
-
-SELECT (pokemonName) as Pokémon, (encounterLocation) as Localização, (encounterMethod) as Método, (gameVersion) as Versão, (encounterChance) as Chance,
-(levelRange) as Level_Range FROM RandomPokemonRSE
