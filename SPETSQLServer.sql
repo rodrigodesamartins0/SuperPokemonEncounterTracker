@@ -107,7 +107,13 @@ VALUES ('Bulbasaur'),('Ivysaur'),('Venusaur'),('Charmander'),('Charmeleon'),('Ch
 ('Alomomola'),('Joltik'),('Galvantula'),('Ferroseed'),('Ferrothorn'),('Klink'),('Klang'),('Klinklang'),('Tynamo'),('Eelektrik'),('Eelektross'),('Elgyem'),('Beheeyem'),('Litwick'),
 ('Lampent'),('Chandelure'),('Axew'),('Fraxure'),('Haxorus'),('Cubchoo'),('Beartic'),('Cryogonal'),('Shelmet'),('Accelgor'),('Stunfisk'),('Mienfoo'),('Mienshao'),('Druddigon'),
 ('Golett'),('Golurk'),('Pawniard'),('Bisharp'),('Bouffalant'),('Rufflet'),('Braviary'),('Vullaby'),('Mandibuzz'),('Heatmor'),('Durant'),('Deino'),('Zweilous'),('Hydreigon'),
-('Larvesta'),('Volcarona'),('Cobalion'),('Terrakion'),('Virizion'),('Tornadus'),('Thundurus'),('Reshiram'),('Zekrom'),('Landorus'),('Kyurem'),('Keldeo'),('Meloetta'),('Genesect')
+('Larvesta'),('Volcarona'),('Cobalion'),('Terrakion'),('Virizion'),('Tornadus'),('Thundurus'),('Reshiram'),('Zekrom'),('Landorus'),('Kyurem'),('Keldeo'),('Meloetta'),('Genesect'),
+('Chespin'),('Quilladin'),('Chesnaught'),('Fennekin'),('Braixen'),('Delphox'),('Froakie'),('Frogadier'),('Greninja'),('Bunnelby'),('Diggersby'),('Fletchling'),('Fletchinder'),
+('Talonflame'),('Scatterbug'),('Spewpa'),('Vivillon'),('Litleo'),('Pyroar'),('Flabébé'),('Floette'),('Florges'),('Skiddo'),('Gogoat'),('Pancham'),('Pangoro'),('Furfrou'),
+('Espurr'),('Meowstic'),('Honedge'),('Doublade'),('Aegislash'),('Spritzee'),('Aromatisse'),('Swirlix'),('Slurpuff'),('Inkay'),('Malamar'),('Binacle'),('Barbaracle'),('Skrelp'),
+('Dragalge'),('Clauncher'),('Clawitzer'),('Helioptile'),('Heliolisk'),('Tyrunt'),('Tyrantrum'),('Amaura'),('Aurorus'),('Sylveon'),('Hawlucha'),('Dedenne'),('Carbink'),('Goomy'),
+('Sliggoo'),('Goodra'),('Klefki'),('Phantump'),('Trevenant'),('Pumpkaboo'),('Gourgeist'),('Bergmite'),('Avalugg'),('Noibat'),('Noivern'),('Xerneas'),('Yveltal'),('Zygarde'),
+('Diancie'),('Hoopa'),('Volcanion')
 
 
 
