@@ -172,7 +172,7 @@ VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gi
 ('Trade Bagon'),('Trade Skitty'),('Walking'),('Cave'),('Rock Smash'),('Static')
 
 INSERT GameVersion (gameVersion)
-VALUES ('RSE'),('RS'),('RE'),('SE'),('R'),('S'),('E')
+VALUES ('RSE'),('RS'),('RE'),('SE'),('R'),('S'),('E'),('None')
 
 INSERT FishingRod (fishingRodType)
 VALUES ('Old Rod'),('Good Rod'),('Super Rod')
@@ -284,6 +284,24 @@ CREATE TABLE EvolutionPokemonRSE
 	evolutionMethodID INT
 		CONSTRAINT EVO_HOW FOREIGN KEY REFERENCES EvolutionMethod (evolutionMethodID),
 	evolutionRequirement VARCHAR (50)
+)
+GO
+CREATE TABLE SwarmPokemonRSE
+(
+	swarmID INT IDENTITY (1,1)
+		CONSTRAINT SWA_RM PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT SWA_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	swarmLocation INT
+		CONSTRAINT SWA_LOC FOREIGN KEY REFERENCES LocationsHoenn (locationID),
+	methodID INT
+		CONSTRAINT SWA_METHOD FOREIGN KEY REFERENCES EncounterMethods (encounterID),
+	gameVerID INT
+		CONSTRAINT SWA_GAMEVER FOREIGN KEY REFERENCES GameVersion (gameVerID),
+	mixingRecordsWith INT
+		CONSTRAINT SWA_MIXING FOREIGN KEY REFERENCES GameVersion (gameVerID),
+	encounterChance VARCHAR (50),
+	levelRange VARCHAR (50)	
 )
 GO
 INSERT RandomPokemonRSE (nationalDexNumber, locationID, 
@@ -516,4 +534,140 @@ VALUES ('183','5','3','7','39%','5-35'),('74','4','16','1','100%','5-30'),('43',
 '1','1','1','10%','25'),('84','2','1','5','10%','25'),('84','2','1','4','10%','27'),('84','3','1','1',
 '15%','27,29'),('85','3','1','1','5%','29,31')
 
+INSERT SwarmPokemonRSE (nationalDexNumber, swarmLocation,
+methodID,gameVerID,mixingRecordsWith,encounterChance,levelRange)
+VALUES ('283','2','1','2','8','50%','3'),('283','14','1','2','8','50%','15'),('283','17','1','2','8','50%','15'),
+('283','20','1','2','8','50%','28'),('283','2','1','7','2','50%','3'),('283','14','1','7','2','50%','15'),('283','17','1','7','2','50%','15'),
+('283','20','1','7','2','50%','28'),('300','16','1','2','8','50%','15'),('300','16','1','2','7','50%','8'),('300','16','1','7','8','50%','8'),
+('300','16','1','7','2','50%','15'),('273','2','1','7','8','50%','3'),('273','17','1','7','8','50%','13'),('273','20','1','7','8','50%','25'),
+('274','14','1','7','8','50%','15'),('273','2','1','2','7','50%','3'),('273','17','1','2','7','50%','13'),('273','20','1','2','7','50%','25'),
+('274','14','1','2','7','50%','15')
+
 SELECT * FROM RandomPokemonRSE
+SELECT * FROM SwarmPokemonRSE
+GO
+CREATE VIEW vw_RandomPokemonRSE AS
+SELECT
+	r.randomID,
+	n.pokemonName AS Pokémon,
+	l.locationName AS Localização,
+	e.encounterMethod AS Método,
+	g.gameVersion AS Versão,
+	r.encounterChance AS Chance, 
+	r.levelRange AS Level_Range
+FROM RandomPokemonRSE r 
+INNER JOIN NationalDex n ON r.nationalDexNumber=n.nationalDexNumber
+INNER JOIN LocationsHoenn l ON r.locationID=l.locationID
+INNER JOIN EncounterMethods e ON r.methodID = e.encounterID
+INNER JOIN GameVersion g ON r.gameVerID=g.gameVerID
+GO
+SELECT * FROM vw_RandomPokemonRSE 
+ORDER BY randomID
+GO
+CREATE VIEW vw_FishingPokemonRSE AS
+SELECT
+	f.fishingID,
+	n.pokemonName AS Pokémon,
+	l.locationName AS Localização,
+	fr.fishingRodType AS Vara,
+	g.gameVersion AS Versão,
+	f.encounterChance AS Chance,
+	f.levelRange AS Level_Range
+FROM FishingPokemonRSE f 
+INNER JOIN NationalDex n ON f.nationalDexNumber=n.nationalDexNumber
+INNER JOIN LocationsHoenn l ON f.locationID=l.locationID
+INNER JOIN FishingRod fr ON f.fishingRodID=fr.fishingRodID
+INNER JOIN GameVersion g ON f.gameVerID=g.gameVerID
+GO
+SELECT * FROM vw_FishingPokemonRSE
+ORDER BY fishingID
+GO
+CREATE VIEW vw_FishingSafariPokemonRSE AS
+SELECT
+	fs.safariFishingID,
+	n.pokemonName AS Pokémon,
+	hs.safariArea AS Área,
+	fr.fishingRodType AS Vara,
+	g.gameVersion AS Versão,
+	fs.encounterChance AS Chance,
+	fs.levelRange AS Level_Range
+FROM FishingSafariPokemonRSE fs
+INNER JOIN NationalDex n ON fs.nationalDexNumber=n.nationalDexNumber
+INNER JOIN HoennSafari hs ON fs.safariAreaID=hs.safariAreaID
+INNER JOIN FishingRod fr ON fs.fishingRodID=fr.fishingRodID
+INNER JOIN GameVersion g ON fs.gameVerID=g.gameVerID
+GO
+SELECT * FROM vw_FishingSafariPokemonRSE
+ORDER BY Área
+GO
+CREATE VIEW vw_RandomSafariPokemonRSE AS 
+SELECT
+	rs.safariRandomID,
+	n.pokemonName AS Pokémon,
+	hs.safariArea AS Área,
+	e.encounterMethod AS Método,
+	g.gameVersion AS Versão,
+	rs.encounterChance AS Chance, 
+	rs.levelRange AS Level_Range
+FROM RandomSafariPokemonRSE rs
+INNER JOIN NationalDex n ON rs.nationalDexNumber=n.nationalDexNumber
+INNER JOIN HoennSafari hs ON rs.safariAreaID=hs.safariAreaID
+INNER JOIN EncounterMethods e ON rs.methodID = e.encounterID
+INNER JOIN GameVersion g ON rs.gameVerID=g.gameVerID
+GO
+SELECT * FROM vw_RandomSafariPokemonRSE
+ORDER BY Área
+GO
+CREATE VIEW vw_BreedingPokemonRSE AS
+SELECT
+	b.breedingID,
+	n.pokemonName AS Pokémon,
+	e.encounterMethod AS Método,	
+	gi.itemName AS Item,
+	b.breedingParent AS Pais,
+	b.eggGroups AS Egg_Groups
+FROM BreedingPokemonRSE b 
+INNER JOIN NationalDex n ON b.nationalDexNumber=n.nationalDexNumber
+INNER JOIN EncounterMethods e ON b.methodID=e.encounterID
+INNER JOIN GeneralItems gi ON b.itemID=gi.itemID
+GO
+SELECT * FROM vw_BreedingPokemonRSE
+ORDER BY breedingID
+GO
+CREATE VIEW vw_EvolutionPokemonRSE AS
+SELECT
+	ev.evolutionID,
+	n1.pokemonName AS Pokémon,
+	e.encounterMethod AS Método,
+	n2.pokemonName AS Pré_Evolução,
+	evm.evolutionMethod AS Método_Evolução,
+	ev.evolutionRequirement AS Requerimento
+FROM EvolutionPokemonRSE ev
+INNER JOIN NationalDex n1 ON ev.nationalDexNumber=n1.nationalDexNumber
+INNER JOIN EncounterMethods e ON ev.methodID=e.encounterID
+INNER JOIN NationalDex n2 ON ev.evolvesFrom=n2.nationalDexNumber
+INNER JOIN EvolutionMethod evm ON ev.evolutionMethodID=evm.evolutionMethodID
+GO
+SELECT * FROM vw_EvolutionPokemonRSE
+ORDER BY evolutionID
+GO
+CREATE VIEW vw_SwarmPokemonRSE AS
+SELECT
+	sw.swarmID,
+	n.pokemonName AS Pokémon,
+	l.locationName AS Localização,
+	e.encounterMethod AS Método,
+	g1.gameVersion AS Versão,
+	g2.gameVersion AS Mixing_Records,
+	sw.encounterChance AS Chance, 
+	sw.levelRange AS Level_Range
+FROM SwarmPokemonRSE sw 
+INNER JOIN NationalDex n ON sw.nationalDexNumber=n.nationalDexNumber
+INNER JOIN LocationsHoenn l ON sw.swarmLocation=l.locationID
+INNER JOIN EncounterMethods e ON sw.methodID = e.encounterID
+INNER JOIN GameVersion g1 ON sw.gameVerID=g1.gameVerID
+INNER JOIN GameVersion g2 ON sw.mixingRecordsWith=g2.gameVerID
+GO
+SELECT * FROM vw_SwarmPokemonRSE 
+ORDER BY swarmID
+GO
