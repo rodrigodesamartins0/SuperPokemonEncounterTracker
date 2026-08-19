@@ -66,6 +66,29 @@ CREATE TABLE GeneralItems
 		CONSTRAINT IT_EM PRIMARY KEY,
 	itemName VARCHAR (50)
 )
+GO
+CREATE TABLE FossilItems
+(
+	fossilItemID INT IDENTITY (1,1)
+		CONSTRAINT FOS_ITEM PRIMARY KEY,
+	fossilName VARCHAR (50)
+)
+GO
+CREATE TABLE ReviveLabs
+(
+	labID INT IDENTITY (1,1)
+		CONSTRAINT LAB_ID PRIMARY KEY,
+	labName VARCHAR (50)
+)
+GO
+
+INSERT ReviveLabs
+VALUES ('Cinnabar Lab'),('Pewter Museum of Science'),('Devon Corporation'),('Oreburgh Mining Museum'),('Nacrene Museum'),('Ambrette Fossil Lab'),('Pokémon Research Lab'),
+('Fossil Restoration Center'),('Route 6')
+
+INSERT FossilItems
+VALUES ('Helix Fossil'),('Dome Fossil'),('Old Amber'),('Root Fossil'),('Claw Fossil'),('Skull Fossil'),('Armor Fossil'),('Cover Fossil'),('Plume Fossil'),('Jaw Fossil'),('Sail Fossil'),
+('Fossilized Bird'),('Fossilized Fish'),('Fossilized Drake'),('Fossilized Dino')
 
 INSERT GeneralItems
 VALUES ('None'),('Fire Stone'),('Water Stone'),('Thunder Stone'),('Leaf Stone'),('Moon Stone'),('Sun Stone'),('Shiny Stone'),('Dusk Stone'),('Dawn Stone'),('Ice Stone'),('Auspicious Armor'),('Black Augurite'),('Chipped Pot'),('Cracked Pot'),
@@ -169,7 +192,7 @@ VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('R
 
 INSERT EncounterMethods (encounterMethod)
 VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gift'),('Trade Slakoth'),('Trade Pikachu'),('Trade Bellossom'),('Trade Ralts'),('Trade Volbeat'),
-('Trade Bagon'),('Trade Skitty'),('Walking'),('Cave'),('Rock Smash'),('Static'),('Deep Sand')
+('Trade Bagon'),('Trade Skitty'),('Walking'),('Cave'),('Rock Smash'),('Static'),('Deep Sand'),('Revive Root Fossil'),('Revive Claw Fossil')
 
 INSERT GameVersion (gameVersion)
 VALUES ('RSE'),('RS'),('RE'),('SE'),('R'),('S'),('E'),('None')
@@ -183,6 +206,8 @@ VALUES ('Area 1-Central'),('Area 2-West'),('Area 3-Northwest'),('Area 4-North'),
 INSERT EvolutionMethod (evolutionMethod)
 VALUES ('Level Up'),('Friendship'),('Move'),('Location'),('Time'),('Item'),('Gender'),('Game'),('Lets Go!'),('Special'),('Trade')
 
+SELECT * FROM ReviveLabs
+SELECT * FROM FossilItems
 SELECT * FROM EvolutionMethod
 SELECT * FROM GeneralItems
 SELECT * FROM NationalDex
@@ -191,6 +216,23 @@ SELECT * FROM FishingRod
 SELECT * FROM GameVersion
 SELECT * FROM EncounterMethods
 SELECT * FROM LocationsHoenn
+
+CREATE TABLE FossilPokemonRSE
+(
+	fossilID INT IDENTITY (1,1)
+		CONSTRAINT FOS_SIL PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT FOS_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	fossilItemID INT
+		CONSTRAINT FOS_DEAD FOREIGN KEY REFERENCES FossilItems (fossilItemID),
+	labID INT 
+		CONSTRAINT LAB_NAME FOREIGN KEY REFERENCES ReviveLabs (labID),
+	locationID INT 
+		CONSTRAINT LAB_LOC FOREIGN KEY REFERENCES LocationsHoenn (locationID),
+	gameVerID INT
+		CONSTRAINT FOS_GAMEVER FOREIGN KEY REFERENCES GameVersion (gameVerID),
+	levelRange VARCHAR (50)
+)
 
 GO
 CREATE TABLE RandomPokemonRSE
@@ -304,6 +346,12 @@ CREATE TABLE SwarmPokemonRSE
 	levelRange VARCHAR (50)	
 )
 GO
+
+INSERT FossilPokemonRSE (nationalDexNumber, fossilItemID,
+labID, locationID, gameVerID, levelRange)
+VALUES ('345','4','3','75','1','Level 20'),('347','5','3','75','1','Level 20')
+
+
 INSERT RandomPokemonRSE (nationalDexNumber, locationID, 
 methodID, gameVerID, encounterChance, levelRange)
 VALUES ('252','1','6','1','100%','5'),('255','1','6','1','100%','5'),('258','1','6','1','100%','5'),
@@ -427,7 +475,10 @@ VALUES ('252','1','6','1','100%','5'),('255','1','6','1','100%','5'),('258','1',
 ('337','62','3','6','10%','5-35'),('337','63','15','6','25%','35,37,39'),('337','63','3','6','10%','5-35'),
 ('338','60','15','3','20%','14,16,18'),('338','60','3','3','10%','5-35'),('338','61','15','3','35%','33,35,37,39'),
 ('338','61','3','3','10%','5-35'),('338','62','15','3','35%','33,35,37,39'),('338','62','3','3','10%','5-35'),
-('338','63','15','3','25%','35,37,39'),('338','63','3','3','10%','5-35'),('338','64','15','7','35%','33,35,37,39')
+('338','63','15','3','25%','35,37,39'),('338','63','3','3','10%','5-35'),('338','64','15','7','35%','33,35,37,39'),
+('343','11','18','2','10%','20,22'),('343','11','18','7','24%','19-21'),('344','86','14','2','25%','47-50'),
+('344','86','14','7','25%','36-38'),('344','87','14','2','25%','50-53'),('344','87','14','7','25%','36-38'),
+('344','88','14','2','19%','54-56'),('344','88','14','7','19%','36-38'),('344','88','14','7','19%','36-38')
 
 
 INSERT FishingPokemonRSE (nationalDexNumber, locationID, 
@@ -508,7 +559,15 @@ VALUES ('118','2','1','1','30%','5-10'),('118','2','2','1','20%','10-30'),('118'
 '57','3','1','85%','25-45'),('320','68','2','1','20%','10-30'),('320','68','3','1','60%','25-45'),('320','74','2','1',
 '20%','10-30'),('320','74','3','1','60%','25-45'),('320','82','2','1','20%','10-30'),('320','82','3','1','100%','20-45'),('320',
 '84','2','1','20%','10-30'),('320','84','3','1','100%','20-45'),('320','89','2','1','20%','10-30'),('320','89','3','1','100%',
-'20-45')
+'20-45'),('339','11','2','1','20%','10-30'),('339','11','3','1','100%','20-45'),('339','14','2','1','20%','10-30'),
+('339','14','3','1','100%','20-45'),('339','20','2','1','20%','10-30'),('339','20','3','1','100%','20-45'),
+('339','60','2','1','20%','10-30'),('339','60','3','1','100%','20-45'),('339','61','2','1','20%','10-30'),
+('339','61','3','1','80%','25-35'),('339','62','2','1','20%','10-30'),('339','62','3','1','80%','25-35'),
+('339','63','2','1','20%','10-30'),('339','63','3','1','80%','25-35'),('339','97','2','1','20%','10-30'),
+('339','97','3','1','80%','25-35'),('340','61','3','1','20%','30-45'),('340','62','3','1','20%','30-45'),
+('340','63','3','1','20%','30-45'),('340','97','3','1','20%','30-45'),('341','2','2','1','20%','10-30'),
+('341','2','3','1','100%','20-45'),('341','17','2','1','20%','10-30'),('341','17','3','1','100%','20-45'),
+('341','75','3','1','100%','20-45')
 
 INSERT FishingSafariPokemonRSE (nationalDexNumber, safariAreaID, 
 fishingRodID, gameVerID, encounterChance, levelRange)
@@ -543,7 +602,7 @@ VALUES ('253','5','252','1','Level 16'),('254','5','253','1','Level 36'),('256',
 'Level 26'),('319','5','318','1','Level 30'),('321','5','320','1','Level 40'),('323','5','322','1','Level 33'),
 ('219','5','218','1','Level 38'),('88','5','89','1','Level 38'),('110','5','109','1','Level 35'),('326','5','325','1','Level 32'),
 ('28','5','27','1','Level 22'),('329','5','328','1','Level 35'),('330','5','329','1','Level 45'),('332','5','331','1','Level 32'),
-('334','5','333','1','Level 35')
+('334','5','333','1','Level 35'),('340','5','339','1','Level 30'),('342','5','341','1','Level 30'),('344','5','343','1','Level 36')
 
 INSERT RandomSafariPokemonRSE (nationalDexNumber, safariAreaID, 
 methodID, gameVerID, encounterChance, levelRange)
