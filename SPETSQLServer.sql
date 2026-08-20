@@ -192,7 +192,7 @@ VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('R
 
 INSERT EncounterMethods (encounterMethod)
 VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gift'),('Trade Slakoth'),('Trade Pikachu'),('Trade Bellossom'),('Trade Ralts'),('Trade Volbeat'),
-('Trade Bagon'),('Trade Skitty'),('Walking'),('Cave'),('Rock Smash'),('Static'),('Deep Sand'),('Revive Root Fossil'),('Revive Claw Fossil')
+('Trade Bagon'),('Trade Skitty'),('Walking'),('Cave'),('Rock Smash'),('Static'),('Deep Sand')
 
 INSERT GameVersion (gameVersion)
 VALUES ('RSE'),('RS'),('RE'),('SE'),('R'),('S'),('E'),('None')
@@ -602,7 +602,8 @@ VALUES ('253','5','252','1','Level 16'),('254','5','253','1','Level 36'),('256',
 'Level 26'),('319','5','318','1','Level 30'),('321','5','320','1','Level 40'),('323','5','322','1','Level 33'),
 ('219','5','218','1','Level 38'),('88','5','89','1','Level 38'),('110','5','109','1','Level 35'),('326','5','325','1','Level 32'),
 ('28','5','27','1','Level 22'),('329','5','328','1','Level 35'),('330','5','329','1','Level 45'),('332','5','331','1','Level 32'),
-('334','5','333','1','Level 35'),('340','5','339','1','Level 30'),('342','5','341','1','Level 30'),('344','5','343','1','Level 36')
+('334','5','333','1','Level 35'),('340','5','339','1','Level 30'),('342','5','341','1','Level 30'),('344','5','343','1','Level 36'),
+('346','5','345','1','Level 40'),('348','5','347','1','Level 40')
 
 INSERT RandomSafariPokemonRSE (nationalDexNumber, safariAreaID, 
 methodID, gameVerID, encounterChance, levelRange)
