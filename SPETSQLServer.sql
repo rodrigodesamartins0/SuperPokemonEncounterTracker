@@ -749,3 +749,21 @@ GO
 SELECT * FROM vw_SwarmPokemonRSE 
 ORDER BY swarmID
 GO
+CREATE VIEW vw_FossilPokemonRSE AS
+SELECT
+	fo.fossilID,
+	n.pokemonName AS Pokémon,
+	fi.fossilName AS Fóssil,
+	rev.labName AS Onde_Reviver,
+	l.locationName AS Localização,
+	g.gameVersion AS Versão,
+	fo.levelRange AS Level_Revivido
+FROM FossilPokemonRSE fo  
+INNER JOIN NationalDex n ON fo.nationalDexNumber=n.nationalDexNumber
+INNER JOIN FossilItems fi ON fo.fossilItemID=fi.fossilItemID
+INNER JOIN ReviveLabs rev ON fo.labID=rev.labID 
+INNER JOIN LocationsHoenn l ON fo.locationID=l.locationID
+INNER JOIN GameVersion g ON fo.gameVerID=g.gameVerID
+GO
+SELECT * FROM vw_FossilPokemonRSE
+ORDER BY fossilID
