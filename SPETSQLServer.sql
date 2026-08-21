@@ -185,11 +185,11 @@ VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('R
 ('Battle Tower'),('Birth Island'),('Cave of Origin 1F'),('Cave of Origin B1F'),('Cave of Origin B2F'),('Cave of Origin B3F'),('Cave of Origin B4F'),('Desert Underpass'),('Dewford Town'),
 ('Ever Grande City'),('Faraway Island'),('Fiery Path'),('Fortree City'),('Granite Cave 1F'),('Granite Cave Steven Room'),('Granite Cave B1F'),('Granite Cave B2F'),('Jagged Pass'),
 ('Lilycove City'),('Littleroot Town'),('Marine Cave'),('Meteor Falls 1F1R'),('Meteor Falls 1F2R'),('Meteor Falls B1F1R'),('Meteor Falls B1F2R'),
-('Meteor Falls Steven Cave'),('Mirage Island'),('Mirage Spots'),('Mirage Tower 1F-4F'),('Mossdeep City'),('Mt Pyre Exterior'),('Mt Pyre Interior'),('Mt Pyre Summit'),
+('Meteor Falls Steven Cave'),('Mirage Island'),('Mirage Spots'),('Mirage Tower 1F-4F'),('Mossdeep City'),('Mt Pyre Exterior'),('Mt Pyre Interior 1F-3F'),('Mt Pyre Summit'),
 ('New Mauville Entrance'),('New Mauville Basement'),('Pacifidlog Town'),('Petalburg City'),('Petalburg Woods'),('Roaming Hoenn'),('Rustboro City'),('Rusturf Tunnel'),('Scorched Slab'),
 ('Sea Mauville'),('Seafloor Cavern'),('Sealed Chamber'),('Shoal Cave Main'),('Shoal Cave Ice'),('Sky Pillar 1F'),('Sky Pillar 3F'),('Sky Pillar 5F'),('Slateport City'),('Sootopolis City'),
 ('Southern Island'),('Team Magma Hideout'),('Team Aqua Hideout'),('Terra Cave'),('Victory Road 1F'),('Victory Road B1F'),('Victory Road B2F'),('Cave of Origin Entrance'),('Magma Hideout (Jagged Pass)'),
-('Route 119 Feebas Tile'),('Weather Institute')
+('Route 119 Feebas Tile'),('Weather Institute'),('Mt Pyre Interior 3F-6F')
 
 INSERT EncounterMethods (encounterMethod)
 VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gift'),('Trade Slakoth'),('Trade Pikachu'),('Trade Bellossom'),('Trade Ralts'),('Trade Volbeat'),
@@ -510,7 +510,10 @@ VALUES ('261','1','1','2','10%','2-3'),('261','1','1','7','45%','2-3'),('261','2
 ('343','11','18','2','10%','20,22'),('343','11','18','7','24%','19-21'),('344','86','14','2','25%','47-50'),
 ('344','86','14','7','25%','36-38'),('344','87','14','2','25%','50-53'),('344','87','14','7','25%','36-38'),
 ('344','88','14','2','19%','54-56'),('344','88','14','7','19%','36-38'),('344','88','14','7','19%','36-38'),
-('39','15','1','1','10%','24,25')
+('39','15','1','1','10%','24,25'),('353','21','1','4','30%','26,28'),('353','23','1','4','30%','26,28'),('353','70','14','4',
+'100%','22-29'),('353','102','14','4','90%','22-29'),('353','102','14','5','10%','25,27,29'),('354','86',
+'14','6','15%','48,50'),('354','86','14','7','15%','37,38'),('354','87','14','6','15%','51,53'),('354','87','14','7','15%','37,38'),
+('354','88','14','6','15%','54,56'),('354','88','14','7','15%','37,38')
 
 
 INSERT FishingPokemonRSE (nationalDexNumber, locationID, 
@@ -603,7 +606,8 @@ VALUES ('118','2','1','1','30%','5-10'),('118','2','2','1','20%','10-30'),('118'
 ('340','63','3','1','20%','30-45'),('340','97','3','1','20%','30-45'),('341','2','2','1','20%','10-30'),
 ('341','2','3','1','100%','20-45'),('341','17','2','1','20%','10-30'),('341','17','3','1','100%','20-45'),
 ('341','75','3','1','100%','20-45'),('349','100','1','1','50%','20-25'),('349','100','2','1','50%','20-25'),
-('349','100','3','1','50%','20-25'),('120','57','3','1','15%','25-30')
+('349','100','3','1','50%','20-25'),('120','57','3','1','15%','25-30'),('120','57','3','1','15%','25-30')
+
 
 INSERT FishingSafariPokemonRSE (nationalDexNumber, safariAreaID, 
 fishingRodID, gameVerID, encounterChance, levelRange)
@@ -640,7 +644,7 @@ VALUES ('253','5','252','1','Level 16'),('254','5','253','1','Level 36'),('256',
 ('28','5','27','1','Level 22'),('329','5','328','1','Level 35'),('330','5','329','1','Level 45'),('332','5','331','1','Level 32'),
 ('334','5','333','1','Level 35'),('340','5','339','1','Level 30'),('342','5','341','1','Level 30'),('344','5','343','1','Level 36'),
 ('346','5','345','1','Level 40'),('348','5','347','1','Level 40'),('39','5','174','2','Level up with high friendship '),('40','5','39','6','Moon Stone'),
-('350','5','349','10','Level up with its Beautiful condition high enough'),('121','5','120','6','Water Stone')
+('350','5','349','10','Level up with its Beautiful condition high enough'),('121','5','120','6','Water Stone'),('354','5','353','1','Level 37')
 
 
 INSERT RandomSafariPokemonRSE (nationalDexNumber, safariAreaID, 
