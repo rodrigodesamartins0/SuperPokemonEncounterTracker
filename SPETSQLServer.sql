@@ -188,7 +188,8 @@ VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('R
 ('Meteor Falls Steven Cave'),('Mirage Island'),('Mirage Spots'),('Mirage Tower 1F-4F'),('Mossdeep City'),('Mt Pyre Exterior'),('Mt Pyre Interior'),('Mt Pyre Summit'),
 ('New Mauville Entrance'),('New Mauville Basement'),('Pacifidlog Town'),('Petalburg City'),('Petalburg Woods'),('Roaming Hoenn'),('Rustboro City'),('Rusturf Tunnel'),('Scorched Slab'),
 ('Sea Mauville'),('Seafloor Cavern'),('Sealed Chamber'),('Shoal Cave Main'),('Shoal Cave Ice'),('Sky Pillar 1F'),('Sky Pillar 3F'),('Sky Pillar 5F'),('Slateport City'),('Sootopolis City'),
-('Southern Island'),('Team Magma Hideout'),('Team Aqua Hideout'),('Terra Cave'),('Victory Road 1F'),('Victory Road B1F'),('Victory Road B2F'),('Cave of Origin Entrance'),('Magma Hideout (Jagged Pass)')
+('Southern Island'),('Team Magma Hideout'),('Team Aqua Hideout'),('Terra Cave'),('Victory Road 1F'),('Victory Road B1F'),('Victory Road B2F'),('Cave of Origin Entrance'),('Magma Hideout (Jagged Pass)'),
+('Route 119 Feebas Tile'),('Weather Institute')
 
 INSERT EncounterMethods (encounterMethod)
 VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gift'),('Trade Slakoth'),('Trade Pikachu'),('Trade Bellossom'),('Trade Ralts'),('Trade Volbeat'),
@@ -346,6 +347,38 @@ CREATE TABLE SwarmPokemonRSE
 	levelRange VARCHAR (50)	
 )
 GO
+CREATE TABLE StaticPokemonRSE
+(
+	staticID INT IDENTITY (1,1)
+		CONSTRAINT STA_ENC PRIMARY KEY,
+	nationalDexNumber INT 
+		CONSTRAINT STA_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	locationID INT 
+		CONSTRAINT STA_LOC FOREIGN KEY REFERENCES LocationsHoenn (locationID),
+	locationDescription VARCHAR (500),
+	methodID INT
+		CONSTRAINT STA_METHOD FOREIGN KEY REFERENCES EncounterMethods (encounterID),
+	gameVerID INT
+		CONSTRAINT STA_GAMEVER FOREIGN KEY REFERENCES GameVersion (gameVerID),
+	levelFound VARCHAR (50)
+)
+GO
+CREATE TABLE GiftPokemonRSE
+(
+	giftID INT IDENTITY (1,1)
+		CONSTRAINT GIFT_GET PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT GIFT_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	locationID INT
+		CONSTRAINT GIFT_LOC FOREIGN KEY REFERENCES LocationsHoenn (locationID),
+	methodID INT
+		CONSTRAINT GIFT_METHOD FOREIGN KEY REFERENCES EncounterMethods (encounterID),
+	giftGiver VARCHAR (50),
+	gameVerID INT
+		CONSTRAINT GIFT_GAMEVER FOREIGN KEY REFERENCES GameVersion (gameVerID),
+	levelGiven VARCHAR (50)
+)
+GO
 
 INSERT FossilPokemonRSE (nationalDexNumber, fossilItemID,
 labID, locationID, gameVerID, levelRange)
@@ -354,8 +387,7 @@ VALUES ('345','4','3','75','1','Level 20'),('347','5','3','75','1','Level 20')
 
 INSERT RandomPokemonRSE (nationalDexNumber, locationID, 
 methodID, gameVerID, encounterChance, levelRange)
-VALUES ('252','1','6','1','100%','5'),('255','1','6','1','100%','5'),('258','1','6','1','100%','5'),
-('261','1','1','2','10%','2-3'),('261','1','1','7','45%','2-3'),('261','2','1','2','15%','3-4'),
+VALUES ('261','1','1','2','10%','2-3'),('261','1','1','7','45%','2-3'),('261','2','1','2','15%','3-4'),
 ('261','2','1','7','30%','3-4'),('261','3','1','2','30%','2-4'),('261','3','1','7','60%','2-4'),
 ('261','4','1','7','40%','4-5'),('261','10','1','7','20%','12'),('261','16','1','7','28%','6-8'),
 ('261','17','1','7','30%','13-14'),('261','20','2','7','20%','25'),('261','21','1','7','20%','26'),
@@ -454,8 +486,7 @@ VALUES ('252','1','6','1','100%','5'),('255','1','6','1','100%','5'),('258','1',
 ('311','10','1','3','2%','12,13'),('311','10','1','6','15%','13'),('311','51','11','7','100%','Same as traded'),
 ('312','10','1','3','15%','13'),('312','10','1','6','2%','12,13'),('81','72','14','1','50%','22-26'),('81','72',
 '14','1','49%','22-26'),('82','73','14','1','1%','26'),('100','72','14','1','50%','22-26'),('100','73','14','1',
-'49%','22-26'),('101','73','14','1','1%','26'),('101','92','17','5','100%','30'),('101','92','17','5','100%','30'),
-('101','93','17','4','100%','30'),('101','93','17','4','100%','30'),('313','17','1','3','1%','13'),('313','17',
+'49%','22-26'),('101','73','14','1','1%','26'),('313','17','1','3','1%','13'),('313','17',
 '1','6','18%','13,14'),('314','17','1','3','18%','13-14'),('314','17','1','6','1%','13'),('43','10','1','1','10%','13'),
 ('43','17','1','2','10%','13'),('43','17','1','7','40%','13,14'),('43','19','2','1','30%','24-27'),('43','20','2',
 '1','25%','25-27'),('43','21','1','1','15%','26,28'),('43','23','1','1','15%','26,28'),('44','21','1','1','5%','28'),('44',
@@ -499,7 +530,8 @@ VALUES ('118','2','1','1','30%','5-10'),('118','2','2','1','20%','10-30'),('118'
 '60%','10-30'),('129','11','1','1','70%','5-10'),('129','11','2','1','60%','10-30'),('129','14','1','1','70%','5-10'),('129',
 '14','2','1','60%','10-30'),('129','15','1','1','70%','5-10'),('129','15','2','1','60%','10-30'),('129','17','1','1',
 '70%','5-10'),('129','17','2','1','60%','10-30'),('129','18','1','1','70%','5-10'),('129','18','2','1','60%','10-30'),('129',
-'19','1','1','70%','5-10'),('129','19','2','1','60%','10-30'),('129','20','1','1','70%','5-10'),('129','20','2','1',
+'19','1','1','70%','5-10'),('129','19','2','1','60%','10-30'),('129','100','1','1','35%','5-10'),
+('129','100','2','1','30%','10-30'),('129','20','1','1','70%','5-10'),('129','20','2','1',
 '60%','10-30'),('129','21','1','1','70%','5-10'),('129','21','2','1','60%','10-30'),('129','22','1','1','70%','5-10'),('129',
 '22','2','1','60%','10-30'),('129','23','1','1','70%','5-10'),('129','23','2','1','60%','10-30'),('129','24','1','1',
 '70%','5-10'),('129','24','2','1','60%','10-30'),('129','25','1','1','70%','5-10'),('129','25','2','1','60%','10-30'),('129',
@@ -526,8 +558,9 @@ VALUES ('118','2','1','1','30%','5-10'),('118','2','2','1','20%','10-30'),('118'
 '1','20%','10-30'),('72','8','1','1','30%','5-10'),('72','8','2','1','20%','10-30'),('72','9','1','1','30%','5-10'),
 ('72','9','2','1','20%','10-30'),('72','10','1','1','30%','5-10'),('72','10','2','1','20%','10-30'),('72','15',
 '1','1','30%','5-10'),('72','15','2','1','20%','10-30'),('72','18','1','1','30%','5-10'),('72','18','2','1','20%','10-30'),
-('72','19','1','1','30%','5-10'),('72','19','2','1','20%','10-30'),('72','21','1','1','30%','5-10'),('72','21','2',
-'1','20%','10-30'),('72','22','1','1','30%','5-10'),('72','22','2','1','20%','10-30'),('72','23','1','1','30%','5-10'),('72',
+('72','19','1','1','30%','5-10'),('72','19','2','1','20%','10-30'),('72','100','1','1','15%','5-10'),
+('72','100','2','1','10%','10-30'),('72','21','1','1','30%','5-10'),('72','21','2','1','20%','10-30'),
+('72','22','1','1','30%','5-10'),('72','22','2','1','20%','10-30'),('72','23','1','1','30%','5-10'),('72',
 '23','2','1','20%','10-30'),('72','24','1','1','30%','5-10'),('72','24','2','1','20%','10-30'),('72','25','1','1','30%',
 '5-10'),('72','25','2','1','20%','10-30'),('72','26','1','1','30%','5-10'),('72','26','2','1','20%','10-30'),('72','27',
 '1','1','30%','5-10'),('72','27','2','1','20%','10-30'),('72','29','1','1','30%','5-10'),('72','29','2','1','20%','10-30'),
@@ -539,11 +572,12 @@ VALUES ('118','2','1','1','30%','5-10'),('118','2','2','1','20%','10-30'),('118'
 '2','1','20%','10-30'),('72','47','1','1','30%','5-10'),('72','47','2','1','20%','10-30'),('72','84','1','1','30%',
 '5-10'),('72','84','2','1','20%','10-30'),('72','82','1','1','30%','5-10'),('72','82','2','1','20%','10-30'),
 ('73','35','3','1','20%','20-35'),('318','18','2','1','20%','10-30'),('318','18','3','1','60%','20-25,30-45'),('318','19',
-'2','1','20%','10-30'),('318','19','3','1','100%','20-45'),('319','3','3','1','40%','30-35'),('319','18','3','1','40%','30-35'),
-('319','22','3','1','40%','30-35'),('319','24','3','1','40%','30-35'),('319','25','3','1','40%','30-35'),('319','26','3',
-'1','40%','30-35'),('319','27','3','1','40%','30-35'),('319','29','3','1','40%','30-35'),('319','30','3','1','40%','30-35'),('319',
-'31','3','1','40%','30-35'),('319','32','3','1','40%','30-35'),('319','33','3','1','40%','30-35'),('319','34','3','1','40%',
-'30-35'),('319','68','3','1','40%','30-35'),('319','74','3','1','40%','30-35'),('320','3','2','1','20%','10-30'),('320','3',
+'2','1','20%','10-30'),('318','19','3','1','100%','20-45'),('318','100','2','1','10%','10-30'),('318','100','3','1','50%','20-45'),
+('319','3','3','1','40%','30-35'),('319','18','3','1','40%','30-35'),('319','22','3','1','40%','30-35'),('319','24','3','1','40%','30-35'),
+('319','25','3','1','40%','30-35'),('319','26','3','1','40%','30-35'),('319','27','3','1','40%','30-35'),
+('319','29','3','1','40%','30-35'),('319','30','3','1','40%','30-35'),('319','31','3','1','40%','30-35'),
+('319','32','3','1','40%','30-35'),('319','33','3','1','40%','30-35'),('319','34','3','1','40%','30-35'),
+('319','68','3','1','40%','30-35'),('319','74','3','1','40%','30-35'),('320','3','2','1','20%','10-30'),('320','3',
 '3','1','60%','25-45'),('320','5','2','1','20%','10-30'),('320','5','3','1','100%','20-45'),('320','6','2','1','20%','10-30'),
 ('320','6','3','1','100%','20-45'),('320','7','2','1','20%','10-30'),('320','7','3','1','100%','20-45'),('320','8','2','1',
 '20%','10-30'),('320','8','3','1','100%','20-45'),('320','9','2','1','20%','10-30'),('320','9','3','1','100%','20-45'),('320','10',
@@ -568,7 +602,8 @@ VALUES ('118','2','1','1','30%','5-10'),('118','2','2','1','20%','10-30'),('118'
 ('339','97','3','1','80%','25-35'),('340','61','3','1','20%','30-45'),('340','62','3','1','20%','30-45'),
 ('340','63','3','1','20%','30-45'),('340','97','3','1','20%','30-45'),('341','2','2','1','20%','10-30'),
 ('341','2','3','1','100%','20-45'),('341','17','2','1','20%','10-30'),('341','17','3','1','100%','20-45'),
-('341','75','3','1','100%','20-45')
+('341','75','3','1','100%','20-45'),('349','100','1','1','50%','20-25'),('349','100','2','1','50%','20-25'),
+('349','100','3','1','50%','20-25'),('120','57','3','1','15%','25-30')
 
 INSERT FishingSafariPokemonRSE (nationalDexNumber, safariAreaID, 
 fishingRodID, gameVerID, encounterChance, levelRange)
@@ -604,7 +639,8 @@ VALUES ('253','5','252','1','Level 16'),('254','5','253','1','Level 36'),('256',
 ('219','5','218','1','Level 38'),('88','5','89','1','Level 38'),('110','5','109','1','Level 35'),('326','5','325','1','Level 32'),
 ('28','5','27','1','Level 22'),('329','5','328','1','Level 35'),('330','5','329','1','Level 45'),('332','5','331','1','Level 32'),
 ('334','5','333','1','Level 35'),('340','5','339','1','Level 30'),('342','5','341','1','Level 30'),('344','5','343','1','Level 36'),
-('346','5','345','1','Level 40'),('348','5','347','1','Level 40'),('39','5','174','2','Level up with high friendship '),('40','5','39','6','Moon Stone')
+('346','5','345','1','Level 40'),('348','5','347','1','Level 40'),('39','5','174','2','Level up with high friendship '),('40','5','39','6','Moon Stone'),
+('350','5','349','10','Level up with its Beautiful condition high enough'),('121','5','120','6','Water Stone')
 
 
 INSERT RandomSafariPokemonRSE (nationalDexNumber, safariAreaID, 
@@ -623,6 +659,22 @@ VALUES ('283','2','1','2','8','50%','3'),('283','14','1','2','8','50%','15'),('2
 ('300','16','1','7','2','50%','15'),('273','2','1','7','8','50%','3'),('273','17','1','7','8','50%','13'),('273','20','1','7','8','50%','25'),
 ('274','14','1','7','8','50%','15'),('273','2','1','2','7','50%','3'),('273','17','1','2','7','50%','13'),('273','20','1','2','7','50%','25'),
 ('274','14','1','2','7','50%','15')
+
+INSERT StaticPokemonRSE (nationalDexNumber, locationID,
+locationDescription, methodID, gameVerID, levelFound)
+VALUES ('101','92','in Maxies room as fake item','17','5','30'),('101','92','in Maxies room as fake item','17','5','30'),('101','93','in Archies room as fake item','17','4','30'),
+('101','93','in Archies room as fake item','17','4','30'),('352','19','With Devon Scope, in the northern section by the bike rails','17','2','30'),
+('352','19','With Devon Scope, in the dead end path near the entrance to Fortree City','17','7','30'),
+('352','19','With Devon Scope, just to right of last Ninja Boy before Fortree City, in the indent of trees','17','1','30'),
+('352','20','With Devon Scope, behind the route sign in the north of the route','17','1','30'),
+('352','20','With Devon Scope, blocking the steps down to the Scorched Slab','17','1','30'),
+('352','20','With Devon Scope, in the middle of the path connecting the two Pokémon Rangers in the long grass maze','17','1','30'),
+('352','20','With Devon Scope, by the four plots of soft soil south of the Ancient Tomb, north of the westernmost plot','17','1','30'),
+('352','20','With Devon Scope, on the north side of the Ancient Tomb','17','1','30')
+
+INSERT GiftPokemonRSE (nationalDexNumber, locationID,
+methodID, giftGiver, gameVerID, levelGiven)
+VALUES ('252','1','6','Professor Birch','1','5'),('255','1','6','Professor Birch','1','5'),('258','1','6','Professor Birch','1','5'),('351','101','6','Weather Institute worker','1','25')
 
 SELECT * FROM RandomPokemonRSE
 SELECT * FROM SwarmPokemonRSE
@@ -770,3 +822,40 @@ INNER JOIN GameVersion g ON fo.gameVerID=g.gameVerID
 GO
 SELECT * FROM vw_FossilPokemonRSE
 ORDER BY fossilID
+GO
+CREATE VIEW vw_StaticPokemonRSE AS
+SELECT
+	st.staticID,
+	n.pokemonName AS Pokémon,
+	l.locationName AS Localização,
+	st.locationDescription AS Descrição,
+	e.encounterMethod AS Método,
+	g.gameVersion AS Versão,
+	st.levelFound AS Level_Encontrado
+FROM StaticPokemonRSE st
+INNER JOIN NationalDex n ON st.nationalDexNumber=n.nationalDexNumber
+INNER JOIN LocationsHoenn l ON st.locationID=l.locationID
+INNER JOIN EncounterMethods e ON st.methodID=e.encounterID
+INNER JOIN GameVersion g ON st.gameVerID=g.gameVerID
+GO
+SELECT * FROM vw_StaticPokemonRSE
+ORDER BY staticID
+GO
+CREATE VIEW vw_GiftPokemonRSE AS
+SELECT
+	gi.giftID,
+	n.pokemonName AS Pokémon,
+	l.locationName AS Localização,
+	e.encounterMethod AS Método,
+	gi.giftGiver AS Dado_por,
+	g.gameVersion AS Versão,
+	gi.levelGiven AS Level_Range
+FROM GiftPokemonRSE gi
+INNER JOIN NationalDex n ON gi.nationalDexNumber=n.nationalDexNumber
+INNER JOIN LocationsHoenn l ON gi.locationID=l.locationID
+INNER JOIN EncounterMethods e ON gi.methodID = e.encounterID
+INNER JOIN GameVersion g ON gi.gameVerID=g.gameVerID
+GO
+SELECT * FROM vw_GiftPokemonRSE
+ORDER BY giftID
+GO
