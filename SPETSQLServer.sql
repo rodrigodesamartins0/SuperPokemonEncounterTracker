@@ -185,15 +185,15 @@ VALUES ('Route 101'),('Route 102'),('Route 103'),('Route 104'),('Route 105'),('R
 ('Battle Tower'),('Birth Island'),('Cave of Origin 1F'),('Cave of Origin B1F'),('Cave of Origin B2F'),('Cave of Origin B3F'),('Cave of Origin B4F'),('Desert Underpass'),('Dewford Town'),
 ('Ever Grande City'),('Faraway Island'),('Fiery Path'),('Fortree City'),('Granite Cave 1F'),('Granite Cave Steven Room'),('Granite Cave B1F'),('Granite Cave B2F'),('Jagged Pass'),
 ('Lilycove City'),('Littleroot Town'),('Marine Cave'),('Meteor Falls 1F1R'),('Meteor Falls 1F2R'),('Meteor Falls B1F1R'),('Meteor Falls B1F2R'),
-('Meteor Falls Steven Cave'),('Mirage Island'),('Mirage Spots'),('Mirage Tower 1F-4F'),('Mossdeep City'),('Mt Pyre Exterior'),('Mt Pyre Interior 1F-3F'),('Mt Pyre Summit'),
+('Meteor Falls Steven Cave'),('Route 130 Mirage Island'),('Mirage Spots'),('Mirage Tower 1F-4F'),('Mossdeep City'),('Mt Pyre Exterior'),('Mt Pyre Interior 1F-3F'),('Mt Pyre Summit'),
 ('New Mauville Entrance'),('New Mauville Basement'),('Pacifidlog Town'),('Petalburg City'),('Petalburg Woods'),('Roaming Hoenn'),('Rustboro City'),('Rusturf Tunnel'),('Scorched Slab'),
 ('Sea Mauville'),('Seafloor Cavern'),('Sealed Chamber'),('Shoal Cave Main'),('Shoal Cave Ice'),('Sky Pillar 1F'),('Sky Pillar 3F'),('Sky Pillar 5F'),('Slateport City'),('Sootopolis City'),
 ('Southern Island'),('Team Magma Hideout'),('Team Aqua Hideout'),('Terra Cave'),('Victory Road 1F'),('Victory Road B1F'),('Victory Road B2F'),('Cave of Origin Entrance'),('Magma Hideout (Jagged Pass)'),
-('Route 119 Feebas Tile'),('Weather Institute'),('Mt Pyre Interior 3F-6F')
+('Route 119 Feebas Tile'),('Weather Institute'),('Mt Pyre Interior 4F-6F'),('Lavaridge Town')
 
 INSERT EncounterMethods (encounterMethod)
 VALUES ('Tall Grass'),('Long Grass'),('Surfing'),('Breeding'),('Evolution'),('Gift'),('Trade Slakoth'),('Trade Pikachu'),('Trade Bellossom'),('Trade Ralts'),('Trade Volbeat'),
-('Trade Bagon'),('Trade Skitty'),('Walking'),('Cave'),('Rock Smash'),('Static'),('Deep Sand')
+('Trade Bagon'),('Trade Skitty'),('Walking'),('Cave'),('Rock Smash'),('Static'),('Deep Sand'),('Seaweed')
 
 INSERT GameVersion (gameVersion)
 VALUES ('RSE'),('RS'),('RE'),('SE'),('R'),('S'),('E'),('None')
@@ -326,7 +326,7 @@ CREATE TABLE EvolutionPokemonRSE
 		CONSTRAINT EVOFROM_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
 	evolutionMethodID INT
 		CONSTRAINT EVO_HOW FOREIGN KEY REFERENCES EvolutionMethod (evolutionMethodID),
-	evolutionRequirement VARCHAR (50)
+	evolutionRequirement VARCHAR (500)
 )
 GO
 CREATE TABLE SwarmPokemonRSE
@@ -379,6 +379,22 @@ CREATE TABLE GiftPokemonRSE
 	levelGiven VARCHAR (50)
 )
 GO
+CREATE TABLE TradePokemonRSE
+(
+	tradeID INT IDENTITY (1,1)
+		CONSTRAINT TRADE_SET PRIMARY KEY,
+	nationalDexNumber INT
+		CONSTRAINT TRADE_PKMN FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	locationID INT 
+		CONSTRAINT TRADE_LOC FOREIGN KEY REFERENCES LocationsHoenn (locationID),
+	methodID INT
+		CONSTRAINT TRADE_METHOD FOREIGN KEY REFERENCES EncounterMethods (encounterID),
+	pokemonRequested INT
+		CONSTRAINT TRADE_REQ FOREIGN KEY REFERENCES NationalDex (nationalDexNumber),
+	gameVerID INT
+		CONSTRAINT TRADE_GAMEVER FOREIGN KEY REFERENCES gameVersion (gameVerID),
+	levelTraded VARCHAR (50)
+)
 
 INSERT FossilPokemonRSE (nationalDexNumber, fossilItemID,
 labID, locationID, gameVerID, levelRange)
@@ -510,11 +526,15 @@ VALUES ('261','1','1','2','10%','2-3'),('261','1','1','7','45%','2-3'),('261','2
 ('343','11','18','2','10%','20,22'),('343','11','18','7','24%','19-21'),('344','86','14','2','25%','47-50'),
 ('344','86','14','7','25%','36-38'),('344','87','14','2','25%','50-53'),('344','87','14','7','25%','36-38'),
 ('344','88','14','2','19%','54-56'),('344','88','14','7','19%','36-38'),('344','88','14','7','19%','36-38'),
-('39','15','1','1','10%','24,25'),('353','21','1','4','30%','26,28'),('353','23','1','4','30%','26,28'),('353','70','14','4',
-'100%','22-29'),('353','102','14','4','90%','22-29'),('353','102','14','5','10%','25,27,29'),('354','86',
-'14','6','15%','48,50'),('354','86','14','7','15%','37,38'),('354','87','14','6','15%','51,53'),('354','87','14','7','15%','37,38'),
-('354','88','14','6','15%','54,56'),('354','88','14','7','15%','37,38')
-
+('39','15','1','1','10%','24,25'),('353','21','1','4','30%','26,28'),('353','23','1','4','30%','26,28'),
+('353','70','14','4','100%','22-29'),('353','102','14','4','90%','22-29'),('353','102','14','5','10%','25,27,29'),
+('353','69','1','6','40%','27-29'),('353','69','1','7','60%','27-29'),('353','71','1','4','85%','24-30'),
+('353','71','1','5','13%','26,28,30'),('354','86','14','6','15%','48,50'),('354','86','14','7','15%','37,38'),
+('354','87','14','6','15%','51,53'),('354','87','14','7','15%','37,38'),('354','88','14','6','15%','54,56'),
+('354','88','14','7','15%','37,38'),('355','21','1','5','30%','26,28'),('355','23','1','5','30%','26,28'),
+('355','70','14','5','100%','22-29'),('355','102','14','5','90%','22-29'),('355','102','14','4','10%','25,27,29'),
+('355','69','1','5','40%','27-29'),('355','71','1','5','85%','24-30'),('355','71','1','4','13%','26,28,30'),
+('356','86','14','5','15%','48,50'),('356','87','14','5','15%','51,53'),('356','88','14','5','15%','54,56')
 
 INSERT FishingPokemonRSE (nationalDexNumber, locationID, 
 fishingRodID, gameVerID, encounterChance, levelRange)
@@ -644,7 +664,8 @@ VALUES ('253','5','252','1','Level 16'),('254','5','253','1','Level 36'),('256',
 ('28','5','27','1','Level 22'),('329','5','328','1','Level 35'),('330','5','329','1','Level 45'),('332','5','331','1','Level 32'),
 ('334','5','333','1','Level 35'),('340','5','339','1','Level 30'),('342','5','341','1','Level 30'),('344','5','343','1','Level 36'),
 ('346','5','345','1','Level 40'),('348','5','347','1','Level 40'),('39','5','174','2','Level up with high friendship '),('40','5','39','6','Moon Stone'),
-('350','5','349','10','Level up with its Beautiful condition high enough'),('121','5','120','6','Water Stone'),('354','5','353','1','Level 37')
+('350','5','349','10','Level up with its Beautiful condition high enough'),('121','5','120','6','Water Stone'),('354','5','353','1','Level 37'),
+('356','5','355','1','Level 37')
 
 
 INSERT RandomSafariPokemonRSE (nationalDexNumber, safariAreaID, 
@@ -680,8 +701,10 @@ INSERT GiftPokemonRSE (nationalDexNumber, locationID,
 methodID, giftGiver, gameVerID, levelGiven)
 VALUES ('252','1','6','Professor Birch','1','5'),('255','1','6','Professor Birch','1','5'),('258','1','6','Professor Birch','1','5'),('351','101','6','Weather Institute worker','1','25')
 
-SELECT * FROM RandomPokemonRSE
-SELECT * FROM SwarmPokemonRSE
+INSERT TradePokemonRSE (nationalDexNumber, locationID,
+methodID, pokemonRequested, gameVerID, levelTraded)
+VALUES ('273','78','13','280','7','Same as traded'),('296','78','13','287','2','Same as traded'),('300','51','13','25','2','Same as traded'),
+('311','51','13','313','7','Same as traded')
 GO
 CREATE VIEW vw_RandomPokemonRSE AS
 SELECT
@@ -862,4 +885,23 @@ INNER JOIN GameVersion g ON gi.gameVerID=g.gameVerID
 GO
 SELECT * FROM vw_GiftPokemonRSE
 ORDER BY giftID
+GO
+CREATE VIEW vw_TradePokemonRSE AS
+SELECT
+	tr.tradeID,
+	n1.pokemonName AS Trade_Pokémon,
+	l.locationName AS Localização,
+	e.encounterMethod AS Método,
+	n2.pokemonName AS Pokémon_Requested,
+	g.gameVersion AS Versão,
+	tr.levelTraded AS Level_Troca
+FROM TradePokemonRSE tr
+INNER JOIN NationalDex n1 ON tr.nationalDexNumber=n1.nationalDexNumber
+INNER JOIN LocationsHoenn l ON tr.locationID=l.locationID
+INNER JOIN EncounterMethods e ON tr.methodID=e.encounterID
+INNER JOIN NationalDex n2 ON tr.pokemonRequested=n2.nationalDexNumber
+INNER JOIN GameVersion g ON tr.gameVerID=g.gameVerID
+GO
+SELECT * FROM vw_TradePokemonRSE
+ORDER BY tradeID
 GO
